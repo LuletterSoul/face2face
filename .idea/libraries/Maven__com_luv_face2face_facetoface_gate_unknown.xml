@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.luv.face2face:facetoface-gate:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/luv/face2face/facetoface-gate/unknown/facetoface-gate-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/luv/face2face/facetoface-gate/unknown/facetoface-gate-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/luv/face2face/facetoface-gate/unknown/facetoface-gate-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
