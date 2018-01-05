@@ -1,4 +1,4 @@
-package com.luv.face2face.repository.config;
+package com.luv.face2face.config;
 
 
 import java.util.HashMap;
