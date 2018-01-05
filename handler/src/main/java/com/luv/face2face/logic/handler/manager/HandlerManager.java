@@ -22,56 +22,27 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * Created by Dell on 2016/3/4.
+ * @author XiangDe Liu qq313700046@icloud.com .
+ * @version 1.5
+ * created in  15:49 2018/1/5.
+ * @since luv-face2face
  */
-@Component
-public class HandlerManager
+
+public interface HandlerManager
 {
-    private static final Logger logger = LoggerFactory.getLogger(HandlerManager.class);
+    /**
+     *
+     * @param msg 消息包的类型
+     * @param handler 对应的处理器
+     */
+    void registerHandler(Class<? extends Message> msg, IMHandler handler);
 
-    private Map<Integer, Constructor<? extends IMHandler>> _handlers = new HashMap<>();
 
-    private boolean maintainable = false;
+    /**
+     * 根据协议号获得消息包的处理器
+     * @param protocolNum 协议号
+     * @return
+     */
+    IMHandler getHandler(int protocolNum);
 
-    public HandlerManager()
-    {
-        initDefaultHandlers();
-    }
-
-    private void initDefaultHandlers()
-    {
-        register(Internal.Greet.class, GreetHandler.class);
-        register(Chat.CPrivateChat.class, CPrivateChatHandler.class);
-    }
-
-    public void register(Class<? extends Message> msg, Class<? extends IMHandler> handler)
-    {
-        int num = ParseMap.getPtoNum(msg);
-        try
-        {
-            Constructor<? extends IMHandler> constructor = handler.getConstructor(String.class,
-                long.class, Message.class, ChannelHandlerContext.class);
-            _handlers.put(num, constructor);
-        }
-        catch (NoSuchMethodException e)
-        {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public  IMHandler getHandler(int msgNum, String userId, long netId, Message msg,
-                                       ChannelHandlerContext ctx)
-        throws IllegalAccessException,
-        InvocationTargetException,
-        InstantiationException
-    {
-        Constructor<? extends IMHandler> constructor = _handlers.get(msgNum);
-        if (constructor == null)
-        {
-            logger.error("handler not exist, Message Number: {}", msgNum);
-            return null;
-        }
-
-        return constructor.newInstance(userId, netId, msg, ctx);
-    }
 }

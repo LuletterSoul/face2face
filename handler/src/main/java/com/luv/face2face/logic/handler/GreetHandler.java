@@ -31,7 +31,6 @@ public class GreetHandler extends IMHandler {
         } else if(from == Internal.Greet.From.Gate){
             LogicServerHandler.setGateLogicConnection(_ctx);
             logger.info("[Gate-Logic] connection is established");
-
         }
     }
 }
