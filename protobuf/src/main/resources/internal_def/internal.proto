@@ -1,4 +1,4 @@
-option java_package = "protobuf.generate.internal";
+option java_package = "com.luv.face2face.protobuf.generate.internal";
 option java_outer_classname = "Internal";
 
 enum Dest {

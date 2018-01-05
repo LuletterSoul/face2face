@@ -1,4 +1,4 @@
-option java_package = "protobuf.generate.cli2srv.login";
+option java_package = "com.luv.face2face.protobuf.generate.cli2srv.login";
 option java_outer_classname = "Auth";
 
 message CRegister {
@@ -7,10 +7,32 @@ message CRegister {
 }
 
 message CLogin {
-	required string userid = 1;            // 用户账户id
+	required string int64 = 1;            // 用户账户id
 	required string passwd = 2;             // 用户密码
 	optional string platform = 3;          // 客户端平台:android,ios,web
 	optional string app_version = 4;       // APP版本号
+}
+//用户注册数据包
+message RequestUserRegisterMsg{
+	required string password = 1;
+	required string sex = 2;
+	required string nickname = 3;
+	required string signature=4;
+}
+
+
+//用户登录数据包
+message RequestLoginMsg{
+	required int64 userId = 1;//用户id
+	required string nickname = 2;//用户昵称
+	required string password =3;//密码
+	required string signature=4;//个性签名
+	required string platform =5;//客户端平台编号:android,ios,web
+}
+
+//用户登出数据包
+message RequestLogoutMsg{
+	required int64 userId =1;//登出的用户id;
 }
 
 /*
@@ -24,3 +46,18 @@ message SResponse {
 	required string desc = 2;			//描述
 }
 
+//用户状态改变时的响应数据包
+/*
+返回码：
+200 -- resgister successfully
+201 -- resgister error
+202 -- resgister dumplicatelly
+203 -- login successfully
+204 -- login failed
+205 -- logout successfully
+206 -- logout failed
+*/
+message ResponseUserStatusChangeMsg{
+	required string code = 1;//返回码
+	required string description = 2;//描述
+}

@@ -65,4 +65,9 @@ public class AuthLogicConnectionHandler extends SimpleChannelInboundHandler<Mess
     public static void setAuthLogicConnecttion(ChannelHandlerContext ctx) {
         _authLogicConnection = ctx;
     }
+
+    @Override
+    protected void messageReceived(ChannelHandlerContext ctx, Message msg) throws Exception {
+
+    }
 }

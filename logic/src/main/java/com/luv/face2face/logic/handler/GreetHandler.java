@@ -20,11 +20,11 @@ public class GreetHandler extends IMHandler {
     }
 
     @Override
-    protected void excute(Worker worker) throws TException {
-        Internal.Greet msg = (Internal.Greet)_msg;
-        Internal.Greet.From from = msg.getFrom();
+            protected void excute(Worker worker) throws TException {
+                Internal.Greet msg = (Internal.Greet)_msg;
+                Internal.Greet.From from = msg.getFrom();
 
-        if(from == Internal.Greet.From.Auth) {
+                if(from == Internal.Greet.From.Auth) {
             LogicServerHandler.setAuthLogicConnection(_ctx);
             logger.info("[Auth-Logic] connection is established");
         } else if(from == Internal.Greet.From.Gate){

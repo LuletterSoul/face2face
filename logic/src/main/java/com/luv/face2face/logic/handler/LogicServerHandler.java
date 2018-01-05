@@ -77,4 +77,9 @@ public class LogicServerHandler extends SimpleChannelInboundHandler<Message>
             return null;
         }
     }
+
+    @Override
+    protected void messageReceived(ChannelHandlerContext ctx, Message msg) throws Exception {
+
+    }
 }

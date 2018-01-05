@@ -13,24 +13,28 @@
         <module name="gate" />
         <module name="handler" />
         <module name="logic" />
+        <module name="message" />
         <module name="protobuf" />
         <module name="repository" />
         <module name="server" />
+        <module name="service" />
         <module name="thirdparty" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auth" target="1.8" />
-      <module name="chat-client" target="1.8" />
+      <module name="chat-client" target="1.5" />
       <module name="domain" target="1.8" />
       <module name="face2face" target="1.8" />
       <module name="face2face-handler" target="1.8" />
       <module name="gate" target="1.8" />
       <module name="handler" target="1.8" />
       <module name="logic" target="1.8" />
+      <module name="message" target="1.8" />
       <module name="protobuf" target="1.8" />
       <module name="repository" target="1.8" />
       <module name="server" target="1.8" />
+      <module name="service" target="1.8" />
       <module name="thirdparty" target="1.8" />
     </bytecodeTargetLevel>
   </component>

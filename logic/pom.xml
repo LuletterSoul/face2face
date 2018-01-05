@@ -28,5 +28,10 @@
             <artifactId>facetoface-auth</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.luv.face2face</groupId>
+            <artifactId>face2face-domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

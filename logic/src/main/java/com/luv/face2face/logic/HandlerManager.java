@@ -32,7 +32,7 @@ public class HandlerManager
         try
         {
             Constructor<? extends IMHandler> constructor = handler.getConstructor(String.class,
-                long.class, Message.class, ChannelHandlerContext.class);
+                    long.class, Message.class, ChannelHandlerContext.class);
             _handlers.put(num, constructor);
         }
         catch (NoSuchMethodException e)

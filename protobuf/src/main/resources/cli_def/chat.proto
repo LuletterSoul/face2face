@@ -1,12 +1,37 @@
-option java_package = "protobuf.generate.cli2srv.chat";
+option java_package = "com.luv.face2face.protobuf.generate.cli2srv.chat";
 option java_outer_classname = "Chat";
 
 message CPrivateChat {
-	required string self = 1;       //发送消息者的userid
-	required string dest = 2;       //消息目标的userid
+	required int64 self = 1;       //发送消息者的userid
+	required int64 dest = 2;       //消息目标的userid
 	required string content = 3;    //消息内容
 }
 
 message SPrivateChat {
     required  string content = 1;
+}
+
+
+message RequestChatToUserMsg{
+	required int64 chatFromUserId = 1;//发送消息者的userId
+    required int64 chatToUserId = 2;//目的消息者的userId
+	required string content = 3;//消息的内容
+}
+
+message RequestChatToGroupMsg{
+    required int64 chatFromUserId = 1;//发送消息者的userId
+    required int64 chatToGroupId = 2;//目的群聊的groupId
+    required string content = 3;//消息的内容;
+}
+
+message RequestChatJoinGroupMsg{
+    required int64 chatFromUserId = 1;//发送消息者的userId
+    required int64 chatToGroupId = 2;//目的群聊的groupId
+    required string content = 3;//消息的内容;
+}
+
+
+message ResponseChatToUserMsg{
+	required int64 pushToUserId = 1;
+	required string content =2 ;
 }

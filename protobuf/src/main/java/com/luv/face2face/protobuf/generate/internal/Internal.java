@@ -83,7 +83,7 @@ public final class Internal {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return Internal.getDescriptor().getEnumTypes().get(0);
+      return com.luv.face2face.protobuf.generate.internal.Internal.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final Dest[] VALUES = values();
@@ -119,7 +119,7 @@ public final class Internal {
     /**
      * <code>required .Dest dest = 1;</code>
      */
-    Internal.Dest getDest();
+    com.luv.face2face.protobuf.generate.internal.Internal.Dest getDest();
 
     // optional uint64 netId = 2;
     /**
@@ -223,7 +223,7 @@ public final class Internal {
             }
             case 8: {
               int rawValue = input.readEnum();
-              Internal.Dest value = Internal.Dest.valueOf(rawValue);
+              com.luv.face2face.protobuf.generate.internal.Internal.Dest value = com.luv.face2face.protobuf.generate.internal.Internal.Dest.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -266,14 +266,14 @@ public final class Internal {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Internal.internal_static_GTransfer_descriptor;
+      return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_GTransfer_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Internal.internal_static_GTransfer_fieldAccessorTable
+      return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_GTransfer_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Internal.GTransfer.class, Internal.GTransfer.Builder.class);
+              com.luv.face2face.protobuf.generate.internal.Internal.GTransfer.class, com.luv.face2face.protobuf.generate.internal.Internal.GTransfer.Builder.class);
     }
 
     public static com.google.protobuf.Parser<GTransfer> PARSER =
@@ -294,7 +294,7 @@ public final class Internal {
     private int bitField0_;
     // required .Dest dest = 1;
     public static final int DEST_FIELD_NUMBER = 1;
-    private Internal.Dest dest_;
+    private com.luv.face2face.protobuf.generate.internal.Internal.Dest dest_;
     /**
      * <code>required .Dest dest = 1;</code>
      */
@@ -304,7 +304,7 @@ public final class Internal {
     /**
      * <code>required .Dest dest = 1;</code>
      */
-    public Internal.Dest getDest() {
+    public com.luv.face2face.protobuf.generate.internal.Internal.Dest getDest() {
       return dest_;
     }
 
@@ -400,7 +400,7 @@ public final class Internal {
     }
 
     private void initFields() {
-      dest_ = Internal.Dest.Client;
+      dest_ = com.luv.face2face.protobuf.generate.internal.Internal.Dest.Client;
       netId_ = 0L;
       userId_ = "";
       ptoNum_ = 0;
@@ -490,53 +490,53 @@ public final class Internal {
       return super.writeReplace();
     }
 
-    public static Internal.GTransfer parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Internal.GTransfer parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Internal.GTransfer parseFrom(byte[] data)
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Internal.GTransfer parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Internal.GTransfer parseFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Internal.GTransfer parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Internal.GTransfer parseDelimitedFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Internal.GTransfer parseDelimitedFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Internal.GTransfer parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Internal.GTransfer parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -545,7 +545,7 @@ public final class Internal {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Internal.GTransfer prototype) {
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.internal.Internal.GTransfer prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -565,20 +565,20 @@ public final class Internal {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements Internal.GTransferOrBuilder {
+       implements com.luv.face2face.protobuf.generate.internal.Internal.GTransferOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Internal.internal_static_GTransfer_descriptor;
+        return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_GTransfer_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Internal.internal_static_GTransfer_fieldAccessorTable
+        return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_GTransfer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Internal.GTransfer.class, Internal.GTransfer.Builder.class);
+                com.luv.face2face.protobuf.generate.internal.Internal.GTransfer.class, com.luv.face2face.protobuf.generate.internal.Internal.GTransfer.Builder.class);
       }
 
-      // Construct using Internal.GTransfer.newBuilder()
+      // Construct using com.luv.face2face.protobuf.generate.internal.Internal.GTransfer.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -598,7 +598,7 @@ public final class Internal {
 
       public Builder clear() {
         super.clear();
-        dest_ = Internal.Dest.Client;
+        dest_ = com.luv.face2face.protobuf.generate.internal.Internal.Dest.Client;
         bitField0_ = (bitField0_ & ~0x00000001);
         netId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -617,23 +617,23 @@ public final class Internal {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Internal.internal_static_GTransfer_descriptor;
+        return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_GTransfer_descriptor;
       }
 
-      public Internal.GTransfer getDefaultInstanceForType() {
-        return Internal.GTransfer.getDefaultInstance();
+      public com.luv.face2face.protobuf.generate.internal.Internal.GTransfer getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.internal.Internal.GTransfer.getDefaultInstance();
       }
 
-      public Internal.GTransfer build() {
-        Internal.GTransfer result = buildPartial();
+      public com.luv.face2face.protobuf.generate.internal.Internal.GTransfer build() {
+        com.luv.face2face.protobuf.generate.internal.Internal.GTransfer result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Internal.GTransfer buildPartial() {
-        Internal.GTransfer result = new Internal.GTransfer(this);
+      public com.luv.face2face.protobuf.generate.internal.Internal.GTransfer buildPartial() {
+        com.luv.face2face.protobuf.generate.internal.Internal.GTransfer result = new com.luv.face2face.protobuf.generate.internal.Internal.GTransfer(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -662,16 +662,16 @@ public final class Internal {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Internal.GTransfer) {
-          return mergeFrom((Internal.GTransfer)other);
+        if (other instanceof com.luv.face2face.protobuf.generate.internal.Internal.GTransfer) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.internal.Internal.GTransfer)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Internal.GTransfer other) {
-        if (other == Internal.GTransfer.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.internal.Internal.GTransfer other) {
+        if (other == com.luv.face2face.protobuf.generate.internal.Internal.GTransfer.getDefaultInstance()) return this;
         if (other.hasDest()) {
           setDest(other.getDest());
         }
@@ -717,11 +717,11 @@ public final class Internal {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Internal.GTransfer parsedMessage = null;
+        com.luv.face2face.protobuf.generate.internal.Internal.GTransfer parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Internal.GTransfer) e.getUnfinishedMessage();
+          parsedMessage = (com.luv.face2face.protobuf.generate.internal.Internal.GTransfer) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -733,7 +733,7 @@ public final class Internal {
       private int bitField0_;
 
       // required .Dest dest = 1;
-      private Internal.Dest dest_ = Internal.Dest.Client;
+      private com.luv.face2face.protobuf.generate.internal.Internal.Dest dest_ = com.luv.face2face.protobuf.generate.internal.Internal.Dest.Client;
       /**
        * <code>required .Dest dest = 1;</code>
        */
@@ -743,13 +743,13 @@ public final class Internal {
       /**
        * <code>required .Dest dest = 1;</code>
        */
-      public Internal.Dest getDest() {
+      public com.luv.face2face.protobuf.generate.internal.Internal.Dest getDest() {
         return dest_;
       }
       /**
        * <code>required .Dest dest = 1;</code>
        */
-      public Builder setDest(Internal.Dest value) {
+      public Builder setDest(com.luv.face2face.protobuf.generate.internal.Internal.Dest value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -763,7 +763,7 @@ public final class Internal {
        */
       public Builder clearDest() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        dest_ = Internal.Dest.Client;
+        dest_ = com.luv.face2face.protobuf.generate.internal.Internal.Dest.Client;
         onChanged();
         return this;
       }
@@ -966,7 +966,7 @@ public final class Internal {
     /**
      * <code>required .Greet.From from = 1;</code>
      */
-    Internal.Greet.From getFrom();
+    com.luv.face2face.protobuf.generate.internal.Internal.Greet.From getFrom();
   }
   /**
    * Protobuf type {@code Greet}
@@ -1025,7 +1025,7 @@ public final class Internal {
             }
             case 8: {
               int rawValue = input.readEnum();
-              Internal.Greet.From value = Internal.Greet.From.valueOf(rawValue);
+              com.luv.face2face.protobuf.generate.internal.Internal.Greet.From value = com.luv.face2face.protobuf.generate.internal.Internal.Greet.From.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -1048,14 +1048,14 @@ public final class Internal {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Internal.internal_static_Greet_descriptor;
+      return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_Greet_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Internal.internal_static_Greet_fieldAccessorTable
+      return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_Greet_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Internal.Greet.class, Internal.Greet.Builder.class);
+              com.luv.face2face.protobuf.generate.internal.Internal.Greet.class, com.luv.face2face.protobuf.generate.internal.Internal.Greet.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Greet> PARSER =
@@ -1139,7 +1139,7 @@ public final class Internal {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return Internal.Greet.getDescriptor().getEnumTypes().get(0);
+        return com.luv.face2face.protobuf.generate.internal.Internal.Greet.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final From[] VALUES = values();
@@ -1167,7 +1167,7 @@ public final class Internal {
     private int bitField0_;
     // required .Greet.From from = 1;
     public static final int FROM_FIELD_NUMBER = 1;
-    private Internal.Greet.From from_;
+    private com.luv.face2face.protobuf.generate.internal.Internal.Greet.From from_;
     /**
      * <code>required .Greet.From from = 1;</code>
      */
@@ -1177,12 +1177,12 @@ public final class Internal {
     /**
      * <code>required .Greet.From from = 1;</code>
      */
-    public Internal.Greet.From getFrom() {
+    public com.luv.face2face.protobuf.generate.internal.Internal.Greet.From getFrom() {
       return from_;
     }
 
     private void initFields() {
-      from_ = Internal.Greet.From.Logic;
+      from_ = com.luv.face2face.protobuf.generate.internal.Internal.Greet.From.Logic;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1228,53 +1228,53 @@ public final class Internal {
       return super.writeReplace();
     }
 
-    public static Internal.Greet parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Internal.Greet parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Internal.Greet parseFrom(byte[] data)
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Internal.Greet parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Internal.Greet parseFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Internal.Greet parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Internal.Greet parseDelimitedFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Internal.Greet parseDelimitedFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Internal.Greet parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Internal.Greet parseFrom(
+    public static com.luv.face2face.protobuf.generate.internal.Internal.Greet parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1283,7 +1283,7 @@ public final class Internal {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Internal.Greet prototype) {
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.internal.Internal.Greet prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1303,20 +1303,20 @@ public final class Internal {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements Internal.GreetOrBuilder {
+       implements com.luv.face2face.protobuf.generate.internal.Internal.GreetOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Internal.internal_static_Greet_descriptor;
+        return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_Greet_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Internal.internal_static_Greet_fieldAccessorTable
+        return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_Greet_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Internal.Greet.class, Internal.Greet.Builder.class);
+                com.luv.face2face.protobuf.generate.internal.Internal.Greet.class, com.luv.face2face.protobuf.generate.internal.Internal.Greet.Builder.class);
       }
 
-      // Construct using Internal.Greet.newBuilder()
+      // Construct using com.luv.face2face.protobuf.generate.internal.Internal.Greet.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1336,7 +1336,7 @@ public final class Internal {
 
       public Builder clear() {
         super.clear();
-        from_ = Internal.Greet.From.Logic;
+        from_ = com.luv.face2face.protobuf.generate.internal.Internal.Greet.From.Logic;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -1347,23 +1347,23 @@ public final class Internal {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Internal.internal_static_Greet_descriptor;
+        return com.luv.face2face.protobuf.generate.internal.Internal.internal_static_Greet_descriptor;
       }
 
-      public Internal.Greet getDefaultInstanceForType() {
-        return Internal.Greet.getDefaultInstance();
+      public com.luv.face2face.protobuf.generate.internal.Internal.Greet getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.internal.Internal.Greet.getDefaultInstance();
       }
 
-      public Internal.Greet build() {
-        Internal.Greet result = buildPartial();
+      public com.luv.face2face.protobuf.generate.internal.Internal.Greet build() {
+        com.luv.face2face.protobuf.generate.internal.Internal.Greet result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Internal.Greet buildPartial() {
-        Internal.Greet result = new Internal.Greet(this);
+      public com.luv.face2face.protobuf.generate.internal.Internal.Greet buildPartial() {
+        com.luv.face2face.protobuf.generate.internal.Internal.Greet result = new com.luv.face2face.protobuf.generate.internal.Internal.Greet(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1376,16 +1376,16 @@ public final class Internal {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Internal.Greet) {
-          return mergeFrom((Internal.Greet)other);
+        if (other instanceof com.luv.face2face.protobuf.generate.internal.Internal.Greet) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.internal.Internal.Greet)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Internal.Greet other) {
-        if (other == Internal.Greet.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.internal.Internal.Greet other) {
+        if (other == com.luv.face2face.protobuf.generate.internal.Internal.Greet.getDefaultInstance()) return this;
         if (other.hasFrom()) {
           setFrom(other.getFrom());
         }
@@ -1405,11 +1405,11 @@ public final class Internal {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Internal.Greet parsedMessage = null;
+        com.luv.face2face.protobuf.generate.internal.Internal.Greet parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Internal.Greet) e.getUnfinishedMessage();
+          parsedMessage = (com.luv.face2face.protobuf.generate.internal.Internal.Greet) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1421,7 +1421,7 @@ public final class Internal {
       private int bitField0_;
 
       // required .Greet.From from = 1;
-      private Internal.Greet.From from_ = Internal.Greet.From.Logic;
+      private com.luv.face2face.protobuf.generate.internal.Internal.Greet.From from_ = com.luv.face2face.protobuf.generate.internal.Internal.Greet.From.Logic;
       /**
        * <code>required .Greet.From from = 1;</code>
        */
@@ -1431,13 +1431,13 @@ public final class Internal {
       /**
        * <code>required .Greet.From from = 1;</code>
        */
-      public Internal.Greet.From getFrom() {
+      public com.luv.face2face.protobuf.generate.internal.Internal.Greet.From getFrom() {
         return from_;
       }
       /**
        * <code>required .Greet.From from = 1;</code>
        */
-      public Builder setFrom(Internal.Greet.From value) {
+      public Builder setFrom(com.luv.face2face.protobuf.generate.internal.Internal.Greet.From value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1451,7 +1451,7 @@ public final class Internal {
        */
       public Builder clearFrom() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        from_ = Internal.Greet.From.Logic;
+        from_ = com.luv.face2face.protobuf.generate.internal.Internal.Greet.From.Logic;
         onChanged();
         return this;
       }
@@ -1492,8 +1492,8 @@ public final class Internal {
       "\002(\014\"I\n\005Greet\022\031\n\004from\030\001 \002(\0162\013.Greet.From\"" +
       "%\n\004From\022\t\n\005Logic\020\001\022\010\n\004Gate\020\002\022\010\n\004Auth\020\003*1" +
       "\n\004Dest\022\n\n\006Client\020\001\022\010\n\004Auth\020\002\022\t\n\005Logic\020\003\022" +
-      "\010\n\004Gate\020\004B&\n\032protobuf.generate.internalB" +
-      "\010Internal"
+      "\010\n\004Gate\020\004B8\n,com.luv.face2face.protobuf." +
+      "generate.internalB\010Internal"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

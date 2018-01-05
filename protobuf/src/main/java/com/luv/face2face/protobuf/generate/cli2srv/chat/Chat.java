@@ -11,9 +11,9 @@ public final class Chat {
   public interface CPrivateChatOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required string self = 1;
+    // required int64 self = 1;
     /**
-     * <code>required string self = 1;</code>
+     * <code>required int64 self = 1;</code>
      *
      * <pre>
      *发送消息者的userid
@@ -21,26 +21,17 @@ public final class Chat {
      */
     boolean hasSelf();
     /**
-     * <code>required string self = 1;</code>
+     * <code>required int64 self = 1;</code>
      *
      * <pre>
      *发送消息者的userid
      * </pre>
      */
-    java.lang.String getSelf();
-    /**
-     * <code>required string self = 1;</code>
-     *
-     * <pre>
-     *发送消息者的userid
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getSelfBytes();
+    long getSelf();
 
-    // required string dest = 2;
+    // required int64 dest = 2;
     /**
-     * <code>required string dest = 2;</code>
+     * <code>required int64 dest = 2;</code>
      *
      * <pre>
      *消息目标的userid
@@ -48,22 +39,13 @@ public final class Chat {
      */
     boolean hasDest();
     /**
-     * <code>required string dest = 2;</code>
+     * <code>required int64 dest = 2;</code>
      *
      * <pre>
      *消息目标的userid
      * </pre>
      */
-    java.lang.String getDest();
-    /**
-     * <code>required string dest = 2;</code>
-     *
-     * <pre>
-     *消息目标的userid
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getDestBytes();
+    long getDest();
 
     // required string content = 3;
     /**
@@ -143,14 +125,14 @@ public final class Chat {
               }
               break;
             }
-            case 10: {
+            case 8: {
               bitField0_ |= 0x00000001;
-              self_ = input.readBytes();
+              self_ = input.readInt64();
               break;
             }
-            case 18: {
+            case 16: {
               bitField0_ |= 0x00000002;
-              dest_ = input.readBytes();
+              dest_ = input.readInt64();
               break;
             }
             case 26: {
@@ -172,14 +154,14 @@ public final class Chat {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chat.internal_static_CPrivateChat_descriptor;
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_CPrivateChat_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chat.internal_static_CPrivateChat_fieldAccessorTable
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_CPrivateChat_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chat.CPrivateChat.class, Chat.CPrivateChat.Builder.class);
+              com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat.Builder.class);
     }
 
     public static com.google.protobuf.Parser<CPrivateChat> PARSER =
@@ -198,11 +180,11 @@ public final class Chat {
     }
 
     private int bitField0_;
-    // required string self = 1;
+    // required int64 self = 1;
     public static final int SELF_FIELD_NUMBER = 1;
-    private java.lang.Object self_;
+    private long self_;
     /**
-     * <code>required string self = 1;</code>
+     * <code>required int64 self = 1;</code>
      *
      * <pre>
      *发送消息者的userid
@@ -212,52 +194,21 @@ public final class Chat {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string self = 1;</code>
+     * <code>required int64 self = 1;</code>
      *
      * <pre>
      *发送消息者的userid
      * </pre>
      */
-    public java.lang.String getSelf() {
-      java.lang.Object ref = self_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          self_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string self = 1;</code>
-     *
-     * <pre>
-     *发送消息者的userid
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getSelfBytes() {
-      java.lang.Object ref = self_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        self_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getSelf() {
+      return self_;
     }
 
-    // required string dest = 2;
+    // required int64 dest = 2;
     public static final int DEST_FIELD_NUMBER = 2;
-    private java.lang.Object dest_;
+    private long dest_;
     /**
-     * <code>required string dest = 2;</code>
+     * <code>required int64 dest = 2;</code>
      *
      * <pre>
      *消息目标的userid
@@ -267,45 +218,14 @@ public final class Chat {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string dest = 2;</code>
+     * <code>required int64 dest = 2;</code>
      *
      * <pre>
      *消息目标的userid
      * </pre>
      */
-    public java.lang.String getDest() {
-      java.lang.Object ref = dest_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          dest_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string dest = 2;</code>
-     *
-     * <pre>
-     *消息目标的userid
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getDestBytes() {
-      java.lang.Object ref = dest_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        dest_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getDest() {
+      return dest_;
     }
 
     // required string content = 3;
@@ -364,8 +284,8 @@ public final class Chat {
     }
 
     private void initFields() {
-      self_ = "";
-      dest_ = "";
+      self_ = 0L;
+      dest_ = 0L;
       content_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -393,10 +313,10 @@ public final class Chat {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getSelfBytes());
+        output.writeInt64(1, self_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getDestBytes());
+        output.writeInt64(2, dest_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getContentBytes());
@@ -412,11 +332,11 @@ public final class Chat {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getSelfBytes());
+          .computeInt64Size(1, self_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getDestBytes());
+          .computeInt64Size(2, dest_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -434,53 +354,53 @@ public final class Chat {
       return super.writeReplace();
     }
 
-    public static Chat.CPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chat.CPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chat.CPrivateChat parseFrom(byte[] data)
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chat.CPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chat.CPrivateChat parseFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chat.CPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chat.CPrivateChat parseDelimitedFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chat.CPrivateChat parseDelimitedFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chat.CPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chat.CPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -489,7 +409,7 @@ public final class Chat {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Chat.CPrivateChat prototype) {
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -505,20 +425,20 @@ public final class Chat {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements Chat.CPrivateChatOrBuilder {
+       implements com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChatOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chat.internal_static_CPrivateChat_descriptor;
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_CPrivateChat_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chat.internal_static_CPrivateChat_fieldAccessorTable
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_CPrivateChat_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chat.CPrivateChat.class, Chat.CPrivateChat.Builder.class);
+                com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat.Builder.class);
       }
 
-      // Construct using Chat.CPrivateChat.newBuilder()
+      // Construct using com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -538,9 +458,9 @@ public final class Chat {
 
       public Builder clear() {
         super.clear();
-        self_ = "";
+        self_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        dest_ = "";
+        dest_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         content_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -553,23 +473,23 @@ public final class Chat {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chat.internal_static_CPrivateChat_descriptor;
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_CPrivateChat_descriptor;
       }
 
-      public Chat.CPrivateChat getDefaultInstanceForType() {
-        return Chat.CPrivateChat.getDefaultInstance();
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat.getDefaultInstance();
       }
 
-      public Chat.CPrivateChat build() {
-        Chat.CPrivateChat result = buildPartial();
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat build() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chat.CPrivateChat buildPartial() {
-        Chat.CPrivateChat result = new Chat.CPrivateChat(this);
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat buildPartial() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat result = new com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -590,25 +510,21 @@ public final class Chat {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chat.CPrivateChat) {
-          return mergeFrom((Chat.CPrivateChat)other);
+        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chat.CPrivateChat other) {
-        if (other == Chat.CPrivateChat.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat other) {
+        if (other == com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat.getDefaultInstance()) return this;
         if (other.hasSelf()) {
-          bitField0_ |= 0x00000001;
-          self_ = other.self_;
-          onChanged();
+          setSelf(other.getSelf());
         }
         if (other.hasDest()) {
-          bitField0_ |= 0x00000002;
-          dest_ = other.dest_;
-          onChanged();
+          setDest(other.getDest());
         }
         if (other.hasContent()) {
           bitField0_ |= 0x00000004;
@@ -639,11 +555,11 @@ public final class Chat {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chat.CPrivateChat parsedMessage = null;
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chat.CPrivateChat) e.getUnfinishedMessage();
+          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.CPrivateChat) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -654,10 +570,10 @@ public final class Chat {
       }
       private int bitField0_;
 
-      // required string self = 1;
-      private java.lang.Object self_ = "";
+      // required int64 self = 1;
+      private long self_ ;
       /**
-       * <code>required string self = 1;</code>
+       * <code>required int64 self = 1;</code>
        *
        * <pre>
        *发送消息者的userid
@@ -667,62 +583,30 @@ public final class Chat {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string self = 1;</code>
+       * <code>required int64 self = 1;</code>
        *
        * <pre>
        *发送消息者的userid
        * </pre>
        */
-      public java.lang.String getSelf() {
-        java.lang.Object ref = self_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          self_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getSelf() {
+        return self_;
       }
       /**
-       * <code>required string self = 1;</code>
+       * <code>required int64 self = 1;</code>
        *
        * <pre>
        *发送消息者的userid
        * </pre>
        */
-      public com.google.protobuf.ByteString
-          getSelfBytes() {
-        java.lang.Object ref = self_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          self_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string self = 1;</code>
-       *
-       * <pre>
-       *发送消息者的userid
-       * </pre>
-       */
-      public Builder setSelf(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      public Builder setSelf(long value) {
+        bitField0_ |= 0x00000001;
         self_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string self = 1;</code>
+       * <code>required int64 self = 1;</code>
        *
        * <pre>
        *发送消息者的userid
@@ -730,32 +614,15 @@ public final class Chat {
        */
       public Builder clearSelf() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        self_ = getDefaultInstance().getSelf();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string self = 1;</code>
-       *
-       * <pre>
-       *发送消息者的userid
-       * </pre>
-       */
-      public Builder setSelfBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        self_ = value;
+        self_ = 0L;
         onChanged();
         return this;
       }
 
-      // required string dest = 2;
-      private java.lang.Object dest_ = "";
+      // required int64 dest = 2;
+      private long dest_ ;
       /**
-       * <code>required string dest = 2;</code>
+       * <code>required int64 dest = 2;</code>
        *
        * <pre>
        *消息目标的userid
@@ -765,62 +632,30 @@ public final class Chat {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string dest = 2;</code>
+       * <code>required int64 dest = 2;</code>
        *
        * <pre>
        *消息目标的userid
        * </pre>
        */
-      public java.lang.String getDest() {
-        java.lang.Object ref = dest_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          dest_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getDest() {
+        return dest_;
       }
       /**
-       * <code>required string dest = 2;</code>
+       * <code>required int64 dest = 2;</code>
        *
        * <pre>
        *消息目标的userid
        * </pre>
        */
-      public com.google.protobuf.ByteString
-          getDestBytes() {
-        java.lang.Object ref = dest_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          dest_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string dest = 2;</code>
-       *
-       * <pre>
-       *消息目标的userid
-       * </pre>
-       */
-      public Builder setDest(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      public Builder setDest(long value) {
+        bitField0_ |= 0x00000002;
         dest_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string dest = 2;</code>
+       * <code>required int64 dest = 2;</code>
        *
        * <pre>
        *消息目标的userid
@@ -828,24 +663,7 @@ public final class Chat {
        */
       public Builder clearDest() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        dest_ = getDefaultInstance().getDest();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string dest = 2;</code>
-       *
-       * <pre>
-       *消息目标的userid
-       * </pre>
-       */
-      public Builder setDestBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        dest_ = value;
+        dest_ = 0L;
         onChanged();
         return this;
       }
@@ -1047,14 +865,14 @@ public final class Chat {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chat.internal_static_SPrivateChat_descriptor;
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_SPrivateChat_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chat.internal_static_SPrivateChat_fieldAccessorTable
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_SPrivateChat_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chat.SPrivateChat.class, Chat.SPrivateChat.Builder.class);
+              com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat.Builder.class);
     }
 
     public static com.google.protobuf.Parser<SPrivateChat> PARSER =
@@ -1163,53 +981,53 @@ public final class Chat {
       return super.writeReplace();
     }
 
-    public static Chat.SPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chat.SPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chat.SPrivateChat parseFrom(byte[] data)
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chat.SPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chat.SPrivateChat parseFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chat.SPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chat.SPrivateChat parseDelimitedFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chat.SPrivateChat parseDelimitedFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chat.SPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chat.SPrivateChat parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1218,7 +1036,7 @@ public final class Chat {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Chat.SPrivateChat prototype) {
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1234,20 +1052,20 @@ public final class Chat {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements Chat.SPrivateChatOrBuilder {
+       implements com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChatOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chat.internal_static_SPrivateChat_descriptor;
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_SPrivateChat_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chat.internal_static_SPrivateChat_fieldAccessorTable
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_SPrivateChat_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chat.SPrivateChat.class, Chat.SPrivateChat.Builder.class);
+                com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat.Builder.class);
       }
 
-      // Construct using Chat.SPrivateChat.newBuilder()
+      // Construct using com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1278,23 +1096,23 @@ public final class Chat {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chat.internal_static_SPrivateChat_descriptor;
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_SPrivateChat_descriptor;
       }
 
-      public Chat.SPrivateChat getDefaultInstanceForType() {
-        return Chat.SPrivateChat.getDefaultInstance();
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat.getDefaultInstance();
       }
 
-      public Chat.SPrivateChat build() {
-        Chat.SPrivateChat result = buildPartial();
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat build() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chat.SPrivateChat buildPartial() {
-        Chat.SPrivateChat result = new Chat.SPrivateChat(this);
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat buildPartial() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat result = new com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1307,16 +1125,16 @@ public final class Chat {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chat.SPrivateChat) {
-          return mergeFrom((Chat.SPrivateChat)other);
+        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chat.SPrivateChat other) {
-        if (other == Chat.SPrivateChat.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat other) {
+        if (other == com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat.getDefaultInstance()) return this;
         if (other.hasContent()) {
           bitField0_ |= 0x00000001;
           content_ = other.content_;
@@ -1338,11 +1156,11 @@ public final class Chat {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chat.SPrivateChat parsedMessage = null;
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chat.SPrivateChat) e.getUnfinishedMessage();
+          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.SPrivateChat) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1438,6 +1256,2881 @@ public final class Chat {
     // @@protoc_insertion_point(class_scope:SPrivateChat)
   }
 
+  public interface RequestChatToUserMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 chatFromUserId = 1;
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    boolean hasChatFromUserId();
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    long getChatFromUserId();
+
+    // required int64 chatToUserId = 2;
+    /**
+     * <code>required int64 chatToUserId = 2;</code>
+     *
+     * <pre>
+     *目的消息者的userId
+     * </pre>
+     */
+    boolean hasChatToUserId();
+    /**
+     * <code>required int64 chatToUserId = 2;</code>
+     *
+     * <pre>
+     *目的消息者的userId
+     * </pre>
+     */
+    long getChatToUserId();
+
+    // required string content = 3;
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容
+     * </pre>
+     */
+    boolean hasContent();
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容
+     * </pre>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+  }
+  /**
+   * Protobuf type {@code RequestChatToUserMsg}
+   */
+  public static final class RequestChatToUserMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements RequestChatToUserMsgOrBuilder {
+    // Use RequestChatToUserMsg.newBuilder() to construct.
+    private RequestChatToUserMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RequestChatToUserMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RequestChatToUserMsg defaultInstance;
+    public static RequestChatToUserMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RequestChatToUserMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RequestChatToUserMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              chatFromUserId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              chatToUserId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              content_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToUserMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToUserMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RequestChatToUserMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RequestChatToUserMsg>() {
+      public RequestChatToUserMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RequestChatToUserMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RequestChatToUserMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 chatFromUserId = 1;
+    public static final int CHATFROMUSERID_FIELD_NUMBER = 1;
+    private long chatFromUserId_;
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    public boolean hasChatFromUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    public long getChatFromUserId() {
+      return chatFromUserId_;
+    }
+
+    // required int64 chatToUserId = 2;
+    public static final int CHATTOUSERID_FIELD_NUMBER = 2;
+    private long chatToUserId_;
+    /**
+     * <code>required int64 chatToUserId = 2;</code>
+     *
+     * <pre>
+     *目的消息者的userId
+     * </pre>
+     */
+    public boolean hasChatToUserId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 chatToUserId = 2;</code>
+     *
+     * <pre>
+     *目的消息者的userId
+     * </pre>
+     */
+    public long getChatToUserId() {
+      return chatToUserId_;
+    }
+
+    // required string content = 3;
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private java.lang.Object content_;
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容
+     * </pre>
+     */
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容
+     * </pre>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          content_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      chatFromUserId_ = 0L;
+      chatToUserId_ = 0L;
+      content_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasChatFromUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChatToUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasContent()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, chatFromUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, chatToUserId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getContentBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, chatFromUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, chatToUserId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getContentBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RequestChatToUserMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToUserMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToUserMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        chatFromUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        chatToUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        content_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToUserMsg_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg build() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg buildPartial() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg result = new com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.chatFromUserId_ = chatFromUserId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.chatToUserId_ = chatToUserId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.content_ = content_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg other) {
+        if (other == com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg.getDefaultInstance()) return this;
+        if (other.hasChatFromUserId()) {
+          setChatFromUserId(other.getChatFromUserId());
+        }
+        if (other.hasChatToUserId()) {
+          setChatToUserId(other.getChatToUserId());
+        }
+        if (other.hasContent()) {
+          bitField0_ |= 0x00000004;
+          content_ = other.content_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasChatFromUserId()) {
+          
+          return false;
+        }
+        if (!hasChatToUserId()) {
+          
+          return false;
+        }
+        if (!hasContent()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToUserMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 chatFromUserId = 1;
+      private long chatFromUserId_ ;
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public boolean hasChatFromUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public long getChatFromUserId() {
+        return chatFromUserId_;
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public Builder setChatFromUserId(long value) {
+        bitField0_ |= 0x00000001;
+        chatFromUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public Builder clearChatFromUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        chatFromUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int64 chatToUserId = 2;
+      private long chatToUserId_ ;
+      /**
+       * <code>required int64 chatToUserId = 2;</code>
+       *
+       * <pre>
+       *目的消息者的userId
+       * </pre>
+       */
+      public boolean hasChatToUserId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 chatToUserId = 2;</code>
+       *
+       * <pre>
+       *目的消息者的userId
+       * </pre>
+       */
+      public long getChatToUserId() {
+        return chatToUserId_;
+      }
+      /**
+       * <code>required int64 chatToUserId = 2;</code>
+       *
+       * <pre>
+       *目的消息者的userId
+       * </pre>
+       */
+      public Builder setChatToUserId(long value) {
+        bitField0_ |= 0x00000002;
+        chatToUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 chatToUserId = 2;</code>
+       *
+       * <pre>
+       *目的消息者的userId
+       * </pre>
+       */
+      public Builder clearChatToUserId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        chatToUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string content = 3;
+      private java.lang.Object content_ = "";
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容
+       * </pre>
+       */
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容
+       * </pre>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容
+       * </pre>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容
+       * </pre>
+       */
+      public Builder clearContent() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容
+       * </pre>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:RequestChatToUserMsg)
+    }
+
+    static {
+      defaultInstance = new RequestChatToUserMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:RequestChatToUserMsg)
+  }
+
+  public interface RequestChatToGroupMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 chatFromUserId = 1;
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    boolean hasChatFromUserId();
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    long getChatFromUserId();
+
+    // required int64 chatToGroupId = 2;
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    boolean hasChatToGroupId();
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    long getChatToGroupId();
+
+    // required string content = 3;
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    boolean hasContent();
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+  }
+  /**
+   * Protobuf type {@code RequestChatToGroupMsg}
+   */
+  public static final class RequestChatToGroupMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements RequestChatToGroupMsgOrBuilder {
+    // Use RequestChatToGroupMsg.newBuilder() to construct.
+    private RequestChatToGroupMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RequestChatToGroupMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RequestChatToGroupMsg defaultInstance;
+    public static RequestChatToGroupMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RequestChatToGroupMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RequestChatToGroupMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              chatFromUserId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              chatToGroupId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              content_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToGroupMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToGroupMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RequestChatToGroupMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RequestChatToGroupMsg>() {
+      public RequestChatToGroupMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RequestChatToGroupMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RequestChatToGroupMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 chatFromUserId = 1;
+    public static final int CHATFROMUSERID_FIELD_NUMBER = 1;
+    private long chatFromUserId_;
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    public boolean hasChatFromUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    public long getChatFromUserId() {
+      return chatFromUserId_;
+    }
+
+    // required int64 chatToGroupId = 2;
+    public static final int CHATTOGROUPID_FIELD_NUMBER = 2;
+    private long chatToGroupId_;
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    public boolean hasChatToGroupId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    public long getChatToGroupId() {
+      return chatToGroupId_;
+    }
+
+    // required string content = 3;
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private java.lang.Object content_;
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          content_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      chatFromUserId_ = 0L;
+      chatToGroupId_ = 0L;
+      content_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasChatFromUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChatToGroupId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasContent()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, chatFromUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, chatToGroupId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getContentBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, chatFromUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, chatToGroupId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getContentBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RequestChatToGroupMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToGroupMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToGroupMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        chatFromUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        chatToGroupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        content_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatToGroupMsg_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg build() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg buildPartial() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg result = new com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.chatFromUserId_ = chatFromUserId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.chatToGroupId_ = chatToGroupId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.content_ = content_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg other) {
+        if (other == com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg.getDefaultInstance()) return this;
+        if (other.hasChatFromUserId()) {
+          setChatFromUserId(other.getChatFromUserId());
+        }
+        if (other.hasChatToGroupId()) {
+          setChatToGroupId(other.getChatToGroupId());
+        }
+        if (other.hasContent()) {
+          bitField0_ |= 0x00000004;
+          content_ = other.content_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasChatFromUserId()) {
+          
+          return false;
+        }
+        if (!hasChatToGroupId()) {
+          
+          return false;
+        }
+        if (!hasContent()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatToGroupMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 chatFromUserId = 1;
+      private long chatFromUserId_ ;
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public boolean hasChatFromUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public long getChatFromUserId() {
+        return chatFromUserId_;
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public Builder setChatFromUserId(long value) {
+        bitField0_ |= 0x00000001;
+        chatFromUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public Builder clearChatFromUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        chatFromUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int64 chatToGroupId = 2;
+      private long chatToGroupId_ ;
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public boolean hasChatToGroupId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public long getChatToGroupId() {
+        return chatToGroupId_;
+      }
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public Builder setChatToGroupId(long value) {
+        bitField0_ |= 0x00000002;
+        chatToGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public Builder clearChatToGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        chatToGroupId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string content = 3;
+      private java.lang.Object content_ = "";
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public Builder clearContent() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:RequestChatToGroupMsg)
+    }
+
+    static {
+      defaultInstance = new RequestChatToGroupMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:RequestChatToGroupMsg)
+  }
+
+  public interface RequestChatJoinGroupMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 chatFromUserId = 1;
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    boolean hasChatFromUserId();
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    long getChatFromUserId();
+
+    // required int64 chatToGroupId = 2;
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    boolean hasChatToGroupId();
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    long getChatToGroupId();
+
+    // required string content = 3;
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    boolean hasContent();
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+  }
+  /**
+   * Protobuf type {@code RequestChatJoinGroupMsg}
+   */
+  public static final class RequestChatJoinGroupMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements RequestChatJoinGroupMsgOrBuilder {
+    // Use RequestChatJoinGroupMsg.newBuilder() to construct.
+    private RequestChatJoinGroupMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RequestChatJoinGroupMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RequestChatJoinGroupMsg defaultInstance;
+    public static RequestChatJoinGroupMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RequestChatJoinGroupMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RequestChatJoinGroupMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              chatFromUserId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              chatToGroupId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              content_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatJoinGroupMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatJoinGroupMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RequestChatJoinGroupMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RequestChatJoinGroupMsg>() {
+      public RequestChatJoinGroupMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RequestChatJoinGroupMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RequestChatJoinGroupMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 chatFromUserId = 1;
+    public static final int CHATFROMUSERID_FIELD_NUMBER = 1;
+    private long chatFromUserId_;
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    public boolean hasChatFromUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 chatFromUserId = 1;</code>
+     *
+     * <pre>
+     *发送消息者的userId
+     * </pre>
+     */
+    public long getChatFromUserId() {
+      return chatFromUserId_;
+    }
+
+    // required int64 chatToGroupId = 2;
+    public static final int CHATTOGROUPID_FIELD_NUMBER = 2;
+    private long chatToGroupId_;
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    public boolean hasChatToGroupId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 chatToGroupId = 2;</code>
+     *
+     * <pre>
+     *目的群聊的groupId
+     * </pre>
+     */
+    public long getChatToGroupId() {
+      return chatToGroupId_;
+    }
+
+    // required string content = 3;
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private java.lang.Object content_;
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          content_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string content = 3;</code>
+     *
+     * <pre>
+     *消息的内容;
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      chatFromUserId_ = 0L;
+      chatToGroupId_ = 0L;
+      content_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasChatFromUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChatToGroupId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasContent()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, chatFromUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, chatToGroupId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getContentBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, chatFromUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, chatToGroupId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getContentBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RequestChatJoinGroupMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatJoinGroupMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatJoinGroupMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        chatFromUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        chatToGroupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        content_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_RequestChatJoinGroupMsg_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg build() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg buildPartial() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg result = new com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.chatFromUserId_ = chatFromUserId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.chatToGroupId_ = chatToGroupId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.content_ = content_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg other) {
+        if (other == com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg.getDefaultInstance()) return this;
+        if (other.hasChatFromUserId()) {
+          setChatFromUserId(other.getChatFromUserId());
+        }
+        if (other.hasChatToGroupId()) {
+          setChatToGroupId(other.getChatToGroupId());
+        }
+        if (other.hasContent()) {
+          bitField0_ |= 0x00000004;
+          content_ = other.content_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasChatFromUserId()) {
+          
+          return false;
+        }
+        if (!hasChatToGroupId()) {
+          
+          return false;
+        }
+        if (!hasContent()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.RequestChatJoinGroupMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 chatFromUserId = 1;
+      private long chatFromUserId_ ;
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public boolean hasChatFromUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public long getChatFromUserId() {
+        return chatFromUserId_;
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public Builder setChatFromUserId(long value) {
+        bitField0_ |= 0x00000001;
+        chatFromUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 chatFromUserId = 1;</code>
+       *
+       * <pre>
+       *发送消息者的userId
+       * </pre>
+       */
+      public Builder clearChatFromUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        chatFromUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int64 chatToGroupId = 2;
+      private long chatToGroupId_ ;
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public boolean hasChatToGroupId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public long getChatToGroupId() {
+        return chatToGroupId_;
+      }
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public Builder setChatToGroupId(long value) {
+        bitField0_ |= 0x00000002;
+        chatToGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 chatToGroupId = 2;</code>
+       *
+       * <pre>
+       *目的群聊的groupId
+       * </pre>
+       */
+      public Builder clearChatToGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        chatToGroupId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string content = 3;
+      private java.lang.Object content_ = "";
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public Builder clearContent() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 3;</code>
+       *
+       * <pre>
+       *消息的内容;
+       * </pre>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:RequestChatJoinGroupMsg)
+    }
+
+    static {
+      defaultInstance = new RequestChatJoinGroupMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:RequestChatJoinGroupMsg)
+  }
+
+  public interface ResponseChatToUserMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 pushToUserId = 1;
+    /**
+     * <code>required int64 pushToUserId = 1;</code>
+     */
+    boolean hasPushToUserId();
+    /**
+     * <code>required int64 pushToUserId = 1;</code>
+     */
+    long getPushToUserId();
+
+    // required string content = 2;
+    /**
+     * <code>required string content = 2;</code>
+     */
+    boolean hasContent();
+    /**
+     * <code>required string content = 2;</code>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>required string content = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+  }
+  /**
+   * Protobuf type {@code ResponseChatToUserMsg}
+   */
+  public static final class ResponseChatToUserMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements ResponseChatToUserMsgOrBuilder {
+    // Use ResponseChatToUserMsg.newBuilder() to construct.
+    private ResponseChatToUserMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ResponseChatToUserMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ResponseChatToUserMsg defaultInstance;
+    public static ResponseChatToUserMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ResponseChatToUserMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ResponseChatToUserMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              pushToUserId_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              content_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_ResponseChatToUserMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_ResponseChatToUserMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ResponseChatToUserMsg> PARSER =
+        new com.google.protobuf.AbstractParser<ResponseChatToUserMsg>() {
+      public ResponseChatToUserMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ResponseChatToUserMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ResponseChatToUserMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 pushToUserId = 1;
+    public static final int PUSHTOUSERID_FIELD_NUMBER = 1;
+    private long pushToUserId_;
+    /**
+     * <code>required int64 pushToUserId = 1;</code>
+     */
+    public boolean hasPushToUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 pushToUserId = 1;</code>
+     */
+    public long getPushToUserId() {
+      return pushToUserId_;
+    }
+
+    // required string content = 2;
+    public static final int CONTENT_FIELD_NUMBER = 2;
+    private java.lang.Object content_;
+    /**
+     * <code>required string content = 2;</code>
+     */
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string content = 2;</code>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          content_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string content = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      pushToUserId_ = 0L;
+      content_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasPushToUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasContent()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, pushToUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getContentBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, pushToUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getContentBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ResponseChatToUserMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_ResponseChatToUserMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_ResponseChatToUserMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg.class, com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        pushToUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        content_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.internal_static_ResponseChatToUserMsg_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg build() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg buildPartial() {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg result = new com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.pushToUserId_ = pushToUserId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.content_ = content_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg other) {
+        if (other == com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg.getDefaultInstance()) return this;
+        if (other.hasPushToUserId()) {
+          setPushToUserId(other.getPushToUserId());
+        }
+        if (other.hasContent()) {
+          bitField0_ |= 0x00000002;
+          content_ = other.content_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasPushToUserId()) {
+          
+          return false;
+        }
+        if (!hasContent()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.ResponseChatToUserMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 pushToUserId = 1;
+      private long pushToUserId_ ;
+      /**
+       * <code>required int64 pushToUserId = 1;</code>
+       */
+      public boolean hasPushToUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 pushToUserId = 1;</code>
+       */
+      public long getPushToUserId() {
+        return pushToUserId_;
+      }
+      /**
+       * <code>required int64 pushToUserId = 1;</code>
+       */
+      public Builder setPushToUserId(long value) {
+        bitField0_ |= 0x00000001;
+        pushToUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 pushToUserId = 1;</code>
+       */
+      public Builder clearPushToUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        pushToUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string content = 2;
+      private java.lang.Object content_ = "";
+      /**
+       * <code>required string content = 2;</code>
+       */
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string content = 2;</code>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string content = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string content = 2;</code>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 2;</code>
+       */
+      public Builder clearContent() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string content = 2;</code>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ResponseChatToUserMsg)
+    }
+
+    static {
+      defaultInstance = new ResponseChatToUserMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ResponseChatToUserMsg)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_CPrivateChat_descriptor;
   private static
@@ -1448,6 +4141,26 @@ public final class Chat {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_SPrivateChat_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_RequestChatToUserMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_RequestChatToUserMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_RequestChatToGroupMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_RequestChatToGroupMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_RequestChatJoinGroupMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_RequestChatJoinGroupMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResponseChatToUserMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ResponseChatToUserMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1458,9 +4171,18 @@ public final class Chat {
   static {
     java.lang.String[] descriptorData = {
       "\n\022cli_def/chat.proto\";\n\014CPrivateChat\022\014\n\004" +
-      "self\030\001 \002(\t\022\014\n\004dest\030\002 \002(\t\022\017\n\007content\030\003 \002(" +
-      "\t\"\037\n\014SPrivateChat\022\017\n\007content\030\001 \002(\tB&\n\036pr" +
-      "otobuf.generate.cli2srv.chatB\004Chat"
+      "self\030\001 \002(\003\022\014\n\004dest\030\002 \002(\003\022\017\n\007content\030\003 \002(" +
+      "\t\"\037\n\014SPrivateChat\022\017\n\007content\030\001 \002(\t\"U\n\024Re" +
+      "questChatToUserMsg\022\026\n\016chatFromUserId\030\001 \002" +
+      "(\003\022\024\n\014chatToUserId\030\002 \002(\003\022\017\n\007content\030\003 \002(" +
+      "\t\"W\n\025RequestChatToGroupMsg\022\026\n\016chatFromUs" +
+      "erId\030\001 \002(\003\022\025\n\rchatToGroupId\030\002 \002(\003\022\017\n\007con" +
+      "tent\030\003 \002(\t\"Y\n\027RequestChatJoinGroupMsg\022\026\n" +
+      "\016chatFromUserId\030\001 \002(\003\022\025\n\rchatToGroupId\030\002" +
+      " \002(\003\022\017\n\007content\030\003 \002(\t\">\n\025ResponseChatToU",
+      "serMsg\022\024\n\014pushToUserId\030\001 \002(\003\022\017\n\007content\030" +
+      "\002 \002(\tB8\n0com.luv.face2face.protobuf.gene" +
+      "rate.cli2srv.chatB\004Chat"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1479,6 +4201,30 @@ public final class Chat {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_SPrivateChat_descriptor,
               new java.lang.String[] { "Content", });
+          internal_static_RequestChatToUserMsg_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_RequestChatToUserMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_RequestChatToUserMsg_descriptor,
+              new java.lang.String[] { "ChatFromUserId", "ChatToUserId", "Content", });
+          internal_static_RequestChatToGroupMsg_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_RequestChatToGroupMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_RequestChatToGroupMsg_descriptor,
+              new java.lang.String[] { "ChatFromUserId", "ChatToGroupId", "Content", });
+          internal_static_RequestChatJoinGroupMsg_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_RequestChatJoinGroupMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_RequestChatJoinGroupMsg_descriptor,
+              new java.lang.String[] { "ChatFromUserId", "ChatToGroupId", "Content", });
+          internal_static_ResponseChatToUserMsg_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_ResponseChatToUserMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_ResponseChatToUserMsg_descriptor,
+              new java.lang.String[] { "PushToUserId", "Content", });
           return null;
         }
       };
