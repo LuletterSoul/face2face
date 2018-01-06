@@ -15,6 +15,9 @@ import java.util.HashMap;
  * @since luv-face2face
  */
 
+/**
+ * 维护一组解析器 可根据消息包中的协议号、消息类型获得对应的处理器
+ */
 public class ParserManager
 {
     private static final Logger logger = LoggerFactory.getLogger(ParserManager.class);
@@ -30,16 +33,19 @@ public class ParserManager
     private HashMap<Integer, ParserManager.Parsing> protocolNumToParser = new HashMap<>();
 
     // 消息类型--协议号
-    private HashMap<Class<?>, Integer> packetTypeToProtocolNum = new HashMap<>();
-
+    private HashMap<Class<? extends Message>, Integer> packetTypeToProtocolNum = new HashMap<>();
 
     /**
      * 注册
-     * @param ptoNum 协议号
-     * @param parse 解析器
-     * @param cla 数据包类型
+     * 
+     * @param ptoNum
+     *            协议号
+     * @param parse
+     *            解析器
+     * @param cla
+     *            数据包类型
      */
-    public void register(int ptoNum, ParserManager.Parsing parse, Class<?> cla)
+    public void register(int ptoNum, ParserManager.Parsing parse, Class<? extends Message> cla)
     {
         registerProtocolNum2ParserMap(ptoNum, parse);
 
@@ -48,10 +54,14 @@ public class ParserManager
 
     /**
      * 注册消息类型--协议号器映射关系
-     * @param ptoNum 协议号
-     * @param cla 消息数据包类型
+     * 
+     * @param ptoNum
+     *            协议号
+     * @param cla
+     *            消息数据包类型
      */
-    public void registerPktTypeProtocolNumMap(int ptoNum, Class<?> cla) {
+    public void registerPktTypeProtocolNumMap(int ptoNum, Class<? extends Message> cla)
+    {
         if (packetTypeToProtocolNum.get(cla) == null)
             packetTypeToProtocolNum.put(cla, ptoNum);
         else
@@ -62,10 +72,14 @@ public class ParserManager
 
     /**
      * 注册协议--消息解析器映射关系
-     * @param ptoNum 协议号
-     * @param parse 解析器
+     * 
+     * @param ptoNum
+     *            协议号
+     * @param parse
+     *            解析器
      */
-    public void registerProtocolNum2ParserMap(int ptoNum, ParserManager.Parsing parse) {
+    public void registerProtocolNum2ParserMap(int ptoNum, ParserManager.Parsing parse)
+    {
         if (protocolNumToParser.get(ptoNum) == null)
             protocolNumToParser.put(ptoNum, parse);
         else
@@ -75,16 +89,15 @@ public class ParserManager
     }
 
     /**
-     *
      * @param ptoNum
      * @param bytes
      * @return
      * @throws IOException
      */
-    public  Message getMessage(int ptoNum, byte[] bytes)
+    public Message getMessage(int ptoNum, byte[] bytes)
         throws IOException
     {
-        Parsing parser =  protocolNumToParser.get(ptoNum);
+        Parsing parser = protocolNumToParser.get(ptoNum);
         if (parser == null)
         {
             logger.error("Miss match parser.UnKnown Protocol Num: {}", ptoNum);
@@ -94,14 +107,18 @@ public class ParserManager
 
     /**
      * 根据消息包类型得到协议号
-     * @param msg 消息数据包类型
+     * 
+     * @param msg
+     *            消息数据包类型
      * @return 协议号
      */
-    public  Integer getPtoNum(Message msg) {
+    public Integer getPtoNum(Message msg)
+    {
         return getPtoNum(msg.getClass());
     }
 
-    public Integer getPtoNum(Class<?> clz) {
+    public Integer getPtoNum(Class<? extends Message> clz)
+    {
         return packetTypeToProtocolNum.get(clz);
     }
 }
