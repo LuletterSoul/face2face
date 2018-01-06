@@ -1,3 +1,5 @@
+package com.luv.face2face.message;
+
 import com.luv.face2face.protobuf.generate.cli2srv.chat.Chat;
 import com.luv.face2face.protobuf.generate.cli2srv.login.Auth;
 
