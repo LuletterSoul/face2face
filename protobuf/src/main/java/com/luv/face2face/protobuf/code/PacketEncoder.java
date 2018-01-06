@@ -8,10 +8,12 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Administrator on 2016/1/29.
  */
+@Component(value = "packetEncoder")
 public class PacketEncoder extends MessageToByteEncoder<Message> {
     private static final Logger logger = LoggerFactory.getLogger(PacketEncoder.class);
 

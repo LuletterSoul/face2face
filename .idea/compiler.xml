@@ -23,7 +23,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auth" target="1.8" />
-      <module name="chat-client" target="1.8" />
+      <module name="chat-client" target="1.5" />
       <module name="domain" target="1.8" />
       <module name="face2face" target="1.8" />
       <module name="face2face-handler" target="1.8" />

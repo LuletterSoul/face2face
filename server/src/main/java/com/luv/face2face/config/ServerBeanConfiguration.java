@@ -31,8 +31,8 @@ public class ServerBeanConfiguration
     {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(5);
-        executor.setMaxPoolSize(10);
-        executor.setQueueCapacity(25);
+        executor.setMaxPoolSize(100);
+        executor.setQueueCapacity(100);
         executor.initialize();
         return executor;
     }
@@ -54,7 +54,7 @@ public class ServerBeanConfiguration
     public ServerBootstrap logicServerBootstrap(ChannelInitializer<SocketChannel> logicChannelInitializer)
     {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        serverBootstrap.group(bossGroup()).group(workerGroup()).childHandler(
+        serverBootstrap.group(bossGroup(),workerGroup()).childHandler(
             logicChannelInitializer);
         bindConnectionOptions(serverBootstrap);
         return serverBootstrap;

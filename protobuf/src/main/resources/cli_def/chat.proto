@@ -2,8 +2,8 @@ option java_package = "com.luv.face2face.protobuf.generate.cli2srv.chat";
 option java_outer_classname = "Chat";
 
 message CPrivateChat {
-	required int64 self = 1;       //发送消息者的userid
-	required int64 dest = 2;       //消息目标的userid
+	required string self = 1;       //发送消息者的userid
+	required string dest = 2;       //消息目标的userid
 	required string content = 3;    //消息内容
 }
 

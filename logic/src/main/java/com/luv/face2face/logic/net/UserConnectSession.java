@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.protobuf.Message;
-import com.luv.face2face.auth.domain.User;
+import com.luv.face2face.domain.User;
 
 import io.netty.channel.Channel;
 

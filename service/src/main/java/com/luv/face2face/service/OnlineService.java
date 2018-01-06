@@ -1,14 +1,11 @@
 package com.luv.face2face.service;
 
 
-import com.luv.face2face.auth.domain.User;
+import com.luv.face2face.domain.User;
 import com.luv.face2face.service.session.SessionCloseReason;
 import com.luv.face2face.service.session.UserConnectSession;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandlerContext;
 import sun.plugin2.message.Message;
-
-import java.util.Map;
 
 
 /**

@@ -12,9 +12,14 @@ import java.util.concurrent.Callable;
 
 
 /**
- * Created by Dell on 2016/3/2.
+ * 消息处理器
  */
 public interface IMHandler
 {
+    /**
+     * 将业务逻辑交由Service 层处理
+     * @param channelHandlerContext  管道上下文
+     * @param message 消息
+     */
     void execute(ChannelHandlerContext channelHandlerContext, Message message);
 }

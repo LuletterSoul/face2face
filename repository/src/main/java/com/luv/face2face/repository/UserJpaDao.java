@@ -1,9 +1,8 @@
 package com.luv.face2face.repository;
 
 
-import com.luv.face2face.auth.domain.User;
+import com.luv.face2face.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 
 /**

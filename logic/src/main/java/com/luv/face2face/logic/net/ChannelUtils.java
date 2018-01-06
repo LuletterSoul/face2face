@@ -10,8 +10,10 @@ import io.netty.util.AttributeKey;
 
 /**
  * channel的工具类
- * 
- * @author kingston
+ * 生成一个具有唯一用户会话
+ * 解析channel的ip地址
+ * 根据channel获取会话
+ *
  */
 public final class ChannelUtils
 {
@@ -20,7 +22,6 @@ public final class ChannelUtils
 
     /**
      * 添加新的会话
-     * 
      * @param channel
      * @param session
      * @return
@@ -31,12 +32,23 @@ public final class ChannelUtils
         return sessionAttr.compareAndSet(null, session);
     }
 
+    /**
+     * 根据channel 获取会话
+     *
+     * @param channel
+     * @return
+     */
     public static UserConnectSession getSessionBy(Channel channel)
     {
         Attribute<UserConnectSession> sessionAttr = channel.attr(SESSION_KEY);
         return sessionAttr.get();
     }
 
+    /**
+     * 解析channel的ip地址
+     * @param channel
+     * @return
+     */
     public static String getIp(Channel channel)
     {
         return ((InetSocketAddress)channel.remoteAddress()).getAddress().toString().substring(1);

@@ -1,7 +1,6 @@
 package com.luv.face2face.service;
 
 
-import com.luv.face2face.auth.domain.User;
 import com.luv.face2face.service.session.SessionCloseReason;
 import io.netty.channel.Channel;
 

@@ -2,22 +2,18 @@ package com.luv.face2face.service.impl;
 
 
 import com.google.protobuf.Message;
-import com.luv.face2face.auth.domain.User;
+import com.luv.face2face.domain.User;
 import com.luv.face2face.message.ResponseCode;
 import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.UserService;
 import com.luv.face2face.service.session.ChannelUtils;
-import com.luv.face2face.service.session.SessionCloseReason;
 import com.luv.face2face.service.session.UserConnectSession;
 import com.luv.face2face.service.util.ConcurrentHashSet;
-import com.luv.face2face.service.util.LruHashMap;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.Protocol;
 
-import java.util.Map;
 import java.util.Set;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
@@ -63,21 +59,15 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public void registerNewAccount(Message registerMessage, Channel channel)
-    {
-        RequestUserRegisterMsg msg = (RequestUserRegisterMsg)registerMessage;
+    public void registerNewAccount(User user, Channel channel) {
         UserConnectSession session = ChannelUtils.getSessionBy(channel);
-        User newUser = new User();
-        newUser.setNickname(msg.getNickname());
-        newUser.setSex(msg.getSex());
-        newUser.setSignature(msg.getSignature());
-        newUser.setPassword(msg.getPassword());
-        userJpaDao.save(newUser);
+        userJpaDao.save(user);
         ResponseUserStatusChangeMsg.Builder builder = ResponseUserStatusChangeMsg.newBuilder();
         builder.setCode(ResponseCode.REGISTER_SUCCESS);
-        builder.setDescription("注册成功！您的用户Id为：" + newUser.getUserId() + ".");
+        builder.setDescription("注册成功！您的用户Id为：" + user.getUserId() + ".");
         session.sendPacket(builder.build());
     }
+
 
     @Override
     public User createNewUser(User user)

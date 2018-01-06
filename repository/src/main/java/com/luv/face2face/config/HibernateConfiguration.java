@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -55,7 +56,7 @@ public class HibernateConfiguration
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("edu.vero.easyclass.domain");
+        factory.setPackagesToScan("com.luv.face2face.domain");
         factory.setDataSource(dataSource);
         factory.setJpaPropertyMap(jpaProperties());
         factory.afterPropertiesSet();

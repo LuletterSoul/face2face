@@ -1,9 +1,8 @@
 package com.luv.face2face.service.impl;
 
 
-import com.luv.face2face.auth.domain.User;
+import com.luv.face2face.domain.User;
 import com.luv.face2face.message.ResponseCode;
-import com.luv.face2face.protobuf.generate.cli2srv.login.Auth;
 import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.LoginService;
 import com.luv.face2face.service.OnlineService;
