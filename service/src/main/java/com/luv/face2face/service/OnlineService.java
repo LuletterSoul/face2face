@@ -70,11 +70,11 @@ public interface OnlineService
 
     /**
      * 注销用户会话
-     * @param user
+     * @param channel 通讯信道
      * @param reason
      * @return
      */
-    boolean unregisterSession(User user, SessionCloseReason reason);
+    boolean unregisterSession(Long userId,Channel channel, SessionCloseReason reason);
 
     /**
      * 判断在线状态

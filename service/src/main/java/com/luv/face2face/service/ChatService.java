@@ -1,6 +1,7 @@
 package com.luv.face2face.service;
 
 import com.luv.face2face.service.session.UserConnectSession;
+import io.netty.channel.Channel;
 
 /**
  * @author XiangDe Liu qq313700046@icloud.com .
@@ -12,5 +13,5 @@ public interface ChatService
 {
     void chatToGroupUser(Long desGroupId, String content);
 
-    void chatToSingleUser(UserConnectSession fromUserSession, Long desUserId, String content);
+    void chatToSingleUser(Channel channel,Long fromUserId, Long desUserId, String content);
 }

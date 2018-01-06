@@ -6,6 +6,8 @@ import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.ChatService;
 import com.luv.face2face.service.OnlineService;
 import com.luv.face2face.service.session.UserConnectSession;
+import io.netty.channel.Channel;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,10 @@ import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
  */
 
 @Service
+@Slf4j
 public class ChatServiceImpl implements ChatService
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ChatServiceImpl.class);
+//    private static final Logger LOGGER = LoggerFactory.getLogger(ChatServiceImpl.class);
 
     private UserJpaDao userJpaDao;
 
@@ -48,20 +51,20 @@ public class ChatServiceImpl implements ChatService
     }
 
     @Override
-    public void chatToSingleUser(UserConnectSession fromUserSession, Long desUserId,
-                                 String content)
-    {
+    public void chatToSingleUser(Channel channel, Long fromUserId, Long desUserId, String content) {
+        UserConnectSession fromUserSession = onlineService.getOnlineUserSessionById(fromUserId);
         ResponseChatToUserMsg.Builder builder = ResponseChatToUserMsg.newBuilder();
         UserConnectSession toUserSession = onlineService.getOnlineUserSessionById(desUserId);
-        if (fromUserSession == null || toUserSession == null) {
-            LOGGER.info("bilateral user relationship build failed.");
+        if (fromUserSession == null || toUserSession == null)
+        {
+            log.info("bilateral user relationship build failed.");
             return;
         }
         builder.setContent(content);
-        //发送者收到的消息包中源用户ID跟目的用户ID应该一致
+        // 发送者收到的消息包中源用户ID跟目的用户ID应该一致
         builder.setPushToUserId(fromUserSession.getUser().getUserId());
         builder.setFromToUserId(fromUserSession.getUser().getUserId());
-        //双方都需要推送消息
+        // 双方都需要推送消息
         ResponseChatToUserMsg msgFromUser = builder.build();
         fromUserSession.sendPacket(msgFromUser);
         builder.setPushToUserId(desUserId);

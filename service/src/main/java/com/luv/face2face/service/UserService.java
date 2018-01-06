@@ -29,6 +29,4 @@ public interface UserService
 
     void refreshUserProfile(User user);
 
-    void userLogout(Channel channel, SessionCloseReason reason);
-
 }
