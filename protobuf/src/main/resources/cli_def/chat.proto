@@ -32,6 +32,7 @@ message RequestChatJoinGroupMsg{
 
 
 message ResponseChatToUserMsg{
-	required int64 pushToUserId = 1;
-	required string content =2 ;
+	required int64 pushToUserId = 1;//目的消息的用户id
+    required int64 fromToUserId = 2;//发送消息者的用户id
+	required string content =3 ;
 }

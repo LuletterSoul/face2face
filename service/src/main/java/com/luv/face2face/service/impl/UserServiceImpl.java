@@ -1,14 +1,23 @@
 package com.luv.face2face.service.impl;
 
 
+import com.google.protobuf.Message;
 import com.luv.face2face.auth.domain.User;
-import com.luv.face2face.protobuf.generate.cli2srv.login.Auth;
 import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.UserService;
+import com.luv.face2face.service.session.ChannelUtils;
 import com.luv.face2face.service.session.SessionCloseReason;
+import com.luv.face2face.service.session.UserConnectSession;
+import com.luv.face2face.service.util.ConcurrentHashSet;
+import com.luv.face2face.service.util.LruHashMap;
 import io.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
+import java.util.Set;
+
+import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
 
 
 /**
@@ -22,6 +31,11 @@ public class UserServiceImpl implements UserService
 {
     private UserJpaDao userJpaDao;
 
+    /** 缓存最近登录的所有用户 */
+    private Map<Long, User> lruUsers = new LruHashMap<>(1000);
+    /** 在线用户列表　*/
+    private Set<Long> onlineUsers = new ConcurrentHashSet<>();
+
     @Autowired
     public void setUserJpaDao(UserJpaDao userJpaDao) {
         this.userJpaDao = userJpaDao;
@@ -30,26 +44,37 @@ public class UserServiceImpl implements UserService
     @Override
     public void addUser2Online(long userId)
     {
-
+        this.onlineUsers.add(userId);
     }
 
     @Override
     public void removeFromOnline(long userId)
     {
-
+        this.onlineUsers.add(userId);
     }
 
     @Override
     public boolean isOnlineUser(long userId)
     {
-        return false;
+        return this.onlineUsers.contains(userId);
     }
 
     @Override
-    public void registerNewAccount(Auth.RequestUserRegisterMsg requestUserRegisterMsg)
-    {
-
+    public void registerNewAccount(Message registerMessage, Channel channel) {
+        RequestUserRegisterMsg msg = (RequestUserRegisterMsg) registerMessage;
+        UserConnectSession session = ChannelUtils.getSessionBy(channel);
+        User newUser = new User();
+        newUser.setNickname(msg.getNickname());
+        newUser.setSex(msg.getSex());
+        newUser.setSignature(msg.getSignature());
+        newUser.setPassword(msg.getPassword());
+        userJpaDao.save(newUser);
+        ResponseUserStatusChangeMsg.Builder builder = ResponseUserStatusChangeMsg.newBuilder();
+        builder.setCode();
     }
+
+
+
 
     @Override
     public User createNewUser(User user)

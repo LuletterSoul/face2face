@@ -5180,9 +5180,9 @@ public final class Auth {
   public interface ResponseUserStatusChangeMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required string code = 1;
+    // required int32 code = 1;
     /**
-     * <code>required string code = 1;</code>
+     * <code>required int32 code = 1;</code>
      *
      * <pre>
      *返回码
@@ -5190,22 +5190,13 @@ public final class Auth {
      */
     boolean hasCode();
     /**
-     * <code>required string code = 1;</code>
+     * <code>required int32 code = 1;</code>
      *
      * <pre>
      *返回码
      * </pre>
      */
-    java.lang.String getCode();
-    /**
-     * <code>required string code = 1;</code>
-     *
-     * <pre>
-     *返回码
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getCodeBytes();
+    int getCode();
 
     // required string description = 2;
     /**
@@ -5297,9 +5288,9 @@ public final class Auth {
               }
               break;
             }
-            case 10: {
+            case 8: {
               bitField0_ |= 0x00000001;
-              code_ = input.readBytes();
+              code_ = input.readInt32();
               break;
             }
             case 18: {
@@ -5347,11 +5338,11 @@ public final class Auth {
     }
 
     private int bitField0_;
-    // required string code = 1;
+    // required int32 code = 1;
     public static final int CODE_FIELD_NUMBER = 1;
-    private java.lang.Object code_;
+    private int code_;
     /**
-     * <code>required string code = 1;</code>
+     * <code>required int32 code = 1;</code>
      *
      * <pre>
      *返回码
@@ -5361,45 +5352,14 @@ public final class Auth {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string code = 1;</code>
+     * <code>required int32 code = 1;</code>
      *
      * <pre>
      *返回码
      * </pre>
      */
-    public java.lang.String getCode() {
-      java.lang.Object ref = code_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          code_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string code = 1;</code>
-     *
-     * <pre>
-     *返回码
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getCodeBytes() {
-      java.lang.Object ref = code_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        code_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getCode() {
+      return code_;
     }
 
     // required string description = 2;
@@ -5458,7 +5418,7 @@ public final class Auth {
     }
 
     private void initFields() {
-      code_ = "";
+      code_ = 0;
       description_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -5482,7 +5442,7 @@ public final class Auth {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getCodeBytes());
+        output.writeInt32(1, code_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getDescriptionBytes());
@@ -5498,7 +5458,7 @@ public final class Auth {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getCodeBytes());
+          .computeInt32Size(1, code_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -5632,7 +5592,7 @@ public final class Auth {
 
       public Builder clear() {
         super.clear();
-        code_ = "";
+        code_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         description_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -5689,9 +5649,7 @@ public final class Auth {
       public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg other) {
         if (other == com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.getDefaultInstance()) return this;
         if (other.hasCode()) {
-          bitField0_ |= 0x00000001;
-          code_ = other.code_;
-          onChanged();
+          setCode(other.getCode());
         }
         if (other.hasDescription()) {
           bitField0_ |= 0x00000002;
@@ -5733,10 +5691,10 @@ public final class Auth {
       }
       private int bitField0_;
 
-      // required string code = 1;
-      private java.lang.Object code_ = "";
+      // required int32 code = 1;
+      private int code_ ;
       /**
-       * <code>required string code = 1;</code>
+       * <code>required int32 code = 1;</code>
        *
        * <pre>
        *返回码
@@ -5746,62 +5704,30 @@ public final class Auth {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string code = 1;</code>
+       * <code>required int32 code = 1;</code>
        *
        * <pre>
        *返回码
        * </pre>
        */
-      public java.lang.String getCode() {
-        java.lang.Object ref = code_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          code_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getCode() {
+        return code_;
       }
       /**
-       * <code>required string code = 1;</code>
+       * <code>required int32 code = 1;</code>
        *
        * <pre>
        *返回码
        * </pre>
        */
-      public com.google.protobuf.ByteString
-          getCodeBytes() {
-        java.lang.Object ref = code_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          code_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string code = 1;</code>
-       *
-       * <pre>
-       *返回码
-       * </pre>
-       */
-      public Builder setCode(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      public Builder setCode(int value) {
+        bitField0_ |= 0x00000001;
         code_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string code = 1;</code>
+       * <code>required int32 code = 1;</code>
        *
        * <pre>
        *返回码
@@ -5809,24 +5735,7 @@ public final class Auth {
        */
       public Builder clearCode() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        code_ = getDefaultInstance().getCode();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string code = 1;</code>
-       *
-       * <pre>
-       *返回码
-       * </pre>
-       */
-      public Builder setCodeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        code_ = value;
+        code_ = 0;
         onChanged();
         return this;
       }
@@ -5995,7 +5904,7 @@ public final class Auth {
       "ture\030\004 \002(\t\022\020\n\010platform\030\005 \002(\t\"\"\n\020RequestL" +
       "ogoutMsg\022\016\n\006userId\030\001 \002(\003\"\'\n\tSResponse\022\014\n",
       "\004code\030\001 \002(\005\022\014\n\004desc\030\002 \002(\t\"@\n\033ResponseUse" +
-      "rStatusChangeMsg\022\014\n\004code\030\001 \002(\t\022\023\n\013descri" +
+      "rStatusChangeMsg\022\014\n\004code\030\001 \002(\005\022\023\n\013descri" +
       "ption\030\002 \002(\tB9\n1com.luv.face2face.protobu" +
       "f.generate.cli2srv.loginB\004Auth"
     };

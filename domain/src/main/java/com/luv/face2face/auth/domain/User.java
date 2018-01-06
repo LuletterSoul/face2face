@@ -22,7 +22,7 @@ public class User
     /**
      * 性别 private byte sex; /** 用户名字
      */
-    private String userName;
+    private String nickname;
 
     /**
      * 密码
@@ -44,14 +44,14 @@ public class User
         this.userId = userId;
     }
 
-    public String getUserName()
+    public String getNickname()
     {
-        return userName;
+        return nickname;
     }
 
-    public void setUserName(String userName)
+    public void setNickname(String nickname)
     {
-        this.userName = userName;
+        this.nickname = nickname;
     }
 
     public String getPassword()
@@ -72,11 +72,6 @@ public class User
     public void setSex(String sex)
     {
         this.sex = sex;
-    }
-
-    public void setUserId(long userId)
-    {
-        this.userId = userId;
     }
 
     public String getSignature()

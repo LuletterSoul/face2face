@@ -58,7 +58,6 @@ public class Utils {
         buf.writeInt(length);
         buf.writeInt(gtfNum);     //传输协议的协议号
         buf.writeBytes(bytes);
-
         return buf;
     }
 }

@@ -1,5 +1,5 @@
 F:
-cd F:\GitHub\luv-face2face\protobuf\src\main\resources
+cd F:\GitHup\face2face\protobuf\src\main\resources
 
 set OUT=../java
 set def_cli_java=(login chat)

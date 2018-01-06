@@ -58,6 +58,6 @@ message SResponse {
 206 -- logout failed
 */
 message ResponseUserStatusChangeMsg{
-	required string code = 1;//返回码
+	required int32 code = 1;//返回码
 	required string description = 2;//描述
 }

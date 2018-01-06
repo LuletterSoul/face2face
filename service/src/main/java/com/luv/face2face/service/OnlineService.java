@@ -20,22 +20,67 @@ import java.util.Map;
 public interface OnlineService
 {
 
+    /**
+     * 根据用户会话，推送服务消息
+     * @param session 用户会话
+     * @param message 推送的消息
+     */
     void pushMessageToUser(UserConnectSession session, Message message);
 
+    /**
+     * 根据用户id，推送服务消息
+     * @param userId
+     * @param message
+     */
     void pushMessageToUser(Long userId, Message message);
 
+    /**
+     * 根据用户信道,推送服务消息
+     * @param channel
+     * @param message
+     */
     void pushMessageToUser(Channel channel, Message message);
 
+    /**
+     * 根据用户id获取在线用户信息
+     * @param userId
+     * @return
+     */
      User getOnlineUserById(Long userId);
 
+    /**
+     * 根据用户id获取用户会话
+     * @param userId
+     * @return
+     */
     UserConnectSession getOnlineUserSessionById(Long userId);
 
-    void pushMessageToOnlineUsers();
+    /**
+     * 推送服务消息给全部用户
+     */
+    void pushMessageToOnlineUsers(Message message);
 
+    /**
+     * 注册用户会话
+     * @param user 用户信息
+     * @param context 用户信道
+     * @return
+     */
     boolean registerSession(User user, Channel context);
 
+    /**
+     * 注销用户会话
+     * @param user
+     * @param reason
+     * @return
+     */
     boolean unregisterSession(User user, SessionCloseReason reason);
 
+    /**
+     * 判断在线状态
+     * @param userId
+     * @return
+     */
     boolean isOnline(Long userId);
 
 }

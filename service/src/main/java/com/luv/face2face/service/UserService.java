@@ -1,6 +1,7 @@
 package com.luv.face2face.service;
 
 
+import com.google.protobuf.Message;
 import com.luv.face2face.auth.domain.User;
 import com.luv.face2face.protobuf.generate.cli2srv.login.Auth;
 import com.luv.face2face.service.session.SessionCloseReason;
@@ -22,7 +23,7 @@ public interface UserService
 
     boolean isOnlineUser(long userId);
 
-    void registerNewAccount(Auth.RequestUserRegisterMsg requestUserRegisterMsg);
+    void registerNewAccount(Message registerMessage, Channel channel);
 
     User createNewUser(User user);
 

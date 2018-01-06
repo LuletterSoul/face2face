@@ -60,15 +60,16 @@ public class OnlineServiceImpl implements OnlineService
     }
 
     @Override
-    public void pushMessageToOnlineUsers()
-    {
+    public void pushMessageToOnlineUsers(Message message) {
 
     }
+
 
     @Override
 
     public boolean registerSession(User user, Channel context)
     {
+
         return false;
     }
 

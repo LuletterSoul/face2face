@@ -3569,24 +3569,50 @@ public final class Chat {
     // required int64 pushToUserId = 1;
     /**
      * <code>required int64 pushToUserId = 1;</code>
+     *
+     * <pre>
+     *目的消息的用户id
+     * </pre>
      */
     boolean hasPushToUserId();
     /**
      * <code>required int64 pushToUserId = 1;</code>
+     *
+     * <pre>
+     *目的消息的用户id
+     * </pre>
      */
     long getPushToUserId();
 
-    // required string content = 2;
+    // required int64 fromToUserId = 2;
     /**
-     * <code>required string content = 2;</code>
+     * <code>required int64 fromToUserId = 2;</code>
+     *
+     * <pre>
+     *发送消息者的用户id
+     * </pre>
+     */
+    boolean hasFromToUserId();
+    /**
+     * <code>required int64 fromToUserId = 2;</code>
+     *
+     * <pre>
+     *发送消息者的用户id
+     * </pre>
+     */
+    long getFromToUserId();
+
+    // required string content = 3;
+    /**
+     * <code>required string content = 3;</code>
      */
     boolean hasContent();
     /**
-     * <code>required string content = 2;</code>
+     * <code>required string content = 3;</code>
      */
     java.lang.String getContent();
     /**
-     * <code>required string content = 2;</code>
+     * <code>required string content = 3;</code>
      */
     com.google.protobuf.ByteString
         getContentBytes();
@@ -3647,8 +3673,13 @@ public final class Chat {
               pushToUserId_ = input.readInt64();
               break;
             }
-            case 18: {
+            case 16: {
               bitField0_ |= 0x00000002;
+              fromToUserId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
               content_ = input.readBytes();
               break;
             }
@@ -3697,28 +3728,60 @@ public final class Chat {
     private long pushToUserId_;
     /**
      * <code>required int64 pushToUserId = 1;</code>
+     *
+     * <pre>
+     *目的消息的用户id
+     * </pre>
      */
     public boolean hasPushToUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required int64 pushToUserId = 1;</code>
+     *
+     * <pre>
+     *目的消息的用户id
+     * </pre>
      */
     public long getPushToUserId() {
       return pushToUserId_;
     }
 
-    // required string content = 2;
-    public static final int CONTENT_FIELD_NUMBER = 2;
-    private java.lang.Object content_;
+    // required int64 fromToUserId = 2;
+    public static final int FROMTOUSERID_FIELD_NUMBER = 2;
+    private long fromToUserId_;
     /**
-     * <code>required string content = 2;</code>
+     * <code>required int64 fromToUserId = 2;</code>
+     *
+     * <pre>
+     *发送消息者的用户id
+     * </pre>
      */
-    public boolean hasContent() {
+    public boolean hasFromToUserId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string content = 2;</code>
+     * <code>required int64 fromToUserId = 2;</code>
+     *
+     * <pre>
+     *发送消息者的用户id
+     * </pre>
+     */
+    public long getFromToUserId() {
+      return fromToUserId_;
+    }
+
+    // required string content = 3;
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private java.lang.Object content_;
+    /**
+     * <code>required string content = 3;</code>
+     */
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string content = 3;</code>
      */
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
@@ -3735,7 +3798,7 @@ public final class Chat {
       }
     }
     /**
-     * <code>required string content = 2;</code>
+     * <code>required string content = 3;</code>
      */
     public com.google.protobuf.ByteString
         getContentBytes() {
@@ -3753,6 +3816,7 @@ public final class Chat {
 
     private void initFields() {
       pushToUserId_ = 0L;
+      fromToUserId_ = 0L;
       content_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -3761,6 +3825,10 @@ public final class Chat {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasPushToUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFromToUserId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3779,7 +3847,10 @@ public final class Chat {
         output.writeInt64(1, pushToUserId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getContentBytes());
+        output.writeInt64(2, fromToUserId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getContentBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -3796,7 +3867,11 @@ public final class Chat {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getContentBytes());
+          .computeInt64Size(2, fromToUserId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getContentBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3916,8 +3991,10 @@ public final class Chat {
         super.clear();
         pushToUserId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        content_ = "";
+        fromToUserId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
+        content_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3953,6 +4030,10 @@ public final class Chat {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
+        result.fromToUserId_ = fromToUserId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.content_ = content_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3973,8 +4054,11 @@ public final class Chat {
         if (other.hasPushToUserId()) {
           setPushToUserId(other.getPushToUserId());
         }
+        if (other.hasFromToUserId()) {
+          setFromToUserId(other.getFromToUserId());
+        }
         if (other.hasContent()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           content_ = other.content_;
           onChanged();
         }
@@ -3984,6 +4068,10 @@ public final class Chat {
 
       public final boolean isInitialized() {
         if (!hasPushToUserId()) {
+          
+          return false;
+        }
+        if (!hasFromToUserId()) {
           
           return false;
         }
@@ -4017,18 +4105,30 @@ public final class Chat {
       private long pushToUserId_ ;
       /**
        * <code>required int64 pushToUserId = 1;</code>
+       *
+       * <pre>
+       *目的消息的用户id
+       * </pre>
        */
       public boolean hasPushToUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required int64 pushToUserId = 1;</code>
+       *
+       * <pre>
+       *目的消息的用户id
+       * </pre>
        */
       public long getPushToUserId() {
         return pushToUserId_;
       }
       /**
        * <code>required int64 pushToUserId = 1;</code>
+       *
+       * <pre>
+       *目的消息的用户id
+       * </pre>
        */
       public Builder setPushToUserId(long value) {
         bitField0_ |= 0x00000001;
@@ -4038,6 +4138,10 @@ public final class Chat {
       }
       /**
        * <code>required int64 pushToUserId = 1;</code>
+       *
+       * <pre>
+       *目的消息的用户id
+       * </pre>
        */
       public Builder clearPushToUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -4046,16 +4150,65 @@ public final class Chat {
         return this;
       }
 
-      // required string content = 2;
-      private java.lang.Object content_ = "";
+      // required int64 fromToUserId = 2;
+      private long fromToUserId_ ;
       /**
-       * <code>required string content = 2;</code>
+       * <code>required int64 fromToUserId = 2;</code>
+       *
+       * <pre>
+       *发送消息者的用户id
+       * </pre>
        */
-      public boolean hasContent() {
+      public boolean hasFromToUserId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string content = 2;</code>
+       * <code>required int64 fromToUserId = 2;</code>
+       *
+       * <pre>
+       *发送消息者的用户id
+       * </pre>
+       */
+      public long getFromToUserId() {
+        return fromToUserId_;
+      }
+      /**
+       * <code>required int64 fromToUserId = 2;</code>
+       *
+       * <pre>
+       *发送消息者的用户id
+       * </pre>
+       */
+      public Builder setFromToUserId(long value) {
+        bitField0_ |= 0x00000002;
+        fromToUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 fromToUserId = 2;</code>
+       *
+       * <pre>
+       *发送消息者的用户id
+       * </pre>
+       */
+      public Builder clearFromToUserId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fromToUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string content = 3;
+      private java.lang.Object content_ = "";
+      /**
+       * <code>required string content = 3;</code>
+       */
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string content = 3;</code>
        */
       public java.lang.String getContent() {
         java.lang.Object ref = content_;
@@ -4069,7 +4222,7 @@ public final class Chat {
         }
       }
       /**
-       * <code>required string content = 2;</code>
+       * <code>required string content = 3;</code>
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
@@ -4085,36 +4238,36 @@ public final class Chat {
         }
       }
       /**
-       * <code>required string content = 2;</code>
+       * <code>required string content = 3;</code>
        */
       public Builder setContent(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         content_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string content = 2;</code>
+       * <code>required string content = 3;</code>
        */
       public Builder clearContent() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         content_ = getDefaultInstance().getContent();
         onChanged();
         return this;
       }
       /**
-       * <code>required string content = 2;</code>
+       * <code>required string content = 3;</code>
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         content_ = value;
         onChanged();
         return this;
@@ -4179,10 +4332,11 @@ public final class Chat {
       "erId\030\001 \002(\003\022\025\n\rchatToGroupId\030\002 \002(\003\022\017\n\007con" +
       "tent\030\003 \002(\t\"Y\n\027RequestChatJoinGroupMsg\022\026\n" +
       "\016chatFromUserId\030\001 \002(\003\022\025\n\rchatToGroupId\030\002" +
-      " \002(\003\022\017\n\007content\030\003 \002(\t\">\n\025ResponseChatToU",
-      "serMsg\022\024\n\014pushToUserId\030\001 \002(\003\022\017\n\007content\030" +
-      "\002 \002(\tB8\n0com.luv.face2face.protobuf.gene" +
-      "rate.cli2srv.chatB\004Chat"
+      " \002(\003\022\017\n\007content\030\003 \002(\t\"T\n\025ResponseChatToU",
+      "serMsg\022\024\n\014pushToUserId\030\001 \002(\003\022\024\n\014fromToUs" +
+      "erId\030\002 \002(\003\022\017\n\007content\030\003 \002(\tB8\n0com.luv.f" +
+      "ace2face.protobuf.generate.cli2srv.chatB" +
+      "\004Chat"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4224,7 +4378,7 @@ public final class Chat {
           internal_static_ResponseChatToUserMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ResponseChatToUserMsg_descriptor,
-              new java.lang.String[] { "PushToUserId", "Content", });
+              new java.lang.String[] { "PushToUserId", "FromToUserId", "Content", });
           return null;
         }
       };
