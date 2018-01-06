@@ -33,11 +33,11 @@ public enum PacketType {
 //    RespHeartBeat(1_200, ResHeartBeatPacket.class),
 //
     /** 请求--新用户注册  */
-    ReqUserRegister(3_000, Auth.ReuquestUserRegisterMsg.class),
+    ReqUserRegister(Protocol.User.USER_REGISTER, Auth.RequestUserRegisterMsg.class),
     /** 请求--请求--用户登陆  */
-    ReqUserLogin(3_001, Auth.RequestLoginMsg.class),
+    ReqUserLogin(Protocol.User.USER_LOGIN, Auth.RequestLoginMsg.class),
     /** 请求--请求--用户登出  */
-    ReqUserLogout(3_002, Auth.RequestLogoutMsg.class),
+    ReqUserLogout(Protocol.User.USER_LOGOUT, Auth.RequestLogoutMsg.class),
 //
 //    /** 推送--新用户注册  */
 //    ResUserRegister(3_200, ResUserRegisterPacket.class),
@@ -47,9 +47,9 @@ public enum PacketType {
 //    ResUserInfo(3_202, ResUserInfoPacket.class),
 
     /** 请求--单聊  */
-    RequestChatToGroupMsg(4_000, Chat.RequestChatToUserMsg.class),
+    RequestChatToGroupMsg(Protocol.Chat.CHAT_SINGLE, Chat.RequestChatToUserMsg.class),
     /** 请求--群聊  */
-    ReqChatToGroup(4_001, Chat.RequestChatToGroupMsg.class),
+    ReqChatToGroup(Protocol.Chat.CHAT_GROUP, Chat.RequestChatToGroupMsg.class),
 
 //    /** 推送--单聊 */
 //    ResChatToUser(4_200, ResChatToUserPacket.class),
