@@ -40,7 +40,7 @@ public class ParserManager
     private HashMap<Integer, ParserManager.Parsing> protocolNumToParser = new HashMap<>();
 
     // 消息类型--协议号
-    private HashMap<Class<? extends Message>, Integer> packetTypeToProtocolNum = new HashMap<>();
+    private HashMap<Class<?>, Integer> packetTypeToProtocolNum = new HashMap<>();
 
     private void initDefaultProtocol()
     {
@@ -67,7 +67,7 @@ public class ParserManager
      * @param cla
      *            数据包类型
      */
-    public void register(int ptoNum, ParserManager.Parsing parse, Class<? extends Message> cla)
+    public void register(int ptoNum, ParserManager.Parsing parse, Class<?> cla)
     {
         registerProtocolNum2ParserMap(ptoNum, parse);
 
@@ -82,7 +82,7 @@ public class ParserManager
      * @param cla
      *            消息数据包类型
      */
-    public void registerPktTypeProtocolNumMap(int ptoNum, Class<? extends Message> cla)
+    public void registerPktTypeProtocolNumMap(int ptoNum, Class<?> cla)
     {
         if (packetTypeToProtocolNum.get(cla) == null)
             packetTypeToProtocolNum.put(cla, ptoNum);
@@ -124,6 +124,7 @@ public class ParserManager
         {
             log.error("Miss match parser.UnKnown Protocol Num: {}", ptoNum);
         }
+        assert parser != null;
         return parser.process(bytes);
     }
 
@@ -136,16 +137,16 @@ public class ParserManager
      */
     public Integer getPtoNum(Message msg)
     {
-        Integer ptoNum = packetTypeToProtocolNum.get(msg);
-        if (ptoNum == null) {
-            log.error("Unknown message type.Protocol type hasn't been register.{}", msg.getClass().getSimpleName());
-            return null;
-        }
         return getPtoNum(msg.getClass());
     }
 
-    public Integer getPtoNum(Class<? extends Message> clz)
+    public Integer getPtoNum(Class<?> clz)
     {
-        return packetTypeToProtocolNum.get(clz);
+        Integer ptoNum = packetTypeToProtocolNum.get(clz);
+        if (ptoNum == null) {
+            log.error("Unknown message type.Protocol type hasn't been register.{}",clz);
+            return null;
+        }
+        return ptoNum;
     }
 }
