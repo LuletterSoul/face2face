@@ -1,8 +1,0 @@
-protocol:
-  user:
-   register: 3000
-   login: 3001
-   logout: 3002
-  chat:
-    singleChat: 4000
-    groupChat: 4001

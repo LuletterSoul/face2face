@@ -1,8 +1,9 @@
 package com.luv.face2face.service.impl;
 
 
+import com.google.protobuf.Message;
 import com.luv.face2face.domain.User;
-import com.luv.face2face.message.ResponseCode;
+import com.luv.face2face.protobuf.code.ResponseCode;
 import com.luv.face2face.service.OnlineService;
 import com.luv.face2face.service.session.ChannelUtils;
 import com.luv.face2face.service.session.SessionCloseReason;
@@ -12,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import sun.plugin2.message.Message;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

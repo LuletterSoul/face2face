@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.protobuf.Message;
-import com.luv.face2face.message.ResponseCode;
+import com.luv.face2face.protobuf.code.ResponseCode;
 import com.luv.face2face.protobuf.Utils;
 import com.luv.face2face.protobuf.generate.cli2srv.chat.Chat;
 import com.luv.face2face.protobuf.generate.cli2srv.login.Auth;
@@ -16,7 +16,6 @@ import com.luv.face2face.protobuf.generate.cli2srv.login.Auth;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import org.springframework.stereotype.Component;
 
 
 /**

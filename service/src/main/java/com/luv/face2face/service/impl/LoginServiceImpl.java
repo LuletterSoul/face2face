@@ -2,7 +2,7 @@ package com.luv.face2face.service.impl;
 
 
 import com.luv.face2face.domain.User;
-import com.luv.face2face.message.ResponseCode;
+import com.luv.face2face.protobuf.code.ResponseCode;
 import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.LoginService;
 import com.luv.face2face.service.OnlineService;
@@ -65,7 +65,6 @@ public class LoginServiceImpl implements LoginService
         {
             builder.setCode(ResponseCode.LOGIN_SUCCESS);
             builder.setDescription("登陆成功");
-            onlineService.getOnlineUserSessionById(userId).sendPacket(builder.build());
         }
         userConnectSession.sendPacket(builder.build());
         lruUsers.put(userId, user);

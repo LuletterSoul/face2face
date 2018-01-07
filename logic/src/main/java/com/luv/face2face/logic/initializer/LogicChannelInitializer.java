@@ -1,22 +1,19 @@
 package com.luv.face2face.logic.initializer;
 
 
-import com.luv.face2face.logic.dispatcher.LogicServerDispatcher;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+
 import com.luv.face2face.protobuf.analysis.ParserManager;
 import com.luv.face2face.protobuf.code.PacketDecoder;
 import com.luv.face2face.protobuf.code.PacketEncoder;
+
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.WebApplicationContext;
 
 
 /**
@@ -26,7 +23,6 @@ import org.springframework.web.context.WebApplicationContext;
  */
 
 @Component
-
 public class LogicChannelInitializer extends ChannelInitializer<SocketChannel>
 {
     private ChannelHandler dispatcher;
@@ -35,19 +31,19 @@ public class LogicChannelInitializer extends ChannelInitializer<SocketChannel>
 
     private ParserManager parserManager;
 
-//    @Autowired
-//    @Qualifier("packetDecoder")
-//    public void setDecoder(PacketDecoder decoder)
-//    {
-//        this.decoder = decoder;
-//    }
-//
-//    @Autowired
-//    @Qualifier("packetEncoder")
-//    public void setEncoder(PacketEncoder encoder)
-//    {
-//        this.encoder = encoder;
-//    }
+    // @Autowired
+    // @Qualifier("packetDecoder")
+    // public void setDecoder(PacketDecoder decoder)
+    // {
+    // this.decoder = decoder;
+    // }
+    //
+    // @Autowired
+    // @Qualifier("packetEncoder")
+    // public void setEncoder(PacketEncoder encoder)
+    // {
+    // this.encoder = encoder;
+    // }
 
     @Autowired
     @Qualifier("logicDispatcher")
@@ -57,7 +53,8 @@ public class LogicChannelInitializer extends ChannelInitializer<SocketChannel>
     }
 
     @Autowired
-    public void setParserManager(ParserManager parserManager) {
+    public void setParserManager(ParserManager parserManager)
+    {
         this.parserManager = parserManager;
     }
 
@@ -67,14 +64,17 @@ public class LogicChannelInitializer extends ChannelInitializer<SocketChannel>
     {
         ChannelPipeline pipeline = ch.pipeline();
         PacketEncoder encoder = new PacketEncoder();
+        PacketDecoder decoder = new PacketDecoder();
+        decoder.setParserManager(parserManager);
         encoder.setParserManager(parserManager);
-        pipeline.addLast("MessageDecoder", new PacketDecoder());
+        pipeline.addLast("MessageDecoder", decoder);
         pipeline.addLast("MessageEncoder", encoder);
         pipeline.addLast("LogicServerDispatcher", dispatcher);
     }
 
-//    @Override
-//    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-//        this.context = applicationContext;
-//    }
+    // @Override
+    // public void setApplicationContext(ApplicationContext applicationContext) throws
+    // BeansException {
+    // this.context = applicationContext;
+    // }
 }

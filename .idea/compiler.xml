@@ -13,7 +13,6 @@
         <module name="gate" />
         <module name="handler" />
         <module name="logic" />
-        <module name="message" />
         <module name="protobuf" />
         <module name="repository" />
         <module name="server" />

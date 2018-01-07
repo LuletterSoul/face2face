@@ -27,7 +27,7 @@
     <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.3.4" level="project" />
     <orderEntry type="module" module-name="protobuf" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.6.1" level="project" />
-    <orderEntry type="module" module-name="message" />
+    <orderEntry type="library" name="Maven: com.luv.face2face:face2face-message:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="auth" />
     <orderEntry type="module" module-name="thirdparty" />
     <orderEntry type="module" module-name="domain" />

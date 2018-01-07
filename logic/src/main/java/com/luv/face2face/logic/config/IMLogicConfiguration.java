@@ -4,13 +4,11 @@ package com.luv.face2face.logic.config;
 import com.luv.face2face.logic.handler.*;
 import com.luv.face2face.logic.handler.manager.HandlerManager;
 import com.luv.face2face.logic.handler.manager.impl.DefaultHandlerManager;
-import com.luv.face2face.message.Protocol;
 import com.luv.face2face.protobuf.analysis.ParserManager;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;

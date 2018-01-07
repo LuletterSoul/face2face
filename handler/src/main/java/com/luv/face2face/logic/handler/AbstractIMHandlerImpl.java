@@ -35,6 +35,24 @@ public class AbstractIMHandlerImpl implements IMHandler
 
     private LoginService loginService;
 
+    @Autowired
+    public void setChatService(ChatService chatService)
+    {
+        this.chatService = chatService;
+    }
+
+    @Autowired
+    public void setUserService(UserService userService)
+    {
+        this.userService = userService;
+    }
+
+    @Autowired
+    public void setLoginService(LoginService loginService)
+    {
+        this.loginService = loginService;
+    }
+
     @Override
     public void execute(ChannelHandlerContext channelHandlerContext, Message message)
     {

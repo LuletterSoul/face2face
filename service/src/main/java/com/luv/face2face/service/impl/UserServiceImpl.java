@@ -2,7 +2,7 @@ package com.luv.face2face.service.impl;
 
 
 import com.luv.face2face.domain.User;
-import com.luv.face2face.message.ResponseCode;
+import com.luv.face2face.protobuf.code.ResponseCode;
 import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.UserService;
 import com.luv.face2face.service.session.ChannelUtils;

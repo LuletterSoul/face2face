@@ -2,10 +2,8 @@ package com.luv.face2face.protobuf.analysis;
 
 
 import com.google.protobuf.Message;
-import com.luv.face2face.message.Protocol;
+import com.luv.face2face.protobuf.Protocol;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -37,8 +35,16 @@ public class ParserManager
         initDefaultProtocol();
     }
 
+
+    // 协议号--消息解析器
+    private HashMap<Integer, ParserManager.Parsing> protocolNumToParser = new HashMap<>();
+
+    // 消息类型--协议号
+    private HashMap<Class<? extends Message>, Integer> packetTypeToProtocolNum = new HashMap<>();
+
     private void initDefaultProtocol()
     {
+        this.register(Protocol.User.USER_LOGIN, RequestLoginMsg::parseFrom, RequestLoginMsg.class);
         this.register(Protocol.User.USER_LOGIN, RequestLoginMsg::parseFrom, RequestLoginMsg.class);
         this.register(Protocol.User.USER_LOGOUT, RequestLogoutMsg::parseFrom,
             RequestLogoutMsg.class);
@@ -48,13 +54,8 @@ public class ParserManager
             RequestChatToUserMsg.class);
         this.register(Protocol.Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
             RequestChatToGroupMsg.class);
+        this.register(Protocol.Server.SERVER_RESPONSE, ResponseMsg::parseFrom, ResponseMsg.class);
     }
-
-    // 协议号--消息解析器
-    private HashMap<Integer, ParserManager.Parsing> protocolNumToParser = new HashMap<>();
-
-    // 消息类型--协议号
-    private HashMap<Class<? extends Message>, Integer> packetTypeToProtocolNum = new HashMap<>();
 
     /**
      * 注册
@@ -135,6 +136,11 @@ public class ParserManager
      */
     public Integer getPtoNum(Message msg)
     {
+        Integer ptoNum = packetTypeToProtocolNum.get(msg);
+        if (ptoNum == null) {
+            log.error("Unknown message type.Protocol type hasn't been register.{}", msg.getClass().getSimpleName());
+            return null;
+        }
         return getPtoNum(msg.getClass());
     }
 

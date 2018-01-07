@@ -1,4 +1,5 @@
-package com.luv.face2face.message;
+package com.luv.face2face.protobuf;
+
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -25,5 +26,10 @@ public class Protocol
         public static final Integer CHAT_SINGLE = 4000;
 
         public static final Integer CHAT_GROUP = 4001;
+    }
+
+    public static class Server
+    {
+        public static final Integer SERVER_RESPONSE = 4002;
     }
 }

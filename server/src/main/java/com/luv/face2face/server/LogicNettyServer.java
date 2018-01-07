@@ -31,7 +31,7 @@ public class LogicNettyServer extends AbstractNettyServerImpl
         throws Exception
     {
         Channel channel = serverBootstrap.bind(
-            new InetSocketAddress(18090)).sync().channel();
+            new InetSocketAddress("127.0.0.1",8088)).sync().channel();
         ALL_CHANNELS.add(channel);
     }
 

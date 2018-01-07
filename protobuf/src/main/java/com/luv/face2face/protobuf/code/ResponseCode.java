@@ -1,4 +1,4 @@
-package com.luv.face2face.message;
+package com.luv.face2face.protobuf.code;
 
 /**
  * @author XiangDe Liu qq313700046@icloud.com .

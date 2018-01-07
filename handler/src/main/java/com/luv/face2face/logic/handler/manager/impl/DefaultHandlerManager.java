@@ -101,8 +101,8 @@ public class DefaultHandlerManager implements HandlerManager
     }
 
     @Override
-    public IMHandler getHandler(Class<? extends Message> msg)
-    {
-        return handlerMap.get(msg);
+    public IMHandler getHandler(Message msg) {
+        return handlerMap.get(parserManager.getPtoNum(msg));
     }
+
 }

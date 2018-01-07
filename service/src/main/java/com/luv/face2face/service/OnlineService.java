@@ -1,11 +1,12 @@
 package com.luv.face2face.service;
 
 
+import com.google.protobuf.Message;
 import com.luv.face2face.domain.User;
 import com.luv.face2face.service.session.SessionCloseReason;
 import com.luv.face2face.service.session.UserConnectSession;
+
 import io.netty.channel.Channel;
-import sun.plugin2.message.Message;
 
 
 /**

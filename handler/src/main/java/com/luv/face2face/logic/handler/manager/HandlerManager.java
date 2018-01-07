@@ -36,6 +36,6 @@ public interface HandlerManager
      * @param msg
      * @return
      */
-    IMHandler getHandler(Class<? extends Message> msg);
+    IMHandler getHandler(Message msg);
 
 }
