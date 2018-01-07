@@ -3,14 +3,16 @@ package com.luv.face2face.protobuf.analysis;
 
 import com.google.protobuf.Message;
 import com.luv.face2face.protobuf.Protocol;
-import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
+import com.luv.face2face.protobuf.generate.ser2cli.friend.Server;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.HashMap;
 
+import static com.luv.face2face.protobuf.Protocol.Server.*;
 import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.friend.Server.*;
 import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 
@@ -56,11 +58,14 @@ public class ParserManager
             RequestChatToUserMsg.class);
         this.register(Protocol.Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
             RequestChatToGroupMsg.class);
-        this.register(Protocol.Server.SERVER_RESPONSE, ResponseMsg::parseFrom, ResponseMsg.class);
-        this.register(Protocol.Server.LOGIN_SUCCESS, ResServerLoginSucc::parseFrom, ResServerLoginSucc.class);
-        this.register(Protocol.Server.LOGIN_FAILD, ResServerLoginFailed::parseFrom, ResServerLoginFailed.class);
-        this.register(Protocol.Server.REGISTER_SUCCESS, ResServerRegisterSucc::parseFrom, ResServerRegisterSucc.class);
-        this.register(Protocol.Server.REGISTER_FAILD, ResServerRegisterFailed::parseFrom, ResServerRegisterFailed.class);
+        this.register(SERVER_RESPONSE, ResponseMsg::parseFrom, ResponseMsg.class);
+        this.register(LOGIN_SUCCESS, ResServerLoginSucc::parseFrom, ResServerLoginSucc.class);
+        this.register(LOGIN_FAILED, ResServerLoginFailed::parseFrom, ResServerLoginFailed.class);
+        this.register(REGISTER_SUCCESS, ResServerRegisterSucc::parseFrom, ResServerRegisterSucc.class);
+        this.register(REGISTER_FAILED, ResServerRegisterFailed::parseFrom, ResServerRegisterFailed.class);
+        this.register(LIST_FRIENDS, ResListFriends::parseFrom, ResListFriends.class);
+        this.register(FRIEND_LOGOUT, ResFriendLogout::parseFrom, ResFriendLogout.class);
+        this.register(FRIEND_LOGIN, ResFriendLogin::parseFrom, ResFriendLogin.class);
     }
 
     /**

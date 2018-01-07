@@ -56,8 +56,7 @@ public class OnlineServiceImpl implements OnlineService
     @Override
     public User getOnlineUserById(Long userId)
     {
-
-        return null;
+        return onlineSessions.get(userId);
     }
 
     @Override

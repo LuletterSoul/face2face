@@ -30,10 +30,13 @@ public class Protocol
 
     public static class Server
     {
-        public static final Integer SERVER_RESPONSE = 4002;
-        public static final Integer LOGIN_SUCCESS = 4003;
-        public static final Integer LOGIN_FAILD  = 4004;
-        public static final Integer REGISTER_SUCCESS =4005;
-        public static final Integer REGISTER_FAILD = 4006;
+        public static final Integer SERVER_RESPONSE = 5002;
+        public static final Integer LOGIN_SUCCESS = 5003;
+        public static final Integer LOGIN_FAILED = 5004;
+        public static final Integer REGISTER_SUCCESS =5005;
+        public static final Integer REGISTER_FAILED = 5006;
+        public static final Integer LIST_FRIENDS = 5007;
+        public static final Integer FRIEND_LOGIN = 5008;
+        public static final Integer FRIEND_LOGOUT = 5009;
     }
 }

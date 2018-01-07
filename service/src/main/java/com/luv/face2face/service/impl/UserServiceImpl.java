@@ -2,7 +2,9 @@ package com.luv.face2face.service.impl;
 
 
 import com.luv.face2face.domain.User;
+import com.luv.face2face.protobuf.Protocol;
 import com.luv.face2face.protobuf.code.ResponseCode;
+import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
 import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.UserService;
 import com.luv.face2face.service.session.ChannelUtils;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 
 /**
@@ -61,10 +64,9 @@ public class UserServiceImpl implements UserService
     public void registerNewAccount(User user, Channel channel) {
         UserConnectSession session = ChannelUtils.getSessionBy(channel);
         userJpaDao.save(user);
-        ResponseMsg.Builder builder = ResponseMsg.newBuilder();
-        builder.setCode(ResponseCode.REGISTER_SUCCESS);
+        ResServerRegisterSucc.Builder builder = ResServerRegisterSucc.newBuilder();
         builder.setDescription("注册成功！您的用户Id为：" + user.getUserId() + ".");
-        builder.setOptionalContent(user.getUserId().toString());
+        builder.setUserId(user.getUserId());
         session.sendPacket(builder.build());
     }
 

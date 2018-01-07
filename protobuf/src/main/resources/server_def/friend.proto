@@ -1,0 +1,29 @@
+option java_package = "com.luv.face2face.protobuf.generate.ser2cli.friend";
+option java_outer_classname = "Server";
+
+message FriendItemVo {
+    required int64 userId = 1;//好友ID
+    required string remark = 2;//备注
+    required string signature = 3;//个性签名
+    required string sex = 4;//性别
+    required int32 groupId = 5;//组号
+    required string groupName = 6;//组名
+    required bool isOnline = 7;//是否在线
+    required string nickname = 8;//昵称
+}
+
+
+message ResListFriends{
+    repeated FriendItemVo friend = 1;
+}
+
+message ResFriendLogin{
+    required int64 friendId =1;
+}
+
+message ResFriendLogout{
+    required int64 friendId =1;
+}
+
+
+

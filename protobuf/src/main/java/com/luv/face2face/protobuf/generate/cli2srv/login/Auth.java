@@ -1846,17 +1846,17 @@ public final class Auth {
     com.google.protobuf.ByteString
         getNicknameBytes();
 
-    // required string signature = 4;
+    // optional string signature = 4;
     /**
-     * <code>required string signature = 4;</code>
+     * <code>optional string signature = 4;</code>
      */
     boolean hasSignature();
     /**
-     * <code>required string signature = 4;</code>
+     * <code>optional string signature = 4;</code>
      */
     java.lang.String getSignature();
     /**
-     * <code>required string signature = 4;</code>
+     * <code>optional string signature = 4;</code>
      */
     com.google.protobuf.ByteString
         getSignatureBytes();
@@ -2105,17 +2105,17 @@ public final class Auth {
       }
     }
 
-    // required string signature = 4;
+    // optional string signature = 4;
     public static final int SIGNATURE_FIELD_NUMBER = 4;
     private java.lang.Object signature_;
     /**
-     * <code>required string signature = 4;</code>
+     * <code>optional string signature = 4;</code>
      */
     public boolean hasSignature() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required string signature = 4;</code>
+     * <code>optional string signature = 4;</code>
      */
     public java.lang.String getSignature() {
       java.lang.Object ref = signature_;
@@ -2132,7 +2132,7 @@ public final class Auth {
       }
     }
     /**
-     * <code>required string signature = 4;</code>
+     * <code>optional string signature = 4;</code>
      */
     public com.google.protobuf.ByteString
         getSignatureBytes() {
@@ -2168,10 +2168,6 @@ public final class Auth {
         return false;
       }
       if (!hasNickname()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasSignature()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -2444,10 +2440,6 @@ public final class Auth {
           
           return false;
         }
-        if (!hasSignature()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -2692,16 +2684,16 @@ public final class Auth {
         return this;
       }
 
-      // required string signature = 4;
+      // optional string signature = 4;
       private java.lang.Object signature_ = "";
       /**
-       * <code>required string signature = 4;</code>
+       * <code>optional string signature = 4;</code>
        */
       public boolean hasSignature() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required string signature = 4;</code>
+       * <code>optional string signature = 4;</code>
        */
       public java.lang.String getSignature() {
         java.lang.Object ref = signature_;
@@ -2715,7 +2707,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>required string signature = 4;</code>
+       * <code>optional string signature = 4;</code>
        */
       public com.google.protobuf.ByteString
           getSignatureBytes() {
@@ -2731,7 +2723,7 @@ public final class Auth {
         }
       }
       /**
-       * <code>required string signature = 4;</code>
+       * <code>optional string signature = 4;</code>
        */
       public Builder setSignature(
           java.lang.String value) {
@@ -2744,7 +2736,7 @@ public final class Auth {
         return this;
       }
       /**
-       * <code>required string signature = 4;</code>
+       * <code>optional string signature = 4;</code>
        */
       public Builder clearSignature() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -2753,7 +2745,7 @@ public final class Auth {
         return this;
       }
       /**
-       * <code>required string signature = 4;</code>
+       * <code>optional string signature = 4;</code>
        */
       public Builder setSignatureBytes(
           com.google.protobuf.ByteString value) {
@@ -5418,7 +5410,7 @@ public final class Auth {
       "int64\030\001 \002(\t\022\016\n\006passwd\030\002 \002(\t\022\020\n\010platform\030" +
       "\003 \001(\t\022\023\n\013app_version\030\004 \001(\t\"\\\n\026RequestUse" +
       "rRegisterMsg\022\020\n\010password\030\001 \002(\t\022\013\n\003sex\030\002 " +
-      "\002(\t\022\020\n\010nickname\030\003 \002(\t\022\021\n\tsignature\030\004 \002(\t" +
+      "\002(\t\022\020\n\010nickname\030\003 \002(\t\022\021\n\tsignature\030\004 \001(\t" +
       "\"3\n\017RequestLoginMsg\022\016\n\006userId\030\001 \002(\003\022\020\n\010p" +
       "assword\030\003 \002(\t\"\"\n\020RequestLogoutMsg\022\016\n\006use" +
       "rId\030\001 \002(\003\"\'\n\tSResponse\022\014\n\004code\030\001 \002(\005\022\014\n\004" +

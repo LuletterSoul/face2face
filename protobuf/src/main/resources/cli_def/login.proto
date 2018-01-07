@@ -17,7 +17,7 @@ message RequestUserRegisterMsg{
 	required string password = 1;
 	required string sex = 2;
 	required string nickname = 3;
-	required string signature=4;
+	optional string signature=4;
 }
 
 

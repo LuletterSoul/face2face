@@ -4,7 +4,7 @@ import com.kingston.im.net.message.ByteBufBean;
 
 import io.netty.buffer.ByteBuf;
 
-public class FriendItemVo extends ByteBufBean {
+public class  FriendItemVo extends ByteBufBean {
 
 	private long userId;
 	/** 在线状态 {@link Constants#online_status} */
@@ -98,7 +98,7 @@ public class FriendItemVo extends ByteBufBean {
 	@Override
 	public String toString() {
 		return "FriendItemVo [userId=" + userId + ", online=" + online + ", userName=" + userName + ", remark=" + remark
-				+ ", signature=" + signature + ", sex=" + sex + ", group=" + group + ", groupName=" + groupName + "]";
+				+ ", signature=" + signature + ", sex=" + sex + ", groupId=" + group + ", groupName=" + groupName + "]";
 	}
 
 }
