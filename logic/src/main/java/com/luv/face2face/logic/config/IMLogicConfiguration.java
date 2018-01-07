@@ -66,17 +66,16 @@ public class IMLogicConfiguration
     @Bean
     public ParserManager parserManager()
     {
-        ParserManager parserManager = new ParserManager();
-        parserManager.register(Protocol.User.USER_LOGIN, RequestLoginMsg::parseFrom,
-            RequestLoginMsg.class);
-        parserManager.register(Protocol.User.USER_LOGOUT, RequestLogoutMsg::parseFrom,
-            RequestLogoutMsg.class);
-        parserManager.register(Protocol.User.USER_REGISTER, RequestUserRegisterMsg::parseFrom,
-            RequestUserRegisterMsg.class);
-        parserManager.register(Protocol.Chat.CHAT_SINGLE, RequestChatToUserMsg::parseFrom,
-            RequestChatToUserMsg.class);
-        parserManager.register(Protocol.Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
-            RequestChatToGroupMsg.class);
-        return parserManager;
+        //        parserManager.register(Protocol.User.USER_LOGIN, RequestLoginMsg::parseFrom,
+//            RequestLoginMsg.class);
+//        parserManager.register(Protocol.User.USER_LOGOUT, RequestLogoutMsg::parseFrom,
+//            RequestLogoutMsg.class);
+//        parserManager.register(Protocol.User.USER_REGISTER, RequestUserRegisterMsg::parseFrom,
+//            RequestUserRegisterMsg.class);
+//        parserManager.register(Protocol.Chat.CHAT_SINGLE, RequestChatToUserMsg::parseFrom,
+//            RequestChatToUserMsg.class);
+//        parserManager.register(Protocol.Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
+//            RequestChatToGroupMsg.class);
+        return new ParserManager();
     }
 }

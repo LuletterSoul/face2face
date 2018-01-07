@@ -5,6 +5,8 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
 import java.util.Map;
@@ -16,6 +18,7 @@ import java.util.Map;
  * @since luv-face2face
  */
 
+@Component
 public class NettyIMServerConfiguration
 {
     private Map<ChannelOption<?>, Object> channelOptions;

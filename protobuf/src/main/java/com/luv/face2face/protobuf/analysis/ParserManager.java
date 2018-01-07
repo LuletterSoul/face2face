@@ -2,11 +2,16 @@ package com.luv.face2face.protobuf.analysis;
 
 
 import com.google.protobuf.Message;
+import com.luv.face2face.message.Protocol;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
+
+import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
+import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
 
 
 /**
@@ -18,15 +23,31 @@ import java.util.HashMap;
 /**
  * 维护一组解析器 可根据消息包中的协议号、消息类型获得对应的处理器
  */
+@Slf4j
 public class ParserManager
 {
-    private static final Logger logger = LoggerFactory.getLogger(ParserManager.class);
-
     @FunctionalInterface
     public interface Parsing
     {
         Message process(byte[] bytes)
             throws IOException;
+    }
+
+    public ParserManager() {
+        initDefaultProtocol();
+    }
+
+    private void initDefaultProtocol()
+    {
+        this.register(Protocol.User.USER_LOGIN, RequestLoginMsg::parseFrom, RequestLoginMsg.class);
+        this.register(Protocol.User.USER_LOGOUT, RequestLogoutMsg::parseFrom,
+            RequestLogoutMsg.class);
+        this.register(Protocol.User.USER_REGISTER, RequestUserRegisterMsg::parseFrom,
+            RequestUserRegisterMsg.class);
+        this.register(Protocol.Chat.CHAT_SINGLE, RequestChatToUserMsg::parseFrom,
+            RequestChatToUserMsg.class);
+        this.register(Protocol.Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
+            RequestChatToGroupMsg.class);
     }
 
     // 协议号--消息解析器
@@ -66,7 +87,7 @@ public class ParserManager
             packetTypeToProtocolNum.put(cla, ptoNum);
         else
         {
-            logger.error("pto has been registered in msg2ptoNum, ptoNum: {}", ptoNum);
+            log.error("pto has been registered in msg2ptoNum, ptoNum: {}", ptoNum);
         }
     }
 
@@ -84,7 +105,7 @@ public class ParserManager
             protocolNumToParser.put(ptoNum, parse);
         else
         {
-            logger.error("pto has been registered in parseMap, ptoNum: {}", ptoNum);
+            log.error("pto has been registered in parseMap, ptoNum: {}", ptoNum);
         }
     }
 
@@ -100,7 +121,7 @@ public class ParserManager
         Parsing parser = protocolNumToParser.get(ptoNum);
         if (parser == null)
         {
-            logger.error("Miss match parser.UnKnown Protocol Num: {}", ptoNum);
+            log.error("Miss match parser.UnKnown Protocol Num: {}", ptoNum);
         }
         return parser.process(bytes);
     }

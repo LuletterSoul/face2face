@@ -4,18 +4,21 @@ import com.google.protobuf.Message;
 import com.luv.face2face.protobuf.analysis.ParseMap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static org.springframework.web.context.WebApplicationContext.SCOPE_REQUEST;
+
 /**
  * Created by Administrator on 2016/1/29.
  */
-@Component(value = "packetDecoder")
 public class PacketDecoder extends ByteToMessageDecoder {
     private static final Logger logger = LoggerFactory.getLogger(PacketDecoder.class);
 

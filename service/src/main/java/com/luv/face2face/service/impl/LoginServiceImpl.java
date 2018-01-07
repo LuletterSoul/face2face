@@ -54,12 +54,11 @@ public class LoginServiceImpl implements LoginService
     {
         User user = validateUser(userId, password);
         UserConnectSession userConnectSession = ChannelUtils.getSessionBy(channel);
-        ResponseUserStatusChangeMsg.Builder builder = ResponseUserStatusChangeMsg.newBuilder();
+        ResponseMsg.Builder builder = ResponseMsg.newBuilder();
         if (user == null)
         {
             builder.setCode(ResponseCode.LOGOUT_FAILED);
             builder.setDescription("账号或密码不合法.");
-            userConnectSession.sendPacket(builder.build());
             return;
         }
         if (onlineService.registerSession(user, channel))
@@ -68,6 +67,7 @@ public class LoginServiceImpl implements LoginService
             builder.setDescription("登陆成功");
             onlineService.getOnlineUserSessionById(userId).sendPacket(builder.build());
         }
+        userConnectSession.sendPacket(builder.build());
         lruUsers.put(userId, user);
     }
 

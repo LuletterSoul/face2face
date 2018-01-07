@@ -24,10 +24,10 @@ message RequestUserRegisterMsg{
 //用户登录数据包
 message RequestLoginMsg{
 	required int64 userId = 1;//用户id
-	required string nickname = 2;//用户昵称
+//	required string nickname = 2;//用户昵称
 	required string password =3;//密码
-	required string signature=4;//个性签名
-	required string platform =5;//客户端平台编号:android,ios,web
+//	required string signature=4;//个性签名
+//	required string platform =5;//客户端平台编号:android,ios,web
 }
 
 //用户登出数据包
@@ -57,7 +57,8 @@ message SResponse {
 205 -- logout successfully
 206 -- logout failed
 */
-message ResponseUserStatusChangeMsg{
+message ResponseMsg{
 	required int32 code = 1;//返回码
 	required string description = 2;//描述
+	optional string optionalContent = 3;
 }

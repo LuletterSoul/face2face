@@ -27,13 +27,12 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="protobuf" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.6.1" level="project" />
-    <orderEntry type="module" module-name="thirdparty" />
+    <orderEntry type="module" module-name="message" />
     <orderEntry type="module" module-name="service" />
     <orderEntry type="module" module-name="domain" />
     <orderEntry type="module" module-name="repository" />
     <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.3.4" level="project" />
-    <orderEntry type="module" module-name="message" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:1.5.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.9.RELEASE" level="project" />

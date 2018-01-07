@@ -8,19 +8,19 @@ package com.luv.face2face.message;
 
 public class ResponseCode
 {
-    public static final Integer REGISTER_SUCCESS = 200;
+    public static final int REGISTER_SUCCESS = 200;
 
-    public static final Integer REGISTER_FAILED = 201;
+    public static final int REGISTER_FAILED = 201;
 
-    public static final Integer REGISTER_DUM = 202;
+    public static final int REGISTER_DUM = 202;
 
-    public static final Integer LOGIN_SUCCESS = 203;
+    public static final int LOGIN_SUCCESS = 203;
 
-    public static final Integer SESSION_CREATED = 204;
+    public static final int SESSION_CREATED = 204;
 
-    public static final Integer LOGIN_FAILED = 205;
+    public static final int LOGIN_FAILED = 205;
 
-    public static final Integer LOGOUT_SUCCESS = 207;
+    public static final int LOGOUT_SUCCESS = 207;
 
-    public static final Integer LOGOUT_FAILED = 207;
+    public static final int LOGOUT_FAILED = 207;
 }

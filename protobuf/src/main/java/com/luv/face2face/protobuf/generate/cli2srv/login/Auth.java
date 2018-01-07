@@ -2798,39 +2798,12 @@ public final class Auth {
      */
     long getUserId();
 
-    // required string nickname = 2;
-    /**
-     * <code>required string nickname = 2;</code>
-     *
-     * <pre>
-     *用户昵称
-     * </pre>
-     */
-    boolean hasNickname();
-    /**
-     * <code>required string nickname = 2;</code>
-     *
-     * <pre>
-     *用户昵称
-     * </pre>
-     */
-    java.lang.String getNickname();
-    /**
-     * <code>required string nickname = 2;</code>
-     *
-     * <pre>
-     *用户昵称
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getNicknameBytes();
-
     // required string password = 3;
     /**
      * <code>required string password = 3;</code>
      *
      * <pre>
-     *密码
+     *	required string nickname = 2;//用户昵称
      * </pre>
      */
     boolean hasPassword();
@@ -2838,7 +2811,7 @@ public final class Auth {
      * <code>required string password = 3;</code>
      *
      * <pre>
-     *密码
+     *	required string nickname = 2;//用户昵称
      * </pre>
      */
     java.lang.String getPassword();
@@ -2846,65 +2819,11 @@ public final class Auth {
      * <code>required string password = 3;</code>
      *
      * <pre>
-     *密码
+     *	required string nickname = 2;//用户昵称
      * </pre>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
-
-    // required string signature = 4;
-    /**
-     * <code>required string signature = 4;</code>
-     *
-     * <pre>
-     *个性签名
-     * </pre>
-     */
-    boolean hasSignature();
-    /**
-     * <code>required string signature = 4;</code>
-     *
-     * <pre>
-     *个性签名
-     * </pre>
-     */
-    java.lang.String getSignature();
-    /**
-     * <code>required string signature = 4;</code>
-     *
-     * <pre>
-     *个性签名
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getSignatureBytes();
-
-    // required string platform = 5;
-    /**
-     * <code>required string platform = 5;</code>
-     *
-     * <pre>
-     *客户端平台编号:android,ios,web
-     * </pre>
-     */
-    boolean hasPlatform();
-    /**
-     * <code>required string platform = 5;</code>
-     *
-     * <pre>
-     *客户端平台编号:android,ios,web
-     * </pre>
-     */
-    java.lang.String getPlatform();
-    /**
-     * <code>required string platform = 5;</code>
-     *
-     * <pre>
-     *客户端平台编号:android,ios,web
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getPlatformBytes();
   }
   /**
    * Protobuf type {@code RequestLoginMsg}
@@ -2966,24 +2885,9 @@ public final class Auth {
               userId_ = input.readInt64();
               break;
             }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              nickname_ = input.readBytes();
-              break;
-            }
             case 26: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               password_ = input.readBytes();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              signature_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000010;
-              platform_ = input.readBytes();
               break;
             }
           }
@@ -3050,61 +2954,6 @@ public final class Auth {
       return userId_;
     }
 
-    // required string nickname = 2;
-    public static final int NICKNAME_FIELD_NUMBER = 2;
-    private java.lang.Object nickname_;
-    /**
-     * <code>required string nickname = 2;</code>
-     *
-     * <pre>
-     *用户昵称
-     * </pre>
-     */
-    public boolean hasNickname() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required string nickname = 2;</code>
-     *
-     * <pre>
-     *用户昵称
-     * </pre>
-     */
-    public java.lang.String getNickname() {
-      java.lang.Object ref = nickname_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          nickname_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string nickname = 2;</code>
-     *
-     * <pre>
-     *用户昵称
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getNicknameBytes() {
-      java.lang.Object ref = nickname_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        nickname_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     // required string password = 3;
     public static final int PASSWORD_FIELD_NUMBER = 3;
     private java.lang.Object password_;
@@ -3112,17 +2961,17 @@ public final class Auth {
      * <code>required string password = 3;</code>
      *
      * <pre>
-     *密码
+     *	required string nickname = 2;//用户昵称
      * </pre>
      */
     public boolean hasPassword() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>required string password = 3;</code>
      *
      * <pre>
-     *密码
+     *	required string nickname = 2;//用户昵称
      * </pre>
      */
     public java.lang.String getPassword() {
@@ -3143,7 +2992,7 @@ public final class Auth {
      * <code>required string password = 3;</code>
      *
      * <pre>
-     *密码
+     *	required string nickname = 2;//用户昵称
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -3160,122 +3009,9 @@ public final class Auth {
       }
     }
 
-    // required string signature = 4;
-    public static final int SIGNATURE_FIELD_NUMBER = 4;
-    private java.lang.Object signature_;
-    /**
-     * <code>required string signature = 4;</code>
-     *
-     * <pre>
-     *个性签名
-     * </pre>
-     */
-    public boolean hasSignature() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>required string signature = 4;</code>
-     *
-     * <pre>
-     *个性签名
-     * </pre>
-     */
-    public java.lang.String getSignature() {
-      java.lang.Object ref = signature_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          signature_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string signature = 4;</code>
-     *
-     * <pre>
-     *个性签名
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getSignatureBytes() {
-      java.lang.Object ref = signature_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        signature_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // required string platform = 5;
-    public static final int PLATFORM_FIELD_NUMBER = 5;
-    private java.lang.Object platform_;
-    /**
-     * <code>required string platform = 5;</code>
-     *
-     * <pre>
-     *客户端平台编号:android,ios,web
-     * </pre>
-     */
-    public boolean hasPlatform() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>required string platform = 5;</code>
-     *
-     * <pre>
-     *客户端平台编号:android,ios,web
-     * </pre>
-     */
-    public java.lang.String getPlatform() {
-      java.lang.Object ref = platform_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          platform_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string platform = 5;</code>
-     *
-     * <pre>
-     *客户端平台编号:android,ios,web
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getPlatformBytes() {
-      java.lang.Object ref = platform_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        platform_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private void initFields() {
       userId_ = 0L;
-      nickname_ = "";
       password_ = "";
-      signature_ = "";
-      platform_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3286,19 +3022,7 @@ public final class Auth {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasNickname()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (!hasPassword()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasSignature()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasPlatform()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3313,16 +3037,7 @@ public final class Auth {
         output.writeInt64(1, userId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getNicknameBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getPasswordBytes());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getSignatureBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getPlatformBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -3339,19 +3054,7 @@ public final class Auth {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getNicknameBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getPasswordBytes());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getSignatureBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getPlatformBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3475,14 +3178,8 @@ public final class Auth {
         super.clear();
         userId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        nickname_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         password_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
-        signature_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
-        platform_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3518,19 +3215,7 @@ public final class Auth {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.nickname_ = nickname_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.password_ = password_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.signature_ = signature_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.platform_ = platform_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3550,24 +3235,9 @@ public final class Auth {
         if (other.hasUserId()) {
           setUserId(other.getUserId());
         }
-        if (other.hasNickname()) {
-          bitField0_ |= 0x00000002;
-          nickname_ = other.nickname_;
-          onChanged();
-        }
         if (other.hasPassword()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
           password_ = other.password_;
-          onChanged();
-        }
-        if (other.hasSignature()) {
-          bitField0_ |= 0x00000008;
-          signature_ = other.signature_;
-          onChanged();
-        }
-        if (other.hasPlatform()) {
-          bitField0_ |= 0x00000010;
-          platform_ = other.platform_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -3579,19 +3249,7 @@ public final class Auth {
           
           return false;
         }
-        if (!hasNickname()) {
-          
-          return false;
-        }
         if (!hasPassword()) {
-          
-          return false;
-        }
-        if (!hasSignature()) {
-          
-          return false;
-        }
-        if (!hasPlatform()) {
           
           return false;
         }
@@ -3666,121 +3324,23 @@ public final class Auth {
         return this;
       }
 
-      // required string nickname = 2;
-      private java.lang.Object nickname_ = "";
-      /**
-       * <code>required string nickname = 2;</code>
-       *
-       * <pre>
-       *用户昵称
-       * </pre>
-       */
-      public boolean hasNickname() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required string nickname = 2;</code>
-       *
-       * <pre>
-       *用户昵称
-       * </pre>
-       */
-      public java.lang.String getNickname() {
-        java.lang.Object ref = nickname_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          nickname_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string nickname = 2;</code>
-       *
-       * <pre>
-       *用户昵称
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getNicknameBytes() {
-        java.lang.Object ref = nickname_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          nickname_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string nickname = 2;</code>
-       *
-       * <pre>
-       *用户昵称
-       * </pre>
-       */
-      public Builder setNickname(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        nickname_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string nickname = 2;</code>
-       *
-       * <pre>
-       *用户昵称
-       * </pre>
-       */
-      public Builder clearNickname() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        nickname_ = getDefaultInstance().getNickname();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string nickname = 2;</code>
-       *
-       * <pre>
-       *用户昵称
-       * </pre>
-       */
-      public Builder setNicknameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        nickname_ = value;
-        onChanged();
-        return this;
-      }
-
       // required string password = 3;
       private java.lang.Object password_ = "";
       /**
        * <code>required string password = 3;</code>
        *
        * <pre>
-       *密码
+       *	required string nickname = 2;//用户昵称
        * </pre>
        */
       public boolean hasPassword() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>required string password = 3;</code>
        *
        * <pre>
-       *密码
+       *	required string nickname = 2;//用户昵称
        * </pre>
        */
       public java.lang.String getPassword() {
@@ -3798,7 +3358,7 @@ public final class Auth {
        * <code>required string password = 3;</code>
        *
        * <pre>
-       *密码
+       *	required string nickname = 2;//用户昵称
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -3818,7 +3378,7 @@ public final class Auth {
        * <code>required string password = 3;</code>
        *
        * <pre>
-       *密码
+       *	required string nickname = 2;//用户昵称
        * </pre>
        */
       public Builder setPassword(
@@ -3826,7 +3386,7 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000002;
         password_ = value;
         onChanged();
         return this;
@@ -3835,11 +3395,11 @@ public final class Auth {
        * <code>required string password = 3;</code>
        *
        * <pre>
-       *密码
+       *	required string nickname = 2;//用户昵称
        * </pre>
        */
       public Builder clearPassword() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         password_ = getDefaultInstance().getPassword();
         onChanged();
         return this;
@@ -3848,7 +3408,7 @@ public final class Auth {
        * <code>required string password = 3;</code>
        *
        * <pre>
-       *密码
+       *	required string nickname = 2;//用户昵称
        * </pre>
        */
       public Builder setPasswordBytes(
@@ -3856,204 +3416,8 @@ public final class Auth {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000002;
         password_ = value;
-        onChanged();
-        return this;
-      }
-
-      // required string signature = 4;
-      private java.lang.Object signature_ = "";
-      /**
-       * <code>required string signature = 4;</code>
-       *
-       * <pre>
-       *个性签名
-       * </pre>
-       */
-      public boolean hasSignature() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>required string signature = 4;</code>
-       *
-       * <pre>
-       *个性签名
-       * </pre>
-       */
-      public java.lang.String getSignature() {
-        java.lang.Object ref = signature_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          signature_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string signature = 4;</code>
-       *
-       * <pre>
-       *个性签名
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getSignatureBytes() {
-        java.lang.Object ref = signature_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          signature_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string signature = 4;</code>
-       *
-       * <pre>
-       *个性签名
-       * </pre>
-       */
-      public Builder setSignature(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        signature_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string signature = 4;</code>
-       *
-       * <pre>
-       *个性签名
-       * </pre>
-       */
-      public Builder clearSignature() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        signature_ = getDefaultInstance().getSignature();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string signature = 4;</code>
-       *
-       * <pre>
-       *个性签名
-       * </pre>
-       */
-      public Builder setSignatureBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        signature_ = value;
-        onChanged();
-        return this;
-      }
-
-      // required string platform = 5;
-      private java.lang.Object platform_ = "";
-      /**
-       * <code>required string platform = 5;</code>
-       *
-       * <pre>
-       *客户端平台编号:android,ios,web
-       * </pre>
-       */
-      public boolean hasPlatform() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>required string platform = 5;</code>
-       *
-       * <pre>
-       *客户端平台编号:android,ios,web
-       * </pre>
-       */
-      public java.lang.String getPlatform() {
-        java.lang.Object ref = platform_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          platform_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string platform = 5;</code>
-       *
-       * <pre>
-       *客户端平台编号:android,ios,web
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getPlatformBytes() {
-        java.lang.Object ref = platform_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          platform_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string platform = 5;</code>
-       *
-       * <pre>
-       *客户端平台编号:android,ios,web
-       * </pre>
-       */
-      public Builder setPlatform(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        platform_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string platform = 5;</code>
-       *
-       * <pre>
-       *客户端平台编号:android,ios,web
-       * </pre>
-       */
-      public Builder clearPlatform() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        platform_ = getDefaultInstance().getPlatform();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string platform = 5;</code>
-       *
-       * <pre>
-       *客户端平台编号:android,ios,web
-       * </pre>
-       */
-      public Builder setPlatformBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        platform_ = value;
         onChanged();
         return this;
       }
@@ -5177,7 +4541,7 @@ public final class Auth {
     // @@protoc_insertion_point(class_scope:SResponse)
   }
 
-  public interface ResponseUserStatusChangeMsgOrBuilder
+  public interface ResponseMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required int32 code = 1;
@@ -5224,9 +4588,24 @@ public final class Auth {
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
+
+    // optional string optionalContent = 3;
+    /**
+     * <code>optional string optionalContent = 3;</code>
+     */
+    boolean hasOptionalContent();
+    /**
+     * <code>optional string optionalContent = 3;</code>
+     */
+    java.lang.String getOptionalContent();
+    /**
+     * <code>optional string optionalContent = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getOptionalContentBytes();
   }
   /**
-   * Protobuf type {@code ResponseUserStatusChangeMsg}
+   * Protobuf type {@code ResponseMsg}
    *
    * <pre>
    *
@@ -5240,22 +4619,22 @@ public final class Auth {
    *206 -- logout failed
    * </pre>
    */
-  public static final class ResponseUserStatusChangeMsg extends
+  public static final class ResponseMsg extends
       com.google.protobuf.GeneratedMessage
-      implements ResponseUserStatusChangeMsgOrBuilder {
-    // Use ResponseUserStatusChangeMsg.newBuilder() to construct.
-    private ResponseUserStatusChangeMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements ResponseMsgOrBuilder {
+    // Use ResponseMsg.newBuilder() to construct.
+    private ResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ResponseUserStatusChangeMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private ResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ResponseUserStatusChangeMsg defaultInstance;
-    public static ResponseUserStatusChangeMsg getDefaultInstance() {
+    private static final ResponseMsg defaultInstance;
+    public static ResponseMsg getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ResponseUserStatusChangeMsg getDefaultInstanceForType() {
+    public ResponseMsg getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -5265,7 +4644,7 @@ public final class Auth {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ResponseUserStatusChangeMsg(
+    private ResponseMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5298,6 +4677,11 @@ public final class Auth {
               description_ = input.readBytes();
               break;
             }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              optionalContent_ = input.readBytes();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5312,28 +4696,28 @@ public final class Auth {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseUserStatusChangeMsg_descriptor;
+      return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseUserStatusChangeMsg_fieldAccessorTable
+      return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.class, com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.Builder.class);
+              com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg.class, com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ResponseUserStatusChangeMsg> PARSER =
-        new com.google.protobuf.AbstractParser<ResponseUserStatusChangeMsg>() {
-      public ResponseUserStatusChangeMsg parsePartialFrom(
+    public static com.google.protobuf.Parser<ResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<ResponseMsg>() {
+      public ResponseMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResponseUserStatusChangeMsg(input, extensionRegistry);
+        return new ResponseMsg(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ResponseUserStatusChangeMsg> getParserForType() {
+    public com.google.protobuf.Parser<ResponseMsg> getParserForType() {
       return PARSER;
     }
 
@@ -5417,9 +4801,53 @@ public final class Auth {
       }
     }
 
+    // optional string optionalContent = 3;
+    public static final int OPTIONALCONTENT_FIELD_NUMBER = 3;
+    private java.lang.Object optionalContent_;
+    /**
+     * <code>optional string optionalContent = 3;</code>
+     */
+    public boolean hasOptionalContent() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string optionalContent = 3;</code>
+     */
+    public java.lang.String getOptionalContent() {
+      java.lang.Object ref = optionalContent_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          optionalContent_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string optionalContent = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOptionalContentBytes() {
+      java.lang.Object ref = optionalContent_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        optionalContent_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       code_ = 0;
       description_ = "";
+      optionalContent_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -5447,6 +4875,9 @@ public final class Auth {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getDescriptionBytes());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getOptionalContentBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -5464,6 +4895,10 @@ public final class Auth {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getDescriptionBytes());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getOptionalContentBytes());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -5476,53 +4911,53 @@ public final class Auth {
       return super.writeReplace();
     }
 
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(byte[] data)
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseDelimitedFrom(java.io.InputStream input)
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseDelimitedFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parseFrom(
+    public static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5531,7 +4966,7 @@ public final class Auth {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg prototype) {
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -5543,7 +4978,7 @@ public final class Auth {
       return builder;
     }
     /**
-     * Protobuf type {@code ResponseUserStatusChangeMsg}
+     * Protobuf type {@code ResponseMsg}
      *
      * <pre>
      *
@@ -5559,20 +4994,20 @@ public final class Auth {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsgOrBuilder {
+       implements com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseUserStatusChangeMsg_descriptor;
+        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseUserStatusChangeMsg_fieldAccessorTable
+        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.class, com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.Builder.class);
+                com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg.class, com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg.Builder.class);
       }
 
-      // Construct using com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.newBuilder()
+      // Construct using com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5596,6 +5031,8 @@ public final class Auth {
         bitField0_ = (bitField0_ & ~0x00000001);
         description_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        optionalContent_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -5605,23 +5042,23 @@ public final class Auth {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseUserStatusChangeMsg_descriptor;
+        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.internal_static_ResponseMsg_descriptor;
       }
 
-      public com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg getDefaultInstanceForType() {
-        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.getDefaultInstance();
+      public com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg.getDefaultInstance();
       }
 
-      public com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg build() {
-        com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg result = buildPartial();
+      public com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg build() {
+        com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg buildPartial() {
-        com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg result = new com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg(this);
+      public com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg buildPartial() {
+        com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg result = new com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5632,28 +5069,37 @@ public final class Auth {
           to_bitField0_ |= 0x00000002;
         }
         result.description_ = description_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.optionalContent_ = optionalContent_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg) {
-          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg)other);
+        if (other instanceof com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg other) {
-        if (other == com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg other) {
+        if (other == com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
         if (other.hasDescription()) {
           bitField0_ |= 0x00000002;
           description_ = other.description_;
+          onChanged();
+        }
+        if (other.hasOptionalContent()) {
+          bitField0_ |= 0x00000004;
+          optionalContent_ = other.optionalContent_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -5676,11 +5122,11 @@ public final class Auth {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg parsedMessage = null;
+        com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseUserStatusChangeMsg) e.getUnfinishedMessage();
+          parsedMessage = (com.luv.face2face.protobuf.generate.cli2srv.login.Auth.ResponseMsg) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -5838,15 +5284,89 @@ public final class Auth {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:ResponseUserStatusChangeMsg)
+      // optional string optionalContent = 3;
+      private java.lang.Object optionalContent_ = "";
+      /**
+       * <code>optional string optionalContent = 3;</code>
+       */
+      public boolean hasOptionalContent() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string optionalContent = 3;</code>
+       */
+      public java.lang.String getOptionalContent() {
+        java.lang.Object ref = optionalContent_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          optionalContent_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string optionalContent = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOptionalContentBytes() {
+        java.lang.Object ref = optionalContent_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          optionalContent_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string optionalContent = 3;</code>
+       */
+      public Builder setOptionalContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        optionalContent_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string optionalContent = 3;</code>
+       */
+      public Builder clearOptionalContent() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        optionalContent_ = getDefaultInstance().getOptionalContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string optionalContent = 3;</code>
+       */
+      public Builder setOptionalContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        optionalContent_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ResponseMsg)
     }
 
     static {
-      defaultInstance = new ResponseUserStatusChangeMsg(true);
+      defaultInstance = new ResponseMsg(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:ResponseUserStatusChangeMsg)
+    // @@protoc_insertion_point(class_scope:ResponseMsg)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -5880,10 +5400,10 @@ public final class Auth {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_SResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_ResponseUserStatusChangeMsg_descriptor;
+    internal_static_ResponseMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_ResponseUserStatusChangeMsg_fieldAccessorTable;
+      internal_static_ResponseMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5899,14 +5419,13 @@ public final class Auth {
       "\003 \001(\t\022\023\n\013app_version\030\004 \001(\t\"\\\n\026RequestUse" +
       "rRegisterMsg\022\020\n\010password\030\001 \002(\t\022\013\n\003sex\030\002 " +
       "\002(\t\022\020\n\010nickname\030\003 \002(\t\022\021\n\tsignature\030\004 \002(\t" +
-      "\"j\n\017RequestLoginMsg\022\016\n\006userId\030\001 \002(\003\022\020\n\010n" +
-      "ickname\030\002 \002(\t\022\020\n\010password\030\003 \002(\t\022\021\n\tsigna" +
-      "ture\030\004 \002(\t\022\020\n\010platform\030\005 \002(\t\"\"\n\020RequestL" +
-      "ogoutMsg\022\016\n\006userId\030\001 \002(\003\"\'\n\tSResponse\022\014\n",
-      "\004code\030\001 \002(\005\022\014\n\004desc\030\002 \002(\t\"@\n\033ResponseUse" +
-      "rStatusChangeMsg\022\014\n\004code\030\001 \002(\005\022\023\n\013descri" +
-      "ption\030\002 \002(\tB9\n1com.luv.face2face.protobu" +
-      "f.generate.cli2srv.loginB\004Auth"
+      "\"3\n\017RequestLoginMsg\022\016\n\006userId\030\001 \002(\003\022\020\n\010p" +
+      "assword\030\003 \002(\t\"\"\n\020RequestLogoutMsg\022\016\n\006use" +
+      "rId\030\001 \002(\003\"\'\n\tSResponse\022\014\n\004code\030\001 \002(\005\022\014\n\004" +
+      "desc\030\002 \002(\t\"I\n\013ResponseMsg\022\014\n\004code\030\001 \002(\005\022",
+      "\023\n\013description\030\002 \002(\t\022\027\n\017optionalContent\030" +
+      "\003 \001(\tB9\n1com.luv.face2face.protobuf.gene" +
+      "rate.cli2srv.loginB\004Auth"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -5936,7 +5455,7 @@ public final class Auth {
           internal_static_RequestLoginMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_RequestLoginMsg_descriptor,
-              new java.lang.String[] { "UserId", "Nickname", "Password", "Signature", "Platform", });
+              new java.lang.String[] { "UserId", "Password", });
           internal_static_RequestLogoutMsg_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_RequestLogoutMsg_fieldAccessorTable = new
@@ -5949,12 +5468,12 @@ public final class Auth {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_SResponse_descriptor,
               new java.lang.String[] { "Code", "Desc", });
-          internal_static_ResponseUserStatusChangeMsg_descriptor =
+          internal_static_ResponseMsg_descriptor =
             getDescriptor().getMessageTypes().get(6);
-          internal_static_ResponseUserStatusChangeMsg_fieldAccessorTable = new
+          internal_static_ResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ResponseUserStatusChangeMsg_descriptor,
-              new java.lang.String[] { "Code", "Description", });
+              internal_static_ResponseMsg_descriptor,
+              new java.lang.String[] { "Code", "Description", "OptionalContent", });
           return null;
         }
       };

@@ -1,7 +1,6 @@
 package com.luv.face2face.service.impl;
 
 
-import com.google.protobuf.Message;
 import com.luv.face2face.domain.User;
 import com.luv.face2face.message.ResponseCode;
 import com.luv.face2face.repository.UserJpaDao;
@@ -62,9 +61,10 @@ public class UserServiceImpl implements UserService
     public void registerNewAccount(User user, Channel channel) {
         UserConnectSession session = ChannelUtils.getSessionBy(channel);
         userJpaDao.save(user);
-        ResponseUserStatusChangeMsg.Builder builder = ResponseUserStatusChangeMsg.newBuilder();
+        ResponseMsg.Builder builder = ResponseMsg.newBuilder();
         builder.setCode(ResponseCode.REGISTER_SUCCESS);
         builder.setDescription("注册成功！您的用户Id为：" + user.getUserId() + ".");
+        builder.setOptionalContent(user.getUserId().toString());
         session.sendPacket(builder.build());
     }
 

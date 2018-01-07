@@ -30,6 +30,11 @@ public class DefaultHandlerManager implements HandlerManager
 
     private ParserManager parserManager;
 
+    public DefaultHandlerManager() {
+
+    }
+
+
     public void setHandlerMap(Map<Integer, IMHandler> handlerMap)
     {
         this.handlerMap = handlerMap;

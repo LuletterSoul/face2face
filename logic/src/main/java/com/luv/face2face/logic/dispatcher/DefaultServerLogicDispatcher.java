@@ -9,6 +9,7 @@ import com.luv.face2face.logic.net.UserConnectSession;
 import com.luv.face2face.logic.task.ChannelTask;
 import com.luv.face2face.logic.task.ChannelTaskImpl;
 import com.luv.face2face.protobuf.generate.internal.Internal;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelPromise;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Getter
 @Setter
+@ChannelHandler.Sharable
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class DefaultServerLogicDispatcher extends ChannelHandlerAdapter implements LogicServerDispatcher
 {
@@ -100,4 +102,8 @@ public class DefaultServerLogicDispatcher extends ChannelHandlerAdapter implemen
         this.dispatch(ctx, message, protocolNum);
     }
 
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        super.exceptionCaught(ctx, cause);
+    }
 }

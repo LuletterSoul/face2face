@@ -25,13 +25,7 @@ import javax.annotation.PreDestroy;
 @SpringBootApplication
 public class FaceToFaceApplication
 {
-    private IMServer server;
 
-    @Qualifier("logicNettyServer")
-    public void setServer(IMServer server)
-    {
-        this.server = server;
-    }
 
     public static void main(String[] args)
     {
@@ -41,19 +35,4 @@ public class FaceToFaceApplication
 //        app.run(args);
          SpringApplication.run(FaceToFaceApplication.class, args);
     }
-
-//    @PostConstruct
-//    public void start()
-//        throws Exception
-//    {
-//        server.start();
-//    }
-//
-//    @PreDestroy
-//    public void stop()
-//        throws Exception
-//    {
-//        server.stop();
-//    }
-
 }

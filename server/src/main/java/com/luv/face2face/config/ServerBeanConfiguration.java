@@ -7,6 +7,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +27,7 @@ import java.util.concurrent.Executor;
 @EnableAsync
 public class ServerBeanConfiguration
 {
+
     @Bean
     public ThreadPoolTaskExecutor getExecutor()
     {
@@ -54,8 +56,8 @@ public class ServerBeanConfiguration
     public ServerBootstrap logicServerBootstrap(ChannelInitializer<SocketChannel> logicChannelInitializer)
     {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        serverBootstrap.group(bossGroup(),workerGroup()).childHandler(
-            logicChannelInitializer);
+        serverBootstrap.group(bossGroup(), workerGroup()).channel(
+            NioServerSocketChannel.class).childHandler(logicChannelInitializer);
         bindConnectionOptions(serverBootstrap);
         return serverBootstrap;
     }
@@ -66,6 +68,6 @@ public class ServerBeanConfiguration
         bootstrap.childOption(ChannelOption.SO_LINGER, 0);
         bootstrap.childOption(ChannelOption.TCP_NODELAY, true);
         bootstrap.childOption(ChannelOption.SO_REUSEADDR, true); // 调试用
-        bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true); // 心跳机制暂时使用TCP选项，之后再自己实现
+        // bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true); // 心跳机制暂时使用TCP选项，之后再自己实现
     }
 }

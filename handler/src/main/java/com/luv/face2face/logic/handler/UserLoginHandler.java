@@ -24,7 +24,7 @@ public class UserLoginHandler extends AbstractIMHandlerImpl
     public void execute(ChannelHandlerContext channelHandlerContext, Message message)
     {
         RequestLoginMsg msg = (RequestLoginMsg)message;
-        log.info("User:[{}] send login request.", ((RequestLoginMsg)message).getNickname());
+        log.info("User:[{}] send login request.", ((RequestLoginMsg)message).getUserId());
         getLoginService().loginUser(channelHandlerContext.channel(), msg.getUserId(),
             msg.getPassword());
     }

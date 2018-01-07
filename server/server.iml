@@ -32,7 +32,7 @@
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.6.1" level="project" />
     <orderEntry type="module" module-name="auth" />
     <orderEntry type="module" module-name="thirdparty" />
-    <orderEntry type="library" name="Maven: com.luv.face2face:facetoface-gate:unknown" level="project" />
+    <orderEntry type="module" module-name="gate" />
     <orderEntry type="module" module-name="domain" />
     <orderEntry type="module" module-name="message" />
     <orderEntry type="module" module-name="repository" />

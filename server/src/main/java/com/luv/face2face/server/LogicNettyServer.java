@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.net.InetSocketAddress;
+
 
 /**
  * @author XiangDe Liu qq313700046@icloud.com .
@@ -28,7 +30,8 @@ public class LogicNettyServer extends AbstractNettyServerImpl
     public void start()
         throws Exception
     {
-        Channel channel = serverBootstrap.bind(configuration.getSocketAddress()).sync().channel();
+        Channel channel = serverBootstrap.bind(
+            new InetSocketAddress(18090)).sync().channel();
         ALL_CHANNELS.add(channel);
     }
 

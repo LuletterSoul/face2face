@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chat-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/domain" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gate" charset="UTF-8" />

@@ -1,34 +1,51 @@
 package com.luv.face2face.protobuf.code;
 
+
 import com.google.protobuf.Message;
 import com.luv.face2face.protobuf.analysis.ParseMap;
+import com.luv.face2face.protobuf.analysis.ParserManager;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import static org.springframework.web.context.WebApplicationContext.SCOPE_REQUEST;
+
 
 /**
  * Created by Administrator on 2016/1/29.
  */
-@Component(value = "packetEncoder")
-public class PacketEncoder extends MessageToByteEncoder<Message> {
+public class PacketEncoder extends MessageToByteEncoder<Message>
+{
     private static final Logger logger = LoggerFactory.getLogger(PacketEncoder.class);
+
+    private ParserManager parserManager;
+
+    public void setParserManager(ParserManager parserManager)
+    {
+        this.parserManager = parserManager;
+    }
 
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, ByteBuf out)
-            throws Exception {
+        throws Exception
+    {
 
         byte[] bytes = msg.toByteArray();// 将对象转换为byte
-        int ptoNum = ParseMap.msg2ptoNum.get(msg);
+        // int ptoNum = ParseMap.msg2ptoNum.get(msg);
+        int ptoNum = parserManager.getPtoNum(msg);
         int length = bytes.length;
 
-        /* 加密消息体
-        ThreeDES des = ctx.channel().attr(ClientAttr.ENCRYPT).get();
-        byte[] encryptByte = des.encrypt(bytes);
-        int length = encryptByte.length;*/
+        /*
+         * 加密消息体 ThreeDES des = ctx.channel().attr(ClientAttr.ENCRYPT).get(); byte[] encryptByte =
+         * des.encrypt(bytes); int length = encryptByte.length;
+         */
 
         ByteBuf buf = Unpooled.buffer(8 + length);
         buf.writeInt(length);
@@ -36,7 +53,8 @@ public class PacketEncoder extends MessageToByteEncoder<Message> {
         buf.writeBytes(bytes);
         out.writeBytes(buf);
 
-        logger.info("GateServer Send Message, remoteAddress: {}, content length {}, ptoNum: {}", ctx.channel().remoteAddress(), length, ptoNum);
+        logger.info("GateServer Send Message, remoteAddress: {}, content length {}, ptoNum: {}",
+            ctx.channel().remoteAddress(), length, ptoNum);
 
     }
 }
