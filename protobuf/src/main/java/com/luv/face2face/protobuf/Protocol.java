@@ -31,5 +31,9 @@ public class Protocol
     public static class Server
     {
         public static final Integer SERVER_RESPONSE = 4002;
+        public static final Integer LOGIN_SUCCESS = 4003;
+        public static final Integer LOGIN_FAILD  = 4004;
+        public static final Integer REGISTER_SUCCESS =4005;
+        public static final Integer REGISTER_FAILD = 4006;
     }
 }

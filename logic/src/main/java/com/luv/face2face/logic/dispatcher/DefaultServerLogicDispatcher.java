@@ -105,6 +105,4 @@ public class DefaultServerLogicDispatcher extends ChannelHandlerAdapter implemen
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         super.exceptionCaught(ctx, cause);
     }
-
-
 }

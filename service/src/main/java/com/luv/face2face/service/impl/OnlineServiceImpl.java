@@ -81,10 +81,10 @@ public class OnlineServiceImpl implements OnlineService
         onlineSessions.put(user.getUserId(), session);
 //        onlineUserIds.put(session, user.getUserId());
         log.info("User:[{}]:[{}] session registered...", user.getNickname(), user.getUserId());
-        ResponseMsg.Builder builder = ResponseMsg.newBuilder();
-        builder.setDescription("会话注册成功");
-        builder.setCode(ResponseCode.SESSION_CREATED);
-        session.sendPacket(builder.build());
+//        ResponseMsg.Builder builder = ResponseMsg.newBuilder();
+//        builder.setDescription("会话注册成功");
+//        builder.setCode(ResponseCode.SESSION_CREATED);
+//        session.sendPacket(builder.build());
         return true;
     }
 

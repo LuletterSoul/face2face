@@ -3,6 +3,7 @@ package com.luv.face2face.service.impl;
 
 import com.luv.face2face.domain.User;
 import com.luv.face2face.protobuf.code.ResponseCode;
+import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
 import com.luv.face2face.repository.UserJpaDao;
 import com.luv.face2face.service.LoginService;
 import com.luv.face2face.service.OnlineService;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 
 /**
@@ -54,26 +56,27 @@ public class LoginServiceImpl implements LoginService
     {
         User user = validateUser(userId, password);
         UserConnectSession userConnectSession = ChannelUtils.getSessionBy(channel);
-        ResponseMsg.Builder builder = ResponseMsg.newBuilder();
+        // ResponseMsg.Builder builder = ResponseMsg.newBuilder();
         if (user == null)
         {
-            builder.setCode(ResponseCode.LOGOUT_FAILED);
+            ResServerLoginFailed.Builder builder = ResServerLoginFailed.newBuilder();
             builder.setDescription("账号或密码不合法.");
+            userConnectSession.sendPacket(builder.build());
             return;
         }
         if (onlineService.registerSession(user, channel))
         {
-            builder.setCode(ResponseCode.LOGIN_SUCCESS);
+            ResServerLoginSucc.Builder builder = ResServerLoginSucc.newBuilder();
             builder.setDescription("登陆成功");
+            userConnectSession.sendPacket(builder.build());
         }
-        userConnectSession.sendPacket(builder.build());
         lruUsers.put(userId, user);
     }
 
     @Override
-    public void logoutUser(Long userId,Channel channel, SessionCloseReason reason)
+    public void logoutUser(Long userId, Channel channel, SessionCloseReason reason)
     {
-        onlineService.unregisterSession(userId,channel, reason);
+        onlineService.unregisterSession(userId, channel, reason);
     }
 
     /**

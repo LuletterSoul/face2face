@@ -1,0 +1,26 @@
+option java_package = "com.luv.face2face.protobuf.generate.ser2cli.login";
+option java_outer_classname = "Server";
+
+//服务器登录成功响应
+message ResServerLoginSucc{
+    required string description = 1;
+}
+
+//服务器登录失败响应
+message ResServerLoginFailed{
+    required string description = 1;
+}
+
+//服务器注册成功响应
+message ResServerRegisterSucc{
+    required string description = 1;
+    required int64 userId = 2;
+}
+
+//服务器注册失败响应
+message ResServerRegisterFailed{
+    required string description =1;
+}
+
+
+

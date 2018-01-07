@@ -3,6 +3,7 @@ package com.luv.face2face.protobuf.analysis;
 
 import com.google.protobuf.Message;
 import com.luv.face2face.protobuf.Protocol;
+import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 
 /**
@@ -31,10 +33,10 @@ public class ParserManager
             throws IOException;
     }
 
-    public ParserManager() {
+    public ParserManager()
+    {
         initDefaultProtocol();
     }
-
 
     // 协议号--消息解析器
     private HashMap<Integer, ParserManager.Parsing> protocolNumToParser = new HashMap<>();
@@ -55,6 +57,10 @@ public class ParserManager
         this.register(Protocol.Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
             RequestChatToGroupMsg.class);
         this.register(Protocol.Server.SERVER_RESPONSE, ResponseMsg::parseFrom, ResponseMsg.class);
+        this.register(Protocol.Server.LOGIN_SUCCESS, ResServerLoginSucc::parseFrom, ResServerLoginSucc.class);
+        this.register(Protocol.Server.LOGIN_FAILD, ResServerLoginFailed::parseFrom, ResServerLoginFailed.class);
+        this.register(Protocol.Server.REGISTER_SUCCESS, ResServerRegisterSucc::parseFrom, ResServerRegisterSucc.class);
+        this.register(Protocol.Server.REGISTER_FAILD, ResServerRegisterFailed::parseFrom, ResServerRegisterFailed.class);
     }
 
     /**
@@ -143,10 +149,32 @@ public class ParserManager
     public Integer getPtoNum(Class<?> clz)
     {
         Integer ptoNum = packetTypeToProtocolNum.get(clz);
-        if (ptoNum == null) {
-            log.error("Unknown message type.Protocol type hasn't been register.{}",clz);
-            return null;
+        if (ptoNum == null)
+        {
+            log.error("Unknown message type.Protocol type hasn't been register.{}", clz);
+            throw new IllegalArgumentException(
+                "Unknown message type.Protocol type hasn't been registered");
         }
         return ptoNum;
+    }
+
+    public HashMap<Class<?>, Integer> getPacketTypeToProtocolNum()
+    {
+        return packetTypeToProtocolNum;
+    }
+
+    public HashMap<Integer, Parsing> getProtocolNumToParser()
+    {
+        return protocolNumToParser;
+    }
+
+    public void setProtocolNumToParser(HashMap<Integer, Parsing> protocolNumToParser)
+    {
+        this.protocolNumToParser = protocolNumToParser;
+    }
+
+    public void setPacketTypeToProtocolNum(HashMap<Class<?>, Integer> packetTypeToProtocolNum)
+    {
+        this.packetTypeToProtocolNum = packetTypeToProtocolNum;
     }
 }
