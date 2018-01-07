@@ -924,104 +924,163 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="234" parent="5" name="group_view">
+    <table id="234" parent="5" name="friend_view">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="235" parent="5" name="user">
+    <table id="235" parent="5" name="group_view">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="236" parent="5" name="user_group_rel">
+    <table id="236" parent="5" name="user">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="237" parent="234" name="groupViewId">
+    <table id="237" parent="5" name="user_group_rel">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="238" parent="234" name="userId">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="238" parent="234" name="groupName">
+    <column id="239" parent="234" name="groupId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="234" name="groupName">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="241" parent="234" name="nickname">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="234" name="remark">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="234" name="sex">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="234" name="signature">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="234" name="friendId">
+      <Position>8</Position>
+      <DataType>bigint(20)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="246" parent="234" name="FKlyltjphcvfvcky5a8h6bnk7yg">
+      <ColNames>friendId</ColNames>
+    </index>
+    <key id="247" parent="234" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="248" parent="234" name="FKlyltjphcvfvcky5a8h6bnk7yg">
+      <ColNames>friendId</ColNames>
+      <RefSchemaName>luv_chat</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <column id="249" parent="235" name="groupViewId">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="235" name="groupName">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="234" name="ownerId">
+    <column id="251" parent="235" name="ownerId">
       <Position>3</Position>
       <DataType>bigint(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="240" parent="234" name="FK25lniydm0e07d0sbopvkyk881">
+    <index id="252" parent="235" name="FK25lniydm0e07d0sbopvkyk881">
       <ColNames>ownerId</ColNames>
     </index>
-    <key id="241" parent="234" name="PRIMARY">
+    <key id="253" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>groupViewId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="242" parent="234" name="FK25lniydm0e07d0sbopvkyk881">
+    <foreign-key id="254" parent="235" name="FK25lniydm0e07d0sbopvkyk881">
       <ColNames>ownerId</ColNames>
       <RefSchemaName>luv_chat</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>userId</RefColNames>
     </foreign-key>
-    <column id="243" parent="235" name="userId">
+    <column id="255" parent="236" name="userId">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="235" name="nickname">
+    <column id="256" parent="236" name="nickname">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="235" name="password">
+    <column id="257" parent="236" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="235" name="sex">
+    <column id="258" parent="236" name="sex">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="235" name="signature">
+    <column id="259" parent="236" name="signature">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="248" parent="235" name="PRIMARY">
+    <key id="260" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="249" parent="236" name="memberId">
+    <column id="261" parent="237" name="memberId">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="236" name="groupViewId">
+    <column id="262" parent="237" name="groupViewId">
       <Position>2</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="251" parent="236" name="FKo7wgscqhbnrwr1y5w4510yatt">
+    <index id="263" parent="237" name="FKo7wgscqhbnrwr1y5w4510yatt">
       <ColNames>memberId</ColNames>
     </index>
-    <key id="252" parent="236" name="PRIMARY">
+    <key id="264" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>groupViewId
 memberId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="253" parent="236" name="FKo7wgscqhbnrwr1y5w4510yatt">
+    <foreign-key id="265" parent="237" name="FKo7wgscqhbnrwr1y5w4510yatt">
       <ColNames>memberId</ColNames>
       <RefSchemaName>luv_chat</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>userId</RefColNames>
     </foreign-key>
-    <foreign-key id="254" parent="236" name="FKj894t6fyj63nwjvg6bs2qqtxg">
+    <foreign-key id="266" parent="237" name="FKj894t6fyj63nwjvg6bs2qqtxg">
       <ColNames>groupViewId</ColNames>
       <RefSchemaName>luv_chat</RefSchemaName>
       <RefTableName>group_view</RefTableName>

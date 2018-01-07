@@ -38,10 +38,8 @@ public class User
      */
     private String signature;
 
-    @OneToMany(mappedBy = "friend")
-    private Set<FriendView> friendViews;
-
-
+//    @OneToMany(mappedBy = "friend")
+//    private Set<FriendView> friendViews;
 
 //    /**
 //     * 一个用户有多个好友

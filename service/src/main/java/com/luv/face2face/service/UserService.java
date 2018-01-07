@@ -12,7 +12,7 @@ import io.netty.channel.Channel;
  * @since luv-face2face
  */
 
-public interface UserService
+public interface UserService extends BaseService
 {
 
     void addUser2Online(long userId);

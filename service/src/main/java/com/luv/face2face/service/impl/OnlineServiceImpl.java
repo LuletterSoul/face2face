@@ -27,7 +27,7 @@ import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
  */
 @Service
 @Slf4j
-public class OnlineServiceImpl implements OnlineService
+public class OnlineServiceImpl extends AbstractService implements OnlineService
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(OnlineServiceImpl.class);
 
@@ -56,7 +56,7 @@ public class OnlineServiceImpl implements OnlineService
     @Override
     public User getOnlineUserById(Long userId)
     {
-        return onlineSessions.get(userId);
+        return null;
     }
 
     @Override

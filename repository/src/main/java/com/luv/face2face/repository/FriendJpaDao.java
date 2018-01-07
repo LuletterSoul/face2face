@@ -2,7 +2,11 @@ package com.luv.face2face.repository;
 
 
 import com.luv.face2face.domain.FriendView;
+import com.luv.face2face.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 
 /**
@@ -12,4 +16,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 public interface FriendJpaDao extends JpaRepository<FriendView, Long>
-{}
+{
+    public List<FriendView> findByFriend(User user);
+}

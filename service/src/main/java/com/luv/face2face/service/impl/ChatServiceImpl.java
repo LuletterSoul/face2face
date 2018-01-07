@@ -24,29 +24,34 @@ import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
 
 @Service
 @Slf4j
-public class ChatServiceImpl implements ChatService
+public class ChatServiceImpl extends AbstractService implements ChatService
 {
 //    private static final Logger LOGGER = LoggerFactory.getLogger(ChatServiceImpl.class);
 
-    private UserJpaDao userJpaDao;
+//    private UserJpaDao userJpaDao;
+//
+//    private OnlineService onlineService;
 
-    private OnlineService onlineService;
-
-    @Autowired
-    public void setUserJpaDao(UserJpaDao userJpaDao)
-    {
-        this.userJpaDao = userJpaDao;
-    }
-
-    @Autowired
-    public OnlineService getOnlineService()
-    {
-        return onlineService;
-    }
+//    @Autowired
+//    public void setUserJpaDao(UserJpaDao userJpaDao)
+//    {
+//        this.userJpaDao = userJpaDao;
+//    }
+//
+//    @Autowired
+//    public OnlineService getOnlineService()
+//    {
+//        return onlineService;
+//    }
+//
+//    @Override
+//    public void chatToGroupUser(Long desGroupId, String content)
+//    {
+//
+//    }
 
     @Override
-    public void chatToGroupUser(Long desGroupId, String content)
-    {
+    public void chatToGroupUser(Long desGroupId, String content) {
 
     }
 

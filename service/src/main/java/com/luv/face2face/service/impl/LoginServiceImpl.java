@@ -5,8 +5,10 @@ import com.luv.face2face.domain.User;
 import com.luv.face2face.protobuf.code.ResponseCode;
 import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
 import com.luv.face2face.repository.UserJpaDao;
+import com.luv.face2face.service.FriendService;
 import com.luv.face2face.service.LoginService;
 import com.luv.face2face.service.OnlineService;
+import com.luv.face2face.service.UserService;
 import com.luv.face2face.service.session.ChannelUtils;
 import com.luv.face2face.service.session.SessionCloseReason;
 import com.luv.face2face.service.session.UserConnectSession;
@@ -30,26 +32,23 @@ import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
  */
 @Service
 @Slf4j
-public class LoginServiceImpl implements LoginService
+public class LoginServiceImpl extends AbstractService implements LoginService
 {
-    private UserJpaDao userJpaDao;
-
-    private OnlineService onlineService;
+//    @Autowired
+//    private UserJpaDao userJpaDao;
+//
+//    @Autowired
+//    private OnlineService onlineService;
+//
+//    @Autowired
+//    private UserService userService;
+//
+//    @Autowired
+//    private FriendService friendService;
 
     /** 缓存最近登录的所有用户 */
     private Map<Long, User> lruUsers = new LruHashMap<>(1000);
 
-    @Autowired
-    public void setUserJpaDao(UserJpaDao userJpaDao)
-    {
-        this.userJpaDao = userJpaDao;
-    }
-
-    @Autowired
-    public void setOnlineService(OnlineService onlineService)
-    {
-        this.onlineService = onlineService;
-    }
 
     @Override
     public void loginUser(Channel channel, Long userId, String password)
@@ -66,11 +65,24 @@ public class LoginServiceImpl implements LoginService
         }
         if (onlineService.registerSession(user, channel))
         {
-            ResServerLoginSucc.Builder builder = ResServerLoginSucc.newBuilder();
-            builder.setDescription("登陆成功");
-            userConnectSession.sendPacket(builder.build());
+            //将user 加入session
+            userConnectSession.setUser(user);
+            userConnectSession.setIpAddress(ChannelUtils.getIp(channel));
+            onLoginSucc(user,userConnectSession);
         }
         lruUsers.put(userId, user);
+    }
+
+    private void onLoginSucc(User user, UserConnectSession session) {
+        ResServerLoginSucc.Builder builder = ResServerLoginSucc.newBuilder();
+
+        builder.setDescription("登陆成功");
+        //发送登录成功信息
+        session.sendPacket(builder.build());
+        //刷新好友列表
+        friendService.refreshUserFriends(user);
+        //添加在线列表
+        userService.addUser2Online(user.getUserId());
     }
 
     @Override

@@ -15,7 +15,7 @@ import io.netty.channel.Channel;
  * @since luv-face2face
  */
 
-public interface OnlineService
+public interface OnlineService extends BaseService
 {
 
     /**

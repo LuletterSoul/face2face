@@ -9,7 +9,7 @@ import io.netty.channel.Channel;
  * @since luv-face2face
  */
 
-public interface ChatService
+public interface ChatService extends BaseService
 {
     void chatToGroupUser(Long desGroupId, String content);
 

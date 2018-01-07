@@ -1,45 +1,45 @@
 package com.luv.face2face.service.impl;
 
 
-import static com.luv.face2face.protobuf.generate.ser2cli.friend.Server.*;
-
+import java.util.List;
 import java.util.Set;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.luv.face2face.domain.FriendView;
 import com.luv.face2face.domain.User;
-import com.luv.face2face.protobuf.generate.ser2cli.friend.Server.*;
-import com.luv.face2face.repository.FriendJpaDao;
-import com.luv.face2face.repository.UserJpaDao;
+import com.luv.face2face.protobuf.generate.ser2cli.friend.Server.FriendItemVo;
+import com.luv.face2face.protobuf.generate.ser2cli.friend.Server.ResFriendLogin;
+import com.luv.face2face.protobuf.generate.ser2cli.friend.Server.ResFriendLogout;
+import com.luv.face2face.protobuf.generate.ser2cli.friend.Server.ResListFriends;
 import com.luv.face2face.service.FriendService;
-import com.luv.face2face.service.OnlineService;
-import com.luv.face2face.service.UserService;
+
+import lombok.extern.slf4j.Slf4j;
 
 
-@Component
+@Service
 @Slf4j
-public class FriendServiceImpl implements FriendService {
+public class FriendServiceImpl extends AbstractService implements FriendService
+{
 
-    @Autowired
-    private FriendJpaDao friendJpaDao;
-
-    @Autowired
-    private UserJpaDao userJpaDao;
-
-    @Autowired
-    private UserService userService;
-
-    private OnlineService onlineService;
+//    @Autowired
+//    private FriendJpaDao friendJpaDao;
+//
+//    @Autowired
+//    private UserJpaDao userJpaDao;
+//
+//    @Autowired
+//    private UserService userService;
+//
+//    @Autowired
+//    private OnlineService onlineService;
 
     @Override
-    public ResListFriends listMyFriends(long userId)
+    public ResListFriends listMyFriends(User user)
     {
         ResListFriends.Builder builder = ResListFriends.newBuilder();
         FriendItemVo.Builder friendItemBuilder = FriendItemVo.newBuilder();
-        Set<FriendView> friendViews = userJpaDao.findOne(userId).getFriendViews();
+        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
         for (FriendView f : friendViews)
         {
             friendItemBuilder.setGroupId(f.getGroupId());
@@ -65,19 +65,18 @@ public class FriendServiceImpl implements FriendService {
     @Override
     public void refreshUserFriends(User user)
     {
-        ResListFriends myFriends = listMyFriends(user.getUserId());
         onlineService.getOnlineUserSessionById(user.getUserId()).sendPacket(
-            listMyFriends(user.getUserId()));
+            listMyFriends(user));
         onUserLogin(user);
     }
 
     @Override
     public void onUserLogin(User user)
     {
-        Set<FriendView> friends = userJpaDao.findOne(user.getUserId()).getFriendViews();
+        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
         ResFriendLogin.Builder builder = ResFriendLogin.newBuilder();
         builder.setFriendId(user.getUserId());
-        for (FriendView friend : friends)
+        for (FriendView friend : friendViews)
         {
             long friendId = friend.getUserId();
             if (userService.isOnlineUser(friendId))
@@ -90,10 +89,10 @@ public class FriendServiceImpl implements FriendService {
     @Override
     public void onUserLogout(User user)
     {
-        Set<FriendView> friends = userJpaDao.findOne(user.getUserId()).getFriendViews();
+        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
         ResFriendLogout.Builder builder = ResFriendLogout.newBuilder();
         builder.setFriendId(user.getUserId());
-        for (FriendView friend : friends)
+        for (FriendView friend : friendViews)
         {
             long friendId = friend.getUserId();
             if (userService.isOnlineUser(friendId))

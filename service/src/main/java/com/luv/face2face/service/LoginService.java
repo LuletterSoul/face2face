@@ -11,7 +11,7 @@ import io.netty.channel.Channel;
  * @since luv-face2face
  */
 
-public interface LoginService
+public interface LoginService extends BaseService
 {
     /**
      * 用户登录

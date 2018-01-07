@@ -6,6 +6,7 @@ import com.luv.face2face.protobuf.Protocol;
 import com.luv.face2face.protobuf.code.ResponseCode;
 import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
 import com.luv.face2face.repository.UserJpaDao;
+import com.luv.face2face.service.BaseService;
 import com.luv.face2face.service.UserService;
 import com.luv.face2face.service.session.ChannelUtils;
 import com.luv.face2face.service.session.UserConnectSession;
@@ -29,9 +30,9 @@ import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 @Service
 @Slf4j
-public class UserServiceImpl implements UserService
+public class UserServiceImpl extends AbstractService implements UserService
 {
-    private UserJpaDao userJpaDao;
+//    private UserJpaDao userJpaDao;
 
     /** 在线用户列表 */
     private Set<Long> onlineUsers = new ConcurrentHashSet<>();

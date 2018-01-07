@@ -10,8 +10,8 @@ import com.luv.face2face.protobuf.generate.ser2cli.friend.Server;
  * @since face2face
  */
 
-public interface FriendService {
-    Server.ResListFriends listMyFriends(long userId);
+public interface FriendService extends BaseService {
+    Server.ResListFriends listMyFriends(User user);
 
     void refreshUserFriends(User user);
 
