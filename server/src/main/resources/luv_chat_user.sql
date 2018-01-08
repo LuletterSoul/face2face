@@ -1,0 +1,11 @@
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (1, '未闻奇楠', '123', null, null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (2, '叶知秋', '123', '男', '');
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (3, '流萤', '123', '女', '');
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (4, '金满堂', '123', '女', null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (5, '纯阳', '123', '男', null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (6, '绍西风', '123', '男', null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (7, '公子羽', '123', '男', null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (8, '白云飞', '123', '男', null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (9, '明月心', '123', '女', null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (10, '白玉京', '123', '女', null);
+INSERT INTO luv_chat.user (userId, nickname, password, sex, signature) VALUES (11, '曾慕多情', '123', '女', null);
