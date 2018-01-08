@@ -9,6 +9,7 @@ import com.luv.face2face.logic.handler.login.UserRegisterHandler;
 import com.luv.face2face.logic.handler.manager.HandlerManager;
 import com.luv.face2face.logic.handler.manager.impl.DefaultHandlerManager;
 import com.luv.face2face.logic.handler.upload.ReqSendFileToUserHandler;
+import com.luv.face2face.logic.handler.upload.ResFileUploadCompleteHandler;
 import com.luv.face2face.protobuf.analysis.ParserManager;
 import com.luv.face2face.protobuf.generate.ser2cli.file.Server;
 import lombok.AllArgsConstructor;
@@ -43,6 +44,8 @@ public class IMLogicConfiguration
 
     private ReqSendFileToUserHandler reqSendFileToUserHandler;
 
+    private ResFileUploadCompleteHandler resFileUploadCompleteHandler;
+
     @Bean
     public HandlerManager handlerManager()
     {
@@ -54,6 +57,7 @@ public class IMLogicConfiguration
         handlerManager.registerHandler(RequestLogoutMsg.class, logoutHandler);
         handlerManager.registerHandler(RequestUserRegisterMsg.class,registerHandler);
         handlerManager.registerHandler(ReqFileUploadMsg.class, reqSendFileToUserHandler);
+        handlerManager.registerHandler(ResFileUploadComplete.class,resFileUploadCompleteHandler);
         return handlerManager;
     }
 

@@ -74,6 +74,8 @@ public class ParserManager
         this.register(USER_CHAT, ResponseChatToUserMsg::parseFrom, ResponseChatToUserMsg.class);
         this.register(REQ_FILEUPLOAD, ReqFileUploadMsg::parseFrom, ReqFileUploadMsg.class);
         this.register(RES_FILEUPLOAD, ResFileUploadPromise::parseFrom, ResFileUploadPromise.class);
+        this.register(RES_FILEUPLOAD_COMLETE, ResFileUploadComplete::parseFrom,
+            ResFileUploadComplete.class);
     }
 
     /**

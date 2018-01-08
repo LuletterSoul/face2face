@@ -2145,6 +2145,701 @@ public final class Server {
     // @@protoc_insertion_point(class_scope:ResFileUploadPromise)
   }
 
+  public interface ResFileUploadCompleteOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string serverfilePath = 1;
+    /**
+     * <code>required string serverfilePath = 1;</code>
+     */
+    boolean hasServerfilePath();
+    /**
+     * <code>required string serverfilePath = 1;</code>
+     */
+    java.lang.String getServerfilePath();
+    /**
+     * <code>required string serverfilePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getServerfilePathBytes();
+
+    // required .ReqFileUploadMsg fileUploadMsg = 2;
+    /**
+     * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+     */
+    boolean hasFileUploadMsg();
+    /**
+     * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+     */
+    com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg getFileUploadMsg();
+    /**
+     * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+     */
+    com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsgOrBuilder getFileUploadMsgOrBuilder();
+  }
+  /**
+   * Protobuf type {@code ResFileUploadComplete}
+   *
+   * <pre>
+   *文件传输完成
+   * </pre>
+   */
+  public static final class ResFileUploadComplete extends
+      com.google.protobuf.GeneratedMessage
+      implements ResFileUploadCompleteOrBuilder {
+    // Use ResFileUploadComplete.newBuilder() to construct.
+    private ResFileUploadComplete(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ResFileUploadComplete(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ResFileUploadComplete defaultInstance;
+    public static ResFileUploadComplete getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ResFileUploadComplete getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ResFileUploadComplete(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              serverfilePath_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = fileUploadMsg_.toBuilder();
+              }
+              fileUploadMsg_ = input.readMessage(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(fileUploadMsg_);
+                fileUploadMsg_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileUploadComplete_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileUploadComplete_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ResFileUploadComplete> PARSER =
+        new com.google.protobuf.AbstractParser<ResFileUploadComplete>() {
+      public ResFileUploadComplete parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ResFileUploadComplete(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ResFileUploadComplete> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string serverfilePath = 1;
+    public static final int SERVERFILEPATH_FIELD_NUMBER = 1;
+    private java.lang.Object serverfilePath_;
+    /**
+     * <code>required string serverfilePath = 1;</code>
+     */
+    public boolean hasServerfilePath() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string serverfilePath = 1;</code>
+     */
+    public java.lang.String getServerfilePath() {
+      java.lang.Object ref = serverfilePath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          serverfilePath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string serverfilePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServerfilePathBytes() {
+      java.lang.Object ref = serverfilePath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverfilePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required .ReqFileUploadMsg fileUploadMsg = 2;
+    public static final int FILEUPLOADMSG_FIELD_NUMBER = 2;
+    private com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg fileUploadMsg_;
+    /**
+     * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+     */
+    public boolean hasFileUploadMsg() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+     */
+    public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg getFileUploadMsg() {
+      return fileUploadMsg_;
+    }
+    /**
+     * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+     */
+    public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsgOrBuilder getFileUploadMsgOrBuilder() {
+      return fileUploadMsg_;
+    }
+
+    private void initFields() {
+      serverfilePath_ = "";
+      fileUploadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasServerfilePath()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFileUploadMsg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getFileUploadMsg().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getServerfilePathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, fileUploadMsg_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getServerfilePathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, fileUploadMsg_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ResFileUploadComplete}
+     *
+     * <pre>
+     *文件传输完成
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadCompleteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileUploadComplete_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileUploadComplete_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getFileUploadMsgFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        serverfilePath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (fileUploadMsgBuilder_ == null) {
+          fileUploadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.getDefaultInstance();
+        } else {
+          fileUploadMsgBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileUploadComplete_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete build() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete buildPartial() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete result = new com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.serverfilePath_ = serverfilePath_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (fileUploadMsgBuilder_ == null) {
+          result.fileUploadMsg_ = fileUploadMsg_;
+        } else {
+          result.fileUploadMsg_ = fileUploadMsgBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete other) {
+        if (other == com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete.getDefaultInstance()) return this;
+        if (other.hasServerfilePath()) {
+          bitField0_ |= 0x00000001;
+          serverfilePath_ = other.serverfilePath_;
+          onChanged();
+        }
+        if (other.hasFileUploadMsg()) {
+          mergeFileUploadMsg(other.getFileUploadMsg());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasServerfilePath()) {
+          
+          return false;
+        }
+        if (!hasFileUploadMsg()) {
+          
+          return false;
+        }
+        if (!getFileUploadMsg().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileUploadComplete) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string serverfilePath = 1;
+      private java.lang.Object serverfilePath_ = "";
+      /**
+       * <code>required string serverfilePath = 1;</code>
+       */
+      public boolean hasServerfilePath() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string serverfilePath = 1;</code>
+       */
+      public java.lang.String getServerfilePath() {
+        java.lang.Object ref = serverfilePath_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          serverfilePath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string serverfilePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServerfilePathBytes() {
+        java.lang.Object ref = serverfilePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverfilePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string serverfilePath = 1;</code>
+       */
+      public Builder setServerfilePath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        serverfilePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string serverfilePath = 1;</code>
+       */
+      public Builder clearServerfilePath() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        serverfilePath_ = getDefaultInstance().getServerfilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string serverfilePath = 1;</code>
+       */
+      public Builder setServerfilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        serverfilePath_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required .ReqFileUploadMsg fileUploadMsg = 2;
+      private com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg fileUploadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.Builder, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsgOrBuilder> fileUploadMsgBuilder_;
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public boolean hasFileUploadMsg() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg getFileUploadMsg() {
+        if (fileUploadMsgBuilder_ == null) {
+          return fileUploadMsg_;
+        } else {
+          return fileUploadMsgBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public Builder setFileUploadMsg(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg value) {
+        if (fileUploadMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          fileUploadMsg_ = value;
+          onChanged();
+        } else {
+          fileUploadMsgBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public Builder setFileUploadMsg(
+          com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.Builder builderForValue) {
+        if (fileUploadMsgBuilder_ == null) {
+          fileUploadMsg_ = builderForValue.build();
+          onChanged();
+        } else {
+          fileUploadMsgBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public Builder mergeFileUploadMsg(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg value) {
+        if (fileUploadMsgBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              fileUploadMsg_ != com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.getDefaultInstance()) {
+            fileUploadMsg_ =
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.newBuilder(fileUploadMsg_).mergeFrom(value).buildPartial();
+          } else {
+            fileUploadMsg_ = value;
+          }
+          onChanged();
+        } else {
+          fileUploadMsgBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public Builder clearFileUploadMsg() {
+        if (fileUploadMsgBuilder_ == null) {
+          fileUploadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.getDefaultInstance();
+          onChanged();
+        } else {
+          fileUploadMsgBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.Builder getFileUploadMsgBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getFileUploadMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsgOrBuilder getFileUploadMsgOrBuilder() {
+        if (fileUploadMsgBuilder_ != null) {
+          return fileUploadMsgBuilder_.getMessageOrBuilder();
+        } else {
+          return fileUploadMsg_;
+        }
+      }
+      /**
+       * <code>required .ReqFileUploadMsg fileUploadMsg = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.Builder, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsgOrBuilder> 
+          getFileUploadMsgFieldBuilder() {
+        if (fileUploadMsgBuilder_ == null) {
+          fileUploadMsgBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsg.Builder, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileUploadMsgOrBuilder>(
+                  fileUploadMsg_,
+                  getParentForChildren(),
+                  isClean());
+          fileUploadMsg_ = null;
+        }
+        return fileUploadMsgBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ResFileUploadComplete)
+    }
+
+    static {
+      defaultInstance = new ResFileUploadComplete(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ResFileUploadComplete)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_ReqFileUploadMsg_descriptor;
   private static
@@ -2155,6 +2850,11 @@ public final class Server {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ResFileUploadPromise_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResFileUploadComplete_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ResFileUploadComplete_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2170,8 +2870,10 @@ public final class Server {
       "\022\020\n\010fileType\030\006 \002(\t\022\021\n\tlocalPath\030\007 \002(\t\"R\n" +
       "\024ResFileUploadPromise\022\017\n\007promise\030\001 \002(\t\022\024" +
       "\n\014yourFilePath\030\002 \002(\t\022\023\n\013description\030\003 \002(" +
-      "\tB:\n0com.luv.face2face.protobuf.generate" +
-      ".ser2cli.fileB\006Server"
+      "\t\"Y\n\025ResFileUploadComplete\022\026\n\016serverfile" +
+      "Path\030\001 \002(\t\022(\n\rfileUploadMsg\030\002 \002(\0132\021.ReqF" +
+      "ileUploadMsgB:\n0com.luv.face2face.protob" +
+      "uf.generate.ser2cli.fileB\006Server"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2190,6 +2892,12 @@ public final class Server {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ResFileUploadPromise_descriptor,
               new java.lang.String[] { "Promise", "YourFilePath", "Description", });
+          internal_static_ResFileUploadComplete_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_ResFileUploadComplete_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_ResFileUploadComplete_descriptor,
+              new java.lang.String[] { "ServerfilePath", "FileUploadMsg", });
           return null;
         }
       };

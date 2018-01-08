@@ -121,9 +121,11 @@ public class UserServiceImpl extends AbstractService implements UserService
         return msg;
     }
 
+
     @Override
     public void sendUploadFilePromise(Long userId, String path)
     {
+        log.debug("send upload file promise.");
         if (isOnlineUser(userId)) {
             UserConnectSession session = onlineService.getOnlineUserSessionById(userId);
             ResFileUploadPromise.Builder builder = ResFileUploadPromise.newBuilder();
@@ -133,6 +135,18 @@ public class UserServiceImpl extends AbstractService implements UserService
             session.sendPacket(builder.build());
         } else {
             log.debug("User disconnect.");
+        }
+    }
+
+    @Override
+    public void notifyFileReady(ResFileUploadComplete message) {
+        ResFileUploadComplete msg = message;
+        ReqFileUploadMsg uploadMsg = msg.getFileUploadMsg();
+        Long toUserId = uploadMsg.getToUserId();
+        Long fromUserId = uploadMsg.getFormUserId();
+        if (this.isOnlineUser(toUserId) && this.isOnlineUser(fromUserId)) {
+            onlineService.getOnlineUserSessionById(toUserId).sendPacket(msg);
+            onlineService.getOnlineUserSessionById(fromUserId).sendPacket(msg);
         }
     }
 

@@ -31,15 +31,15 @@ public class ReqSendFileToUserHandler extends AbstractIMHandlerImpl
     {
         ReqFileUploadMsg msg = (ReqFileUploadMsg)message;
         getUserService().cacheUserUploadMsg(msg.getFormUserId(), msg);
-        log.info("Promise upload request.Prepare file receive operation.");
-        getUserService().sendUploadFilePromise(msg.getFormUserId(), msg.getLocalPath());
         try
         {
-            channelHandlerContext.channel().pipeline().addFirst(new ChunkedReadHandler(msg));
+            channelHandlerContext.channel().pipeline().addFirst(new ChunkedReadHandler(msg, getUserService()));
         }
         catch (FileNotFoundException e)
         {
             e.printStackTrace();
         }
+        getUserService().sendUploadFilePromise(msg.getFormUserId(), msg.getLocalPath());
+        log.info("Promise upload request.Prepare file receive operation.");
     }
 }

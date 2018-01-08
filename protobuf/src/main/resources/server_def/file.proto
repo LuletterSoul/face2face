@@ -19,6 +19,17 @@ message ResFileUploadPromise{
     required string description =3;
 }
 
+//文件传输完成
+message ResFileUploadComplete{
+    required string serverfilePath =1;
+    required ReqFileUploadMsg fileUploadMsg =2;
+}
+
+//请求下载文件
+message ReqFileUploadDownload{
+    required int64 userId = 1;
+    required string filePath =2;
+}
 
 
 

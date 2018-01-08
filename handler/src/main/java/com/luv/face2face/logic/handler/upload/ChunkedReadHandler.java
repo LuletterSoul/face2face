@@ -1,11 +1,14 @@
 package com.luv.face2face.logic.handler.upload;
 
 
+import com.luv.face2face.service.UserService;
 import com.luv.face2face.service.util.FileUtils;
 import com.luv.face2face.service.util.ProgressBar;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.timeout.IdleState;
+import io.netty.handler.timeout.IdleStateEvent;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +26,6 @@ import static com.luv.face2face.protobuf.generate.ser2cli.file.Server.*;
  */
 
 @Slf4j
-@AllArgsConstructor
 public class ChunkedReadHandler extends ChannelHandlerAdapter
 {
     private long fileSize;
@@ -40,9 +42,14 @@ public class ChunkedReadHandler extends ChannelHandlerAdapter
 
     private ProgressBar progressBar;
 
-    public ChunkedReadHandler(ReqFileUploadMsg msg)
+    private UserService userService;
+
+
+    public ChunkedReadHandler(ReqFileUploadMsg msg,UserService userService)
         throws FileNotFoundException
     {
+        this.userService = userService;
+
         this.fileSize = msg.getFileLength();
         this.uploadMsg = msg;
         progressBar = new ProgressBar(fileSize, 100);
@@ -78,7 +85,30 @@ public class ChunkedReadHandler extends ChannelHandlerAdapter
         {
             ctx.pipeline().remove(this);
             ofs.close();
+            ResFileUploadComplete.Builder builder = ResFileUploadComplete.newBuilder();
+            builder.setFileUploadMsg(this.uploadMsg);
+            builder.setServerfilePath(serverFilePath);
+            userService.notifyFileReady(builder.build());
         }
         buf.release();
+    }
+
+    /**
+     * 超时释放自己
+     * @param ctx
+     * @param evt
+     * @throws Exception
+     */
+    @Override
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+        if (evt instanceof IdleStateEvent) {
+            IdleStateEvent event = (IdleStateEvent) evt;
+            if (event.state() == IdleState.READER_IDLE){
+                ctx.pipeline().remove(this);
+                log.debug("ChunkedReadHandler end its work...................");
+                ofs.close();
+            }
+        }
+        super.userEventTriggered(ctx, evt);
     }
 }

@@ -28,12 +28,42 @@ public interface UserService extends BaseService
 
     User createNewUser(User user);
 
+
+    /**
+     * 更新用户
+     * @param user
+     */
+
     void refreshUserProfile(User user);
+
+
+    /**
+     * 缓存上传信息
+     * @param userId
+     * @param msg
+     */
 
     void cacheUserUploadMsg(long userId, ReqFileUploadMsg msg);
 
+    /**
+     * 获取用户上传的信息
+     * @param userId
+     * @return
+     */
+
     ReqFileUploadMsg getUserUploadMsg(long userId);
 
+    /**
+     * 发送文件上传的准允
+     * @param userId
+     * @param path
+     */
     void sendUploadFilePromise(Long userId,String path);
+
+    /**
+     * 通知用户文件就绪
+     * @param message
+     */
+    void notifyFileReady(ResFileUploadComplete message);
 
 }

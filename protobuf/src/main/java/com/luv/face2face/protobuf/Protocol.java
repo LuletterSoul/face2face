@@ -25,6 +25,7 @@ public class Protocol
     {
         public static final Integer REQ_FILEUPLOAD = 6000;
         public static final Integer RES_FILEUPLOAD = 6001;
+        public static final Integer RES_FILEUPLOAD_COMLETE = 6002;
     }
 
     public static class Chat
