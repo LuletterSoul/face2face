@@ -2,6 +2,7 @@ package com.luv.face2face.logic.dispatcher;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
@@ -35,14 +36,20 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @Setter
 @ChannelHandler.Sharable
-@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class DefaultServerLogicDispatcher extends ChannelHandlerAdapter implements LogicServerDispatcher
 {
+    @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
+    @Autowired
     private ParserManager parserManager;
 
+    @Autowired
     private HandlerManager handlerManager;
+
+    @Autowired
+    @Qualifier("userRecordCleaner")
+    private IMHandler cleaner;
 
     /**
      * 信道激活出发的时间 加入“每个信道生成一个会话自定义逻辑”
@@ -103,6 +110,34 @@ public class DefaultServerLogicDispatcher extends ChannelHandlerAdapter implemen
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        log.error("server exception from channel [{}]...........", ctx.channel());
         super.exceptionCaught(ctx, cause);
+        handleExceptionClean(ctx);
     }
+
+    /**
+     * 开启清理线程
+     * @param ctx
+     */
+    private void handleExceptionClean(ChannelHandlerContext ctx) {
+        ChannelTask channelTask = new ChannelTaskImpl(cleaner,null,ctx);
+        threadPoolTaskExecutor.execute(channelTask);
+    }
+
+
+    @Override
+    public void disconnect(ChannelHandlerContext ctx, ChannelPromise promise) throws Exception {
+        log.error("server disconnect from channel [{}]...........", ctx.channel());
+        super.disconnect(ctx, promise);
+        handleExceptionClean(ctx);
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        log.error("channel inactive [{}]...........", ctx.channel());
+        super.channelInactive(ctx);
+        handleExceptionClean(ctx);
+    }
+
+
 }

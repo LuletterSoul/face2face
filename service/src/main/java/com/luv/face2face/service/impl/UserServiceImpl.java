@@ -52,7 +52,7 @@ public class UserServiceImpl extends AbstractService implements UserService
     @Override
     public void removeFromOnline(long userId)
     {
-        this.onlineUsers.add(userId);
+        this.onlineUsers.remove(userId);
     }
 
     @Override

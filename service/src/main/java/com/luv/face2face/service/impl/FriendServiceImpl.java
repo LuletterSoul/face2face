@@ -2,7 +2,6 @@ package com.luv.face2face.service.impl;
 
 
 import java.util.List;
-import java.util.Set;
 
 import com.luv.face2face.domain.FriendGroupView;
 import com.luv.face2face.domain.Remark;
@@ -39,20 +38,22 @@ public class FriendServiceImpl extends AbstractService implements FriendService
 //    private OnlineService onlineService;
 
     @Override
-    public ResListFriends listMyFriends(User user)
+    public ResListFriends listMyFriends(Long userId)
     {
         ResListFriends.Builder builder = ResListFriends.newBuilder();
         FriendItemVo.Builder friendItemBuilder = FriendItemVo.newBuilder();
 //        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
         //查出所有的好友
-        List<User> friendViews = friendJpaDao.findByUser(user);
+        List<User> friendViews = friendJpaDao.findByUserId(userId);
 //        //查出所有的分组
 //        List<FriendGroupView> friendGroupViews = groupViewJpaDao.findByOwner(user);
         for (User f : friendViews)
         {
             //查出好友所在的分组
-            FriendGroupView friendGroupView = groupViewJpaDao.findByOwnerAndFAndMembers(user, f.getUserId());
+            FriendGroupView friendGroupView = groupViewJpaDao.findByOwnerAndFAndMembers(userId, f.getUserId());
             //查出对好友的备注
+            User user = new User();
+            user.setUserId(userId);
             Remark remark = remarkJpaDao.findByMarkerAndAndBioMarker(user, f);
             friendItemBuilder.setGroupId(friendGroupView.getGroupViewId());
             friendItemBuilder.setRemark(remark.getMarkContent());
@@ -75,19 +76,19 @@ public class FriendServiceImpl extends AbstractService implements FriendService
     }
 
     @Override
-    public void refreshUserFriends(User user)
-    {
-        onlineService.getOnlineUserSessionById(user.getUserId()).sendPacket(
-            listMyFriends(user));
-        onUserLogin(user);
+    public void refreshUserFriends(Long userId) {
+        onlineService.getOnlineUserSessionById(userId).sendPacket(
+                listMyFriends(userId));
+        onUserLogin(userId);
     }
 
+
     @Override
-    public void onUserLogin(User user)
+    public void onUserLogin(Long userId)
     {
-        List<User> friendViews = friendJpaDao.findByUser(user);
+        List<User> friendViews = friendJpaDao.findByUserId(userId);
         ResFriendLogin.Builder builder = ResFriendLogin.newBuilder();
-        builder.setFriendId(user.getUserId());
+        builder.setFriendId(userId);
         for (User friend : friendViews)
         {
             long friendId = friend.getUserId();
@@ -98,10 +99,16 @@ public class FriendServiceImpl extends AbstractService implements FriendService
         }
     }
 
+    /**
+     * 给好友发离线通知
+     * @param userId
+     */
     @Override
-    public void onUserLogout(User user)
+    public void onUserLogout(Long userId)
     {
-        List<User> friendViews = friendJpaDao.findByUser(user);
+        User user = new User();
+        user.setUserId(userId);
+        List<User> friendViews = friendJpaDao.findByUserId(userId);
         ResFriendLogout.Builder builder = ResFriendLogout.newBuilder();
         builder.setFriendId(user.getUserId());
         for (User friend : friendViews)

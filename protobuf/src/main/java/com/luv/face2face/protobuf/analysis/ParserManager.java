@@ -3,7 +3,6 @@ package com.luv.face2face.protobuf.analysis;
 
 import com.google.protobuf.Message;
 import com.luv.face2face.protobuf.Protocol;
-import com.luv.face2face.protobuf.generate.ser2cli.friend.Server;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -66,6 +65,7 @@ public class ParserManager
         this.register(LIST_FRIENDS, ResListFriends::parseFrom, ResListFriends.class);
         this.register(FRIEND_LOGOUT, ResFriendLogout::parseFrom, ResFriendLogout.class);
         this.register(FRIEND_LOGIN, ResFriendLogin::parseFrom, ResFriendLogin.class);
+        this.register(USER_REFRESH,ResServerRefreshProfile::parseFrom,ResServerRefreshProfile.class);
     }
 
     /**

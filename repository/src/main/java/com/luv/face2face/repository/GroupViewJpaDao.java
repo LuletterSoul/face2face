@@ -20,6 +20,6 @@ public interface GroupViewJpaDao extends JpaRepository<FriendGroupView, Long>
 {
     List<FriendGroupView> findByOwner(User user);
 
-    @Query(value = "select f from FriendGroupView f left join f.members m where f.owner =?1 and m.userId = ?2")
-    FriendGroupView findByOwnerAndFAndMembers(@Param("owner") User owner,@Param("userId") Long memberId);
+    @Query(value = "select f from FriendGroupView f left join f.members m where f.owner.userId =?1 and m.userId = ?2")
+    FriendGroupView findByOwnerAndFAndMembers(Long userId,Long memberId);
 }

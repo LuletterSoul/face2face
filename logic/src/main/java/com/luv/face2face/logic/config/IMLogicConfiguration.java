@@ -1,7 +1,11 @@
 package com.luv.face2face.logic.config;
 
 
-import com.luv.face2face.logic.handler.*;
+import com.luv.face2face.logic.handler.chat.UserGroupChatHandler;
+import com.luv.face2face.logic.handler.chat.UserSingleChatHandler;
+import com.luv.face2face.logic.handler.login.UserLoginHandler;
+import com.luv.face2face.logic.handler.login.UserLogoutHandler;
+import com.luv.face2face.logic.handler.login.UserRegisterHandler;
 import com.luv.face2face.logic.handler.manager.HandlerManager;
 import com.luv.face2face.logic.handler.manager.impl.DefaultHandlerManager;
 import com.luv.face2face.protobuf.analysis.ParserManager;

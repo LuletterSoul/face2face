@@ -8,13 +8,12 @@ package com.luv.face2face.logic.handler;
  */
 
 import com.google.protobuf.Message;
-import com.luv.face2face.service.ChatService;
-import com.luv.face2face.service.LoginService;
-import com.luv.face2face.service.UserService;
+import com.luv.face2face.service.*;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,38 +23,29 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @Slf4j
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class AbstractIMHandlerImpl implements IMHandler
 {
 
+    @Autowired
     private ChatService chatService;
 
+    @Autowired
     private UserService userService;
 
+    @Autowired
     private LoginService loginService;
 
     @Autowired
-    public void setChatService(ChatService chatService)
-    {
-        this.chatService = chatService;
-    }
+    private OnlineService onlineService;
 
     @Autowired
-    public void setUserService(UserService userService)
-    {
-        this.userService = userService;
-    }
-
-    @Autowired
-    public void setLoginService(LoginService loginService)
-    {
-        this.loginService = loginService;
-    }
+    private FriendService friendService;
 
     @Override
-    public void execute(ChannelHandlerContext channelHandlerContext, Message message)
-    {
+    public void execute(ChannelHandlerContext channelHandlerContext, Message message) {
 
     }
 }

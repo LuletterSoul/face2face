@@ -67,7 +67,7 @@ public class LoginServiceImpl extends AbstractService implements LoginService
         userService.refreshUserProfile(user);
 
         // 刷新好友列表
-        friendService.refreshUserFriends(user);
+        friendService.refreshUserFriends(user.getUserId());
     }
 
     private void onLoginFailed(Channel channel)
@@ -81,7 +81,13 @@ public class LoginServiceImpl extends AbstractService implements LoginService
     @Override
     public void logoutUser(Long userId, Channel channel, SessionCloseReason reason)
     {
+
         onlineService.unregisterSession(userId, channel, reason);
+
+        if (userId != null) {
+            userService.removeFromOnline(userId);
+            friendService.onUserLogout(userId);
+        }
     }
 
     /**

@@ -38,5 +38,6 @@ public class Protocol
         public static final Integer LIST_FRIENDS = 5007;
         public static final Integer FRIEND_LOGIN = 5008;
         public static final Integer FRIEND_LOGOUT = 5009;
+        public static final Integer USER_REFRESH = 5010;
     }
 }

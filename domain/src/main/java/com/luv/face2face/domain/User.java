@@ -84,6 +84,9 @@ public class User
     public User()
     {}
 
+
+
+
     protected boolean canEqual(Object other)
     {
         return other instanceof User;

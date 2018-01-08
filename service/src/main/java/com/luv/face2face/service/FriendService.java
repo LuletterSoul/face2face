@@ -11,11 +11,11 @@ import com.luv.face2face.protobuf.generate.ser2cli.friend.Server;
  */
 
 public interface FriendService extends BaseService {
-    Server.ResListFriends listMyFriends(User user);
+    Server.ResListFriends listMyFriends(Long user);
 
-    void refreshUserFriends(User user);
+    void refreshUserFriends(Long userId);
 
-    void onUserLogin(User user);
+    void onUserLogin(Long userId);
 
-    void onUserLogout(User user);
+    void onUserLogout(Long userId);
 }

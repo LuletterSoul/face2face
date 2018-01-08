@@ -15,6 +15,6 @@ import java.util.List;
 
 public interface FriendJpaDao extends JpaRepository<User, Long> {
 
-    @Query(value = "select f from User u left join u.friends f where u =?1")
-    List<User> findByUser(User user);
+    @Query(value = "select f from User u left join u.friends f where u.userId =?1")
+    List<User> findByUserId(Long userId);
 }

@@ -1,13 +1,10 @@
-package com.luv.face2face.logic.handler;
+package com.luv.face2face.logic.handler.chat;
 
 
 import com.google.protobuf.Message;
-import com.luv.face2face.protobuf.generate.cli2srv.chat.Chat;
-import com.luv.face2face.service.ChatService;
-import com.luv.face2face.service.UserService;
+import com.luv.face2face.logic.handler.AbstractIMHandlerImpl;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;

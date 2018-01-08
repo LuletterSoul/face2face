@@ -1,7 +1,8 @@
-package com.luv.face2face.logic.handler;
+package com.luv.face2face.logic.handler.chat;
 
 
 import com.google.protobuf.Message;
+import com.luv.face2face.logic.handler.AbstractIMHandlerImpl;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

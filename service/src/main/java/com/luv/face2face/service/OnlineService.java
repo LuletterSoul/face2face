@@ -72,7 +72,7 @@ public interface OnlineService extends BaseService
      * @param reason
      * @return
      */
-    boolean unregisterSession(Long userId,Channel channel, SessionCloseReason reason);
+    void unregisterSession(Long userId, Channel channel, SessionCloseReason reason);
 
     /**
      * 判断在线状态

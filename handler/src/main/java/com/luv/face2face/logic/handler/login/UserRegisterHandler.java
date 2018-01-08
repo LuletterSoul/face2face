@@ -1,8 +1,9 @@
-package com.luv.face2face.logic.handler;
+package com.luv.face2face.logic.handler.login;
 
 
 import com.google.protobuf.Message;
 import com.luv.face2face.domain.User;
+import com.luv.face2face.logic.handler.AbstractIMHandlerImpl;
 import com.luv.face2face.protobuf.generate.cli2srv.login.Auth;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;

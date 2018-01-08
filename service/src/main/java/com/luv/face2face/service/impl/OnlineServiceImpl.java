@@ -3,8 +3,6 @@ package com.luv.face2face.service.impl;
 
 import com.google.protobuf.Message;
 import com.luv.face2face.domain.User;
-import com.luv.face2face.protobuf.code.ResponseCode;
-import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
 import com.luv.face2face.service.OnlineService;
 import com.luv.face2face.service.session.ChannelUtils;
 import com.luv.face2face.service.session.SessionCloseReason;
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
 import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 
@@ -91,14 +88,14 @@ public class OnlineServiceImpl extends AbstractService implements OnlineService
     }
 
     @Override
-    public boolean unregisterSession(Long userId,Channel channel, SessionCloseReason reason)
+    public void unregisterSession(Long userId, Channel channel, SessionCloseReason reason)
     {
         UserConnectSession session = ChannelUtils.getSessionBy(channel);
-        onlineSessions.remove(userId);
-        userService.removeFromOnline(userId);
+        if (userId != null) {
+            onlineSessions.remove(userId);
+        }
         // 关闭当前会话;
         session.close(reason);
-        return true;
     }
 
     @Override
