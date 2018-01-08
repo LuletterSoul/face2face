@@ -3,14 +3,18 @@ package com.luv.face2face.protobuf.analysis;
 
 import com.google.protobuf.Message;
 import com.luv.face2face.protobuf.Protocol;
+import com.luv.face2face.protobuf.generate.ser2cli.file.Server;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.HashMap;
 
+import static com.luv.face2face.protobuf.Protocol.*;
+import static com.luv.face2face.protobuf.Protocol.File.*;
 import static com.luv.face2face.protobuf.Protocol.Server.*;
 import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.file.Server.*;
 import static com.luv.face2face.protobuf.generate.ser2cli.friend.Server.*;
 import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
@@ -47,26 +51,29 @@ public class ParserManager
 
     private void initDefaultProtocol()
     {
-        this.register(Protocol.User.USER_LOGIN, RequestLoginMsg::parseFrom, RequestLoginMsg.class);
-        this.register(Protocol.User.USER_LOGIN, RequestLoginMsg::parseFrom, RequestLoginMsg.class);
-        this.register(Protocol.User.USER_LOGOUT, RequestLogoutMsg::parseFrom,
-            RequestLogoutMsg.class);
-        this.register(Protocol.User.USER_REGISTER, RequestUserRegisterMsg::parseFrom,
+        this.register(User.USER_LOGIN, RequestLoginMsg::parseFrom, RequestLoginMsg.class);
+        this.register(User.USER_LOGOUT, RequestLogoutMsg::parseFrom, RequestLogoutMsg.class);
+        this.register(User.USER_REGISTER, RequestUserRegisterMsg::parseFrom,
             RequestUserRegisterMsg.class);
-        this.register(Protocol.Chat.CHAT_SINGLE, RequestChatToUserMsg::parseFrom,
+        this.register(Chat.CHAT_SINGLE, RequestChatToUserMsg::parseFrom,
             RequestChatToUserMsg.class);
-        this.register(Protocol.Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
+        this.register(Chat.CHAT_GROUP, RequestChatToGroupMsg::parseFrom,
             RequestChatToGroupMsg.class);
         this.register(SERVER_RESPONSE, ResponseMsg::parseFrom, ResponseMsg.class);
         this.register(LOGIN_SUCCESS, ResServerLoginSucc::parseFrom, ResServerLoginSucc.class);
         this.register(LOGIN_FAILED, ResServerLoginFailed::parseFrom, ResServerLoginFailed.class);
-        this.register(REGISTER_SUCCESS, ResServerRegisterSucc::parseFrom, ResServerRegisterSucc.class);
-        this.register(REGISTER_FAILED, ResServerRegisterFailed::parseFrom, ResServerRegisterFailed.class);
+        this.register(REGISTER_SUCCESS, ResServerRegisterSucc::parseFrom,
+            ResServerRegisterSucc.class);
+        this.register(REGISTER_FAILED, ResServerRegisterFailed::parseFrom,
+            ResServerRegisterFailed.class);
         this.register(LIST_FRIENDS, ResListFriends::parseFrom, ResListFriends.class);
         this.register(FRIEND_LOGOUT, ResFriendLogout::parseFrom, ResFriendLogout.class);
         this.register(FRIEND_LOGIN, ResFriendLogin::parseFrom, ResFriendLogin.class);
-        this.register(USER_REFRESH,ResServerRefreshProfile::parseFrom,ResServerRefreshProfile.class);
+        this.register(USER_REFRESH, ResServerRefreshProfile::parseFrom,
+            ResServerRefreshProfile.class);
         this.register(USER_CHAT, ResponseChatToUserMsg::parseFrom, ResponseChatToUserMsg.class);
+        this.register(REQ_FILEUPLOAD, ReqFileUploadMsg::parseFrom, ReqFileUploadMsg.class);
+        this.register(RES_FILEUPLOAD, ResFileUploadPromise::parseFrom, ResFileUploadPromise.class);
     }
 
     /**
@@ -100,7 +107,7 @@ public class ParserManager
             packetTypeToProtocolNum.put(cla, ptoNum);
         else
         {
-            log.error("pto has been registered in msg2ptoNum, ptoNum: {}", ptoNum);
+            log.debug("pto has been registered in msg2ptoNum, ptoNum: {}", ptoNum);
         }
     }
 
@@ -118,7 +125,7 @@ public class ParserManager
             protocolNumToParser.put(ptoNum, parse);
         else
         {
-            log.error("pto has been registered in parseMap, ptoNum: {}", ptoNum);
+            log.debug("pto has been registered in parseMap, ptoNum: {}", ptoNum);
         }
     }
 

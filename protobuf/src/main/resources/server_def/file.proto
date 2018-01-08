@@ -1,0 +1,26 @@
+option java_package = "com.luv.face2face.protobuf.generate.ser2cli.file";
+option java_outer_classname = "Server";
+
+
+//文件上传请求包
+message ReqFileUploadMsg {
+    required int64 formUserId = 1;//源用户
+    required int64 toUserId = 2;//目的用户
+    required int64 fileLength = 3;//文件长度
+    required string fileName = 5;//文件名
+    required string fileType = 6;//文件类型
+    required string localPath = 7;//本地的文件上传路径
+}
+
+//文件上传准许
+message ResFileUploadPromise{
+    required string promise = 1;
+    required string yourFilePath = 2;
+    required string description =3;
+}
+
+
+
+
+
+

@@ -3,7 +3,10 @@ package com.luv.face2face.service;
 
 import com.google.protobuf.Message;
 import com.luv.face2face.domain.User;
+import com.luv.face2face.protobuf.generate.ser2cli.file.Server;
 import io.netty.channel.Channel;
+
+import static com.luv.face2face.protobuf.generate.ser2cli.file.Server.*;
 
 
 /**
@@ -26,5 +29,11 @@ public interface UserService extends BaseService
     User createNewUser(User user);
 
     void refreshUserProfile(User user);
+
+    void cacheUserUploadMsg(long userId, ReqFileUploadMsg msg);
+
+    ReqFileUploadMsg getUserUploadMsg(long userId);
+
+    void sendUploadFilePromise(Long userId,String path);
 
 }

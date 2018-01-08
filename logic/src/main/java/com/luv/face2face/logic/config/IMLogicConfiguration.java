@@ -8,7 +8,9 @@ import com.luv.face2face.logic.handler.login.UserLogoutHandler;
 import com.luv.face2face.logic.handler.login.UserRegisterHandler;
 import com.luv.face2face.logic.handler.manager.HandlerManager;
 import com.luv.face2face.logic.handler.manager.impl.DefaultHandlerManager;
+import com.luv.face2face.logic.handler.upload.ReqSendFileToUserHandler;
 import com.luv.face2face.protobuf.analysis.ParserManager;
+import com.luv.face2face.protobuf.generate.ser2cli.file.Server;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.file.Server.*;
 
 
 /**
@@ -38,6 +41,8 @@ public class IMLogicConfiguration
 
     private UserRegisterHandler registerHandler;
 
+    private ReqSendFileToUserHandler reqSendFileToUserHandler;
+
     @Bean
     public HandlerManager handlerManager()
     {
@@ -48,6 +53,7 @@ public class IMLogicConfiguration
         handlerManager.registerHandler(RequestLoginMsg.class, loginHandler);
         handlerManager.registerHandler(RequestLogoutMsg.class, logoutHandler);
         handlerManager.registerHandler(RequestUserRegisterMsg.class,registerHandler);
+        handlerManager.registerHandler(ReqFileUploadMsg.class, reqSendFileToUserHandler);
         return handlerManager;
     }
 

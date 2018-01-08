@@ -21,6 +21,12 @@ public class Protocol
         public static final Integer USER_LOGOUT = 3002;
     }
 
+    public static class File
+    {
+        public static final Integer REQ_FILEUPLOAD = 6000;
+        public static final Integer RES_FILEUPLOAD = 6001;
+    }
+
     public static class Chat
     {
         public static final Integer CHAT_SINGLE = 4000;
@@ -31,14 +37,23 @@ public class Protocol
     public static class Server
     {
         public static final Integer SERVER_RESPONSE = 5002;
+
         public static final Integer LOGIN_SUCCESS = 5003;
+
         public static final Integer LOGIN_FAILED = 5004;
-        public static final Integer REGISTER_SUCCESS =5005;
+
+        public static final Integer REGISTER_SUCCESS = 5005;
+
         public static final Integer REGISTER_FAILED = 5006;
+
         public static final Integer LIST_FRIENDS = 5007;
+
         public static final Integer FRIEND_LOGIN = 5008;
+
         public static final Integer FRIEND_LOGOUT = 5009;
+
         public static final Integer USER_REFRESH = 5010;
-        public static final Integer USER_CHAT =5011;
+
+        public static final Integer USER_CHAT = 5011;
     }
 }

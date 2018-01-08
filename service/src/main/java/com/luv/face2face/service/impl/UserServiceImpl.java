@@ -16,9 +16,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.file.Server.*;
 import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 
@@ -32,10 +35,12 @@ import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 @Slf4j
 public class UserServiceImpl extends AbstractService implements UserService
 {
-//    private UserJpaDao userJpaDao;
+    // private UserJpaDao userJpaDao;
 
     /** 在线用户列表 */
     private Set<Long> onlineUsers = new ConcurrentHashSet<>();
+
+    private Map<Long, ReqFileUploadMsg> uploadMsgMap = new ConcurrentHashMap<>();
 
     @Autowired
     public void setUserJpaDao(UserJpaDao userJpaDao)
@@ -62,7 +67,8 @@ public class UserServiceImpl extends AbstractService implements UserService
     }
 
     @Override
-    public void registerNewAccount(User user, Channel channel) {
+    public void registerNewAccount(User user, Channel channel)
+    {
         UserConnectSession session = ChannelUtils.getSessionBy(channel);
         userJpaDao.save(user);
         ResServerRegisterSucc.Builder builder = ResServerRegisterSucc.newBuilder();
@@ -88,4 +94,46 @@ public class UserServiceImpl extends AbstractService implements UserService
         builder.setSignature(user.getSignature());
         session.sendPacket(builder.build());
     }
+
+    @Override
+    public void cacheUserUploadMsg(long userId, ReqFileUploadMsg msg)
+    {
+        uploadMsgMap.put(userId, msg);
+    }
+
+    @Override
+    public ReqFileUploadMsg getUserUploadMsg(long userId)
+    {
+        ReqFileUploadMsg msg = uploadMsgMap.get(userId);
+        if (msg == null)
+        {
+            log.info("Empty file info.------------------->");
+            try
+            {
+                throw new IllegalAccessException("Could not find file upload cache.");
+            }
+            catch (IllegalAccessException e)
+            {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        return msg;
+    }
+
+    @Override
+    public void sendUploadFilePromise(Long userId, String path)
+    {
+        if (isOnlineUser(userId)) {
+            UserConnectSession session = onlineService.getOnlineUserSessionById(userId);
+            ResFileUploadPromise.Builder builder = ResFileUploadPromise.newBuilder();
+            builder.setDescription("可以上传");
+            builder.setPromise("可以上传");
+            builder.setYourFilePath(path);
+            session.sendPacket(builder.build());
+        } else {
+            log.debug("User disconnect.");
+        }
+    }
+
 }
