@@ -71,7 +71,6 @@ public class UserServiceImpl extends AbstractService implements UserService
         session.sendPacket(builder.build());
     }
 
-
     @Override
     public User createNewUser(User user)
     {
@@ -81,6 +80,12 @@ public class UserServiceImpl extends AbstractService implements UserService
     @Override
     public void refreshUserProfile(User user)
     {
-
+        UserConnectSession session = onlineService.getOnlineUserSessionById(user.getUserId());
+        ResServerRefreshProfile.Builder builder = ResServerRefreshProfile.newBuilder();
+        builder.setNickname(user.getNickname());
+        builder.setSex(user.getSex());
+        builder.setUserId(user.getUserId());
+        builder.setSignature(user.getSignature());
+        session.sendPacket(builder.build());
     }
 }

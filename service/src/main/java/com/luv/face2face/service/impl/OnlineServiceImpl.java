@@ -4,6 +4,7 @@ package com.luv.face2face.service.impl;
 import com.google.protobuf.Message;
 import com.luv.face2face.domain.User;
 import com.luv.face2face.protobuf.code.ResponseCode;
+import com.luv.face2face.protobuf.generate.ser2cli.login.Server;
 import com.luv.face2face.service.OnlineService;
 import com.luv.face2face.service.session.ChannelUtils;
 import com.luv.face2face.service.session.SessionCloseReason;
@@ -18,6 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import static com.luv.face2face.protobuf.generate.cli2srv.login.Auth.*;
+import static com.luv.face2face.protobuf.generate.ser2cli.login.Server.*;
 
 
 /**
@@ -73,17 +75,18 @@ public class OnlineServiceImpl extends AbstractService implements OnlineService
 
     @Override
 
-    public boolean registerSession(User user, Channel context)
+    public boolean registerSession(User user, Channel channel)
     {
-        UserConnectSession session = ChannelUtils.getSessionBy(context);
+        UserConnectSession session = ChannelUtils.getSessionBy(channel);
+        //将user 加入session
         session.setUser(user);
+        session.setIpAddress(ChannelUtils.getIp(channel));
         onlineSessions.put(user.getUserId(), session);
-//        onlineUserIds.put(session, user.getUserId());
+        ResServerLoginSucc.Builder builder = ResServerLoginSucc.newBuilder();
+        builder.setDescription("登陆成功");
+        //发送登录成功信息
+        session.sendPacket(builder.build());
         log.info("User:[{}]:[{}] session registered...", user.getNickname(), user.getUserId());
-//        ResponseMsg.Builder builder = ResponseMsg.newBuilder();
-//        builder.setDescription("会话注册成功");
-//        builder.setCode(ResponseCode.SESSION_CREATED);
-//        session.sendPacket(builder.build());
         return true;
     }
 

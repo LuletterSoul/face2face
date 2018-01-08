@@ -30,6 +30,7 @@ message RequestLoginMsg{
 //	required string platform =5;//客户端平台编号:android,ios,web
 }
 
+
 //用户登出数据包
 message RequestLogoutMsg{
 	required int64 userId =1;//登出的用户id;

@@ -22,5 +22,13 @@ message ResServerRegisterFailed{
     required string description =1;
 }
 
+//服务器刷新用户信息
+message ResServerRefreshProfile{
+    required string nickname = 1;
+    required string signature =2;
+    required int64 userId = 3;
+    required string sex = 4;
+}
+
 
 

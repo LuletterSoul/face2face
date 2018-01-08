@@ -2045,6 +2045,910 @@ public final class Server {
     // @@protoc_insertion_point(class_scope:ResServerRegisterFailed)
   }
 
+  public interface ResServerRefreshProfileOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string nickname = 1;
+    /**
+     * <code>required string nickname = 1;</code>
+     */
+    boolean hasNickname();
+    /**
+     * <code>required string nickname = 1;</code>
+     */
+    java.lang.String getNickname();
+    /**
+     * <code>required string nickname = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNicknameBytes();
+
+    // required string signature = 2;
+    /**
+     * <code>required string signature = 2;</code>
+     */
+    boolean hasSignature();
+    /**
+     * <code>required string signature = 2;</code>
+     */
+    java.lang.String getSignature();
+    /**
+     * <code>required string signature = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getSignatureBytes();
+
+    // required int64 userId = 3;
+    /**
+     * <code>required int64 userId = 3;</code>
+     */
+    boolean hasUserId();
+    /**
+     * <code>required int64 userId = 3;</code>
+     */
+    long getUserId();
+
+    // required string sex = 4;
+    /**
+     * <code>required string sex = 4;</code>
+     */
+    boolean hasSex();
+    /**
+     * <code>required string sex = 4;</code>
+     */
+    java.lang.String getSex();
+    /**
+     * <code>required string sex = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getSexBytes();
+  }
+  /**
+   * Protobuf type {@code ResServerRefreshProfile}
+   *
+   * <pre>
+   *服务器刷新用户信息
+   * </pre>
+   */
+  public static final class ResServerRefreshProfile extends
+      com.google.protobuf.GeneratedMessage
+      implements ResServerRefreshProfileOrBuilder {
+    // Use ResServerRefreshProfile.newBuilder() to construct.
+    private ResServerRefreshProfile(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ResServerRefreshProfile(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ResServerRefreshProfile defaultInstance;
+    public static ResServerRefreshProfile getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ResServerRefreshProfile getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ResServerRefreshProfile(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              nickname_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              signature_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              userId_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              sex_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.ser2cli.login.Server.internal_static_ResServerRefreshProfile_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.ser2cli.login.Server.internal_static_ResServerRefreshProfile_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile.class, com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ResServerRefreshProfile> PARSER =
+        new com.google.protobuf.AbstractParser<ResServerRefreshProfile>() {
+      public ResServerRefreshProfile parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ResServerRefreshProfile(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ResServerRefreshProfile> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string nickname = 1;
+    public static final int NICKNAME_FIELD_NUMBER = 1;
+    private java.lang.Object nickname_;
+    /**
+     * <code>required string nickname = 1;</code>
+     */
+    public boolean hasNickname() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string nickname = 1;</code>
+     */
+    public java.lang.String getNickname() {
+      java.lang.Object ref = nickname_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          nickname_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string nickname = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNicknameBytes() {
+      java.lang.Object ref = nickname_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nickname_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required string signature = 2;
+    public static final int SIGNATURE_FIELD_NUMBER = 2;
+    private java.lang.Object signature_;
+    /**
+     * <code>required string signature = 2;</code>
+     */
+    public boolean hasSignature() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string signature = 2;</code>
+     */
+    public java.lang.String getSignature() {
+      java.lang.Object ref = signature_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          signature_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string signature = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSignatureBytes() {
+      java.lang.Object ref = signature_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        signature_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required int64 userId = 3;
+    public static final int USERID_FIELD_NUMBER = 3;
+    private long userId_;
+    /**
+     * <code>required int64 userId = 3;</code>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int64 userId = 3;</code>
+     */
+    public long getUserId() {
+      return userId_;
+    }
+
+    // required string sex = 4;
+    public static final int SEX_FIELD_NUMBER = 4;
+    private java.lang.Object sex_;
+    /**
+     * <code>required string sex = 4;</code>
+     */
+    public boolean hasSex() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required string sex = 4;</code>
+     */
+    public java.lang.String getSex() {
+      java.lang.Object ref = sex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          sex_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string sex = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSexBytes() {
+      java.lang.Object ref = sex_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sex_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      nickname_ = "";
+      signature_ = "";
+      userId_ = 0L;
+      sex_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasNickname()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSignature()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSex()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getNicknameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getSignatureBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, userId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getSexBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getNicknameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getSignatureBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, userId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getSexBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ResServerRefreshProfile}
+     *
+     * <pre>
+     *服务器刷新用户信息
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfileOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.ser2cli.login.Server.internal_static_ResServerRefreshProfile_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.ser2cli.login.Server.internal_static_ResServerRefreshProfile_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile.class, com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        nickname_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        signature_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        sex_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.login.Server.internal_static_ResServerRefreshProfile_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile build() {
+        com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile buildPartial() {
+        com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile result = new com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.nickname_ = nickname_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.signature_ = signature_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.sex_ = sex_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile other) {
+        if (other == com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile.getDefaultInstance()) return this;
+        if (other.hasNickname()) {
+          bitField0_ |= 0x00000001;
+          nickname_ = other.nickname_;
+          onChanged();
+        }
+        if (other.hasSignature()) {
+          bitField0_ |= 0x00000002;
+          signature_ = other.signature_;
+          onChanged();
+        }
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasSex()) {
+          bitField0_ |= 0x00000008;
+          sex_ = other.sex_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasNickname()) {
+          
+          return false;
+        }
+        if (!hasSignature()) {
+          
+          return false;
+        }
+        if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasSex()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.ser2cli.login.Server.ResServerRefreshProfile) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string nickname = 1;
+      private java.lang.Object nickname_ = "";
+      /**
+       * <code>required string nickname = 1;</code>
+       */
+      public boolean hasNickname() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string nickname = 1;</code>
+       */
+      public java.lang.String getNickname() {
+        java.lang.Object ref = nickname_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          nickname_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string nickname = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNicknameBytes() {
+        java.lang.Object ref = nickname_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nickname_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string nickname = 1;</code>
+       */
+      public Builder setNickname(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        nickname_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string nickname = 1;</code>
+       */
+      public Builder clearNickname() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        nickname_ = getDefaultInstance().getNickname();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string nickname = 1;</code>
+       */
+      public Builder setNicknameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        nickname_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required string signature = 2;
+      private java.lang.Object signature_ = "";
+      /**
+       * <code>required string signature = 2;</code>
+       */
+      public boolean hasSignature() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string signature = 2;</code>
+       */
+      public java.lang.String getSignature() {
+        java.lang.Object ref = signature_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          signature_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string signature = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSignatureBytes() {
+        java.lang.Object ref = signature_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          signature_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string signature = 2;</code>
+       */
+      public Builder setSignature(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        signature_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string signature = 2;</code>
+       */
+      public Builder clearSignature() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        signature_ = getDefaultInstance().getSignature();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string signature = 2;</code>
+       */
+      public Builder setSignatureBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        signature_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required int64 userId = 3;
+      private long userId_ ;
+      /**
+       * <code>required int64 userId = 3;</code>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int64 userId = 3;</code>
+       */
+      public long getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>required int64 userId = 3;</code>
+       */
+      public Builder setUserId(long value) {
+        bitField0_ |= 0x00000004;
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 userId = 3;</code>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        userId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string sex = 4;
+      private java.lang.Object sex_ = "";
+      /**
+       * <code>required string sex = 4;</code>
+       */
+      public boolean hasSex() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required string sex = 4;</code>
+       */
+      public java.lang.String getSex() {
+        java.lang.Object ref = sex_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          sex_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string sex = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSexBytes() {
+        java.lang.Object ref = sex_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sex_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string sex = 4;</code>
+       */
+      public Builder setSex(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        sex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string sex = 4;</code>
+       */
+      public Builder clearSex() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        sex_ = getDefaultInstance().getSex();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string sex = 4;</code>
+       */
+      public Builder setSexBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        sex_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ResServerRefreshProfile)
+    }
+
+    static {
+      defaultInstance = new ResServerRefreshProfile(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ResServerRefreshProfile)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_ResServerLoginSucc_descriptor;
   private static
@@ -2065,6 +2969,11 @@ public final class Server {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ResServerRegisterFailed_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResServerRefreshProfile_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ResServerRefreshProfile_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2079,9 +2988,11 @@ public final class Server {
       "LoginFailed\022\023\n\013description\030\001 \002(\t\"<\n\025ResS" +
       "erverRegisterSucc\022\023\n\013description\030\001 \002(\t\022\016" +
       "\n\006userId\030\002 \002(\003\".\n\027ResServerRegisterFaile" +
-      "d\022\023\n\013description\030\001 \002(\tB;\n1com.luv.face2f" +
-      "ace.protobuf.generate.ser2cli.loginB\006Ser" +
-      "ver"
+      "d\022\023\n\013description\030\001 \002(\t\"[\n\027ResServerRefre" +
+      "shProfile\022\020\n\010nickname\030\001 \002(\t\022\021\n\tsignature" +
+      "\030\002 \002(\t\022\016\n\006userId\030\003 \002(\003\022\013\n\003sex\030\004 \002(\tB;\n1c" +
+      "om.luv.face2face.protobuf.generate.ser2c" +
+      "li.loginB\006Server"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2112,6 +3023,12 @@ public final class Server {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ResServerRegisterFailed_descriptor,
               new java.lang.String[] { "Description", });
+          internal_static_ResServerRefreshProfile_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_ResServerRefreshProfile_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_ResServerRefreshProfile_descriptor,
+              new java.lang.String[] { "Nickname", "Signature", "UserId", "Sex", });
           return null;
         }
       };
