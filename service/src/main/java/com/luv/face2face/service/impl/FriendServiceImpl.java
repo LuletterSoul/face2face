@@ -4,9 +4,10 @@ package com.luv.face2face.service.impl;
 import java.util.List;
 import java.util.Set;
 
+import com.luv.face2face.domain.FriendGroupView;
+import com.luv.face2face.domain.Remark;
 import org.springframework.stereotype.Service;
 
-import com.luv.face2face.domain.FriendView;
 import com.luv.face2face.domain.User;
 import com.luv.face2face.protobuf.generate.ser2cli.friend.Server.FriendItemVo;
 import com.luv.face2face.protobuf.generate.ser2cli.friend.Server.ResFriendLogin;
@@ -16,9 +17,12 @@ import com.luv.face2face.service.FriendService;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.transaction.Transactional;
+
 
 @Service
 @Slf4j
+@Transactional
 public class FriendServiceImpl extends AbstractService implements FriendService
 {
 
@@ -39,12 +43,20 @@ public class FriendServiceImpl extends AbstractService implements FriendService
     {
         ResListFriends.Builder builder = ResListFriends.newBuilder();
         FriendItemVo.Builder friendItemBuilder = FriendItemVo.newBuilder();
-        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
-        for (FriendView f : friendViews)
+//        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
+        //查出所有的好友
+        List<User> friendViews = friendJpaDao.findByUser(user);
+//        //查出所有的分组
+//        List<FriendGroupView> friendGroupViews = groupViewJpaDao.findByOwner(user);
+        for (User f : friendViews)
         {
-            friendItemBuilder.setGroupId(f.getGroupId());
-            friendItemBuilder.setRemark(f.getRemark());
-            friendItemBuilder.setGroupName(f.getGroupName());
+            //查出好友所在的分组
+            FriendGroupView friendGroupView = groupViewJpaDao.findByOwnerAndFAndMembers(user, f.getUserId());
+            //查出对好友的备注
+            Remark remark = remarkJpaDao.findByMarkerAndAndBioMarker(user, f);
+            friendItemBuilder.setGroupId(friendGroupView.getGroupViewId());
+            friendItemBuilder.setRemark(remark.getMarkContent());
+            friendItemBuilder.setGroupName(friendGroupView.getGroupName());
             friendItemBuilder.setSex(f.getSex());
             friendItemBuilder.setSignature(f.getSignature());
             friendItemBuilder.setNickname(f.getNickname());
@@ -73,10 +85,10 @@ public class FriendServiceImpl extends AbstractService implements FriendService
     @Override
     public void onUserLogin(User user)
     {
-        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
+        List<User> friendViews = friendJpaDao.findByUser(user);
         ResFriendLogin.Builder builder = ResFriendLogin.newBuilder();
         builder.setFriendId(user.getUserId());
-        for (FriendView friend : friendViews)
+        for (User friend : friendViews)
         {
             long friendId = friend.getUserId();
             if (userService.isOnlineUser(friendId))
@@ -89,10 +101,10 @@ public class FriendServiceImpl extends AbstractService implements FriendService
     @Override
     public void onUserLogout(User user)
     {
-        List<FriendView> friendViews = friendJpaDao.findByFriend(user);
+        List<User> friendViews = friendJpaDao.findByUser(user);
         ResFriendLogout.Builder builder = ResFriendLogout.newBuilder();
         builder.setFriendId(user.getUserId());
-        for (FriendView friend : friendViews)
+        for (User friend : friendViews)
         {
             long friendId = friend.getUserId();
             if (userService.isOnlineUser(friendId))

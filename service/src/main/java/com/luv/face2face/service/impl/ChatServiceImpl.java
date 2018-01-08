@@ -26,43 +26,46 @@ import static com.luv.face2face.protobuf.generate.cli2srv.chat.Chat.*;
 @Slf4j
 public class ChatServiceImpl extends AbstractService implements ChatService
 {
-//    private static final Logger LOGGER = LoggerFactory.getLogger(ChatServiceImpl.class);
+    // private static final Logger LOGGER = LoggerFactory.getLogger(ChatServiceImpl.class);
 
-//    private UserJpaDao userJpaDao;
-//
-//    private OnlineService onlineService;
+    // private UserJpaDao userJpaDao;
+    //
+    // private OnlineService onlineService;
 
-//    @Autowired
-//    public void setUserJpaDao(UserJpaDao userJpaDao)
-//    {
-//        this.userJpaDao = userJpaDao;
-//    }
-//
-//    @Autowired
-//    public OnlineService getOnlineService()
-//    {
-//        return onlineService;
-//    }
-//
-//    @Override
-//    public void chatToGroupUser(Long desGroupId, String content)
-//    {
-//
-//    }
+    // @Autowired
+    // public void setUserJpaDao(UserJpaDao userJpaDao)
+    // {
+    // this.userJpaDao = userJpaDao;
+    // }
+    //
+    // @Autowired
+    // public OnlineService getOnlineService()
+    // {
+    // return onlineService;
+    // }
+    //
+    // @Override
+    // public void chatToGroupUser(Long desGroupId, String content)
+    // {
+    //
+    // }
 
     @Override
-    public void chatToGroupUser(Long desGroupId, String content) {
+    public void chatToGroupUser(Long desGroupId, String content)
+    {
 
     }
 
     @Override
-    public void chatToSingleUser(Channel channel, Long fromUserId, Long desUserId, String content) {
+    public void chatToSingleUser(Channel channel, Long fromUserId, Long desUserId, String content)
+    {
         UserConnectSession fromUserSession = onlineService.getOnlineUserSessionById(fromUserId);
         ResponseChatToUserMsg.Builder builder = ResponseChatToUserMsg.newBuilder();
         UserConnectSession toUserSession = onlineService.getOnlineUserSessionById(desUserId);
         if (fromUserSession == null || toUserSession == null)
         {
-            log.info("bilateral user relationship build failed.");
+            log.info(
+                "Bilateral user relationship build failed.One or more friend isn't online.check or cache message when user online.");
             return;
         }
         builder.setContent(content);

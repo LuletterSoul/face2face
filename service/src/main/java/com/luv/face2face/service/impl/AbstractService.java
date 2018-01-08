@@ -1,13 +1,16 @@
 package com.luv.face2face.service.impl;
 
 
-import com.luv.face2face.repository.FriendJpaDao;
-import com.luv.face2face.repository.UserJpaDao;
-import com.luv.face2face.service.*;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import com.luv.face2face.repository.FriendJpaDao;
+import com.luv.face2face.repository.GroupViewJpaDao;
+import com.luv.face2face.repository.RemarkJpaDao;
+import com.luv.face2face.repository.UserJpaDao;
+import com.luv.face2face.service.*;
 
 
 /**
@@ -25,6 +28,12 @@ public abstract class AbstractService implements BaseService
 
     @Autowired
     protected FriendJpaDao friendJpaDao;
+
+    @Autowired
+    protected RemarkJpaDao remarkJpaDao;
+
+    @Autowired
+    protected GroupViewJpaDao groupViewJpaDao;
 
     @Autowired
     protected OnlineService onlineService;

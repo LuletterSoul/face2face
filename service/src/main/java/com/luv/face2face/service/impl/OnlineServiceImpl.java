@@ -95,6 +95,7 @@ public class OnlineServiceImpl extends AbstractService implements OnlineService
     {
         UserConnectSession session = ChannelUtils.getSessionBy(channel);
         onlineSessions.remove(userId);
+        userService.removeFromOnline(userId);
         // 关闭当前会话;
         session.close(reason);
         return true;
