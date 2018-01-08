@@ -73,10 +73,8 @@ public class ChatServiceImpl extends AbstractService implements ChatService
         builder.setPushToUserId(fromUserSession.getUser().getUserId());
         builder.setFromToUserId(fromUserSession.getUser().getUserId());
         // 双方都需要推送消息
-        ResponseChatToUserMsg msgFromUser = builder.build();
-        fromUserSession.sendPacket(msgFromUser);
+        fromUserSession.sendPacket(builder.build());
         builder.setPushToUserId(desUserId);
-        ResponseChatToUserMsg msgToUser = builder.build();
-        toUserSession.sendPacket(msgToUser);
+        toUserSession.sendPacket(builder.build());
     }
 }

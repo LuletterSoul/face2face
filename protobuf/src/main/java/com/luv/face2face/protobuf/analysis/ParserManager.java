@@ -66,6 +66,7 @@ public class ParserManager
         this.register(FRIEND_LOGOUT, ResFriendLogout::parseFrom, ResFriendLogout.class);
         this.register(FRIEND_LOGIN, ResFriendLogin::parseFrom, ResFriendLogin.class);
         this.register(USER_REFRESH,ResServerRefreshProfile::parseFrom,ResServerRefreshProfile.class);
+        this.register(USER_CHAT, ResponseChatToUserMsg::parseFrom, ResponseChatToUserMsg.class);
     }
 
     /**

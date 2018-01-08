@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "face2face.server.port",
+      "type": "java.lang.String",
+      "description": "Description for face2face.server.port."
+  }
+] }

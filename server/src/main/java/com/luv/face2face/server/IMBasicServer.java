@@ -1,18 +1,20 @@
 package com.luv.face2face.server;
 
-import com.luv.face2face.config.LogicIMServerConfiguration;
-import com.luv.face2face.config.NettyIMServerConfiguration;
+
+import com.luv.face2face.config.IMServerConfiguration;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 
+
 /**
  * @author XiangDe Liu qq313700046@icloud.com .
- * @version 1.5
- * created in  17:11 2018/1/6.
+ * @version 1.5 created in 17:11 2018/1/6.
  * @since luv-face2face
  */
 
-public interface IMBasicServer extends IMServer {
+public interface IMBasicServer extends IMServer
+{
+
     /**
      * ServerBootstrap创建成功后会有一个ChannelInitializer(即pipeline factory), 本方法主要用于获取这个
      * ChannelInitializer
@@ -34,5 +36,7 @@ public interface IMBasicServer extends IMServer {
      *
      * @return .
      */
-    public NettyIMServerConfiguration getNettyConfig();
+    public IMServerConfiguration getNettyConfig();
+
+    public void setNettyConfig(IMServerConfiguration serverConfiguration);
 }

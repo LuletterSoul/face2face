@@ -1,7 +1,7 @@
 package com.luv.face2face.server;
 
 
-import com.luv.face2face.config.NettyIMServerConfiguration;
+import com.luv.face2face.config.IMServerConfiguration;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
@@ -35,14 +35,12 @@ public class AbstractNettyServerImpl implements IMBasicServer
     public static final ChannelGroup ALL_CHANNELS = new DefaultChannelGroup("NADRON-CHANNELS",
         GlobalEventExecutor.INSTANCE);
 
-    protected NettyIMServerConfiguration configuration;
+    protected IMServerConfiguration configuration;
 
     protected ChannelInitializer<? extends Channel> channelInitializer;
 
-    @Qualifier("bossGroup")
     protected EventLoopGroup bossGroup;
 
-    @Qualifier("workerGroup")
     protected EventLoopGroup workerGroup;
 
     @Override
@@ -58,9 +56,17 @@ public class AbstractNettyServerImpl implements IMBasicServer
     }
 
     @Override
-    public NettyIMServerConfiguration getNettyConfig()
+    public IMServerConfiguration getNettyConfig()
     {
         return this.configuration;
+    }
+
+    @Override
+    public void setNettyConfig(IMServerConfiguration serverConfiguration)
+    {
+        this.configuration = serverConfiguration;
+        this.bossGroup = serverConfiguration.getBossGroup();
+        this.workerGroup = serverConfiguration.getWorkerGroup();
     }
 
     @Override
@@ -119,4 +125,5 @@ public class AbstractNettyServerImpl implements IMBasicServer
     {
         return configuration.getSocketAddress();
     }
+
 }

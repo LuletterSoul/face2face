@@ -39,5 +39,6 @@ public class Protocol
         public static final Integer FRIEND_LOGIN = 5008;
         public static final Integer FRIEND_LOGOUT = 5009;
         public static final Integer USER_REFRESH = 5010;
+        public static final Integer USER_CHAT =5011;
     }
 }
