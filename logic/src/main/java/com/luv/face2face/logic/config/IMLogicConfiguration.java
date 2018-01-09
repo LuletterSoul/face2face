@@ -3,6 +3,8 @@ package com.luv.face2face.logic.config;
 
 import com.luv.face2face.logic.handler.chat.UserGroupChatHandler;
 import com.luv.face2face.logic.handler.chat.UserSingleChatHandler;
+import com.luv.face2face.logic.handler.download.ReqFileDownloadHandler;
+import com.luv.face2face.logic.handler.download.ResFileDownloadCompleteHandler;
 import com.luv.face2face.logic.handler.login.UserLoginHandler;
 import com.luv.face2face.logic.handler.login.UserLogoutHandler;
 import com.luv.face2face.logic.handler.login.UserRegisterHandler;
@@ -46,6 +48,10 @@ public class IMLogicConfiguration
 
     private ResFileUploadCompleteHandler resFileUploadCompleteHandler;
 
+    private ReqFileDownloadHandler reqFileDownloadHandler;
+
+    private ResFileDownloadCompleteHandler downloadCompleteHandler;
+
     @Bean
     public HandlerManager handlerManager()
     {
@@ -58,6 +64,9 @@ public class IMLogicConfiguration
         handlerManager.registerHandler(RequestUserRegisterMsg.class,registerHandler);
         handlerManager.registerHandler(ReqFileUploadMsg.class, reqSendFileToUserHandler);
         handlerManager.registerHandler(ResFileUploadComplete.class,resFileUploadCompleteHandler);
+        handlerManager.registerHandler(ReqFileDownloadMsg.class,reqFileDownloadHandler);
+        handlerManager.registerHandler(ResFileDownloadComplete.class, downloadCompleteHandler);
+
         return handlerManager;
     }
 

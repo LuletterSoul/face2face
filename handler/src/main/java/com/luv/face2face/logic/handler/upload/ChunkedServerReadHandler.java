@@ -26,7 +26,7 @@ import static com.luv.face2face.protobuf.generate.ser2cli.file.Server.*;
  */
 
 @Slf4j
-public class ChunkedReadHandler extends ChannelHandlerAdapter
+public class ChunkedServerReadHandler extends ChannelHandlerAdapter
 {
     private long fileSize;
 
@@ -44,8 +44,7 @@ public class ChunkedReadHandler extends ChannelHandlerAdapter
 
     private UserService userService;
 
-
-    public ChunkedReadHandler(ReqFileUploadMsg msg,UserService userService)
+    public ChunkedServerReadHandler(ReqFileUploadMsg msg, UserService userService)
         throws FileNotFoundException
     {
         this.userService = userService;
@@ -62,7 +61,7 @@ public class ChunkedReadHandler extends ChannelHandlerAdapter
         String fileName = msg.getFileName();
         String relativePath = "/users" + "/" + msg.getFormUserId();
         log.info("Relative path is ------------>[{}]", relativePath);
-        serverFilePath =  FileUtils.getAbsolutePath(relativePath)+ "/" + fileName;
+        serverFilePath = FileUtils.getAbsolutePath(relativePath) + "/" + fileName;
         ofs = new FileOutputStream(serverFilePath);
     }
 
@@ -78,7 +77,11 @@ public class ChunkedReadHandler extends ChannelHandlerAdapter
             buf.readBytes(bytes);
             ofs.write(bytes);
         }
-//        log.info("Received size:[{}]/[{}]", receivedSize, fileSize);
+        else {
+            ctx.channel().writeAndFlush("come on something.");
+            log.info("Notify read promise.");
+        }
+        // log.info("Received size:[{}]/[{}]", receivedSize, fileSize);
         // 接收的字节数大于等于实际大小,说明接收完成
         progressBar.showBarByPoint(receivedSize);
         if (receivedSize >= fileSize)
@@ -89,23 +92,30 @@ public class ChunkedReadHandler extends ChannelHandlerAdapter
             builder.setFileUploadMsg(this.uploadMsg);
             builder.setServerfilePath(serverFilePath);
             userService.notifyFileReady(builder.build());
+            log.info("File upload successfully.file name:[{}].file size[{}]",
+                uploadMsg.getFileName(), fileSize);
         }
         buf.release();
     }
 
     /**
      * 超时释放自己
+     * 
      * @param ctx
      * @param evt
      * @throws Exception
      */
     @Override
-    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        if (evt instanceof IdleStateEvent) {
-            IdleStateEvent event = (IdleStateEvent) evt;
-            if (event.state() == IdleState.READER_IDLE){
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt)
+        throws Exception
+    {
+        if (evt instanceof IdleStateEvent)
+        {
+            IdleStateEvent event = (IdleStateEvent)evt;
+            if (event.state() == IdleState.READER_IDLE)
+            {
                 ctx.pipeline().remove(this);
-                log.debug("ChunkedReadHandler end its work...................");
+                log.info("Read file buf time out,chunkedReadHandler end its work");
                 ofs.close();
             }
         }

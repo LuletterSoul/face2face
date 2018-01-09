@@ -3,3 +3,11 @@ server:
 face2face:
   server:
     port: 8088
+logging:
+  level:
+    com:
+      luv:
+        face2face: DEBUG,INFO,ERROR
+    io:
+      netty:
+        channel:DEBUG,INFO,ERROR

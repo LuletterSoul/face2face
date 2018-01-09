@@ -6,6 +6,8 @@ import com.luv.face2face.domain.User;
 import com.luv.face2face.protobuf.generate.ser2cli.file.Server;
 import io.netty.channel.Channel;
 
+import java.io.File;
+
 import static com.luv.face2face.protobuf.generate.ser2cli.file.Server.*;
 
 
@@ -65,5 +67,15 @@ public interface UserService extends BaseService
      * @param message
      */
     void notifyFileReady(ResFileUploadComplete message);
+
+    /**
+     * 发送下载的内容信息
+     * @param resFileDownloadMsg
+     */
+    void sendDownloadPromise(ResFileDownloadMsg resFileDownloadMsg,Long userId);
+
+    void sendFile(File file, Long toUserId);
+
+    void notifyFileReceived(Long userId, ResFileDownloadComplete complete);
 
 }

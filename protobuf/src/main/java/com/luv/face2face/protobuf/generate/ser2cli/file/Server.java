@@ -2181,7 +2181,7 @@ public final class Server {
    * Protobuf type {@code ResFileUploadComplete}
    *
    * <pre>
-   *文件传输完成
+   *文件上传完成
    * </pre>
    */
   public static final class ResFileUploadComplete extends
@@ -2488,7 +2488,7 @@ public final class Server {
      * Protobuf type {@code ResFileUploadComplete}
      *
      * <pre>
-     *文件传输完成
+     *文件上传完成
      * </pre>
      */
     public static final class Builder extends
@@ -2840,6 +2840,2640 @@ public final class Server {
     // @@protoc_insertion_point(class_scope:ResFileUploadComplete)
   }
 
+  public interface ResFileDownloadCompleteOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string localPath = 1;
+    /**
+     * <code>required string localPath = 1;</code>
+     */
+    boolean hasLocalPath();
+    /**
+     * <code>required string localPath = 1;</code>
+     */
+    java.lang.String getLocalPath();
+    /**
+     * <code>required string localPath = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getLocalPathBytes();
+
+    // required .ReqFileDownloadMsg fileDownloadMsg = 2;
+    /**
+     * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+     */
+    boolean hasFileDownloadMsg();
+    /**
+     * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+     */
+    com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg getFileDownloadMsg();
+    /**
+     * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+     */
+    com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsgOrBuilder getFileDownloadMsgOrBuilder();
+  }
+  /**
+   * Protobuf type {@code ResFileDownloadComplete}
+   *
+   * <pre>
+   *文件下载完成
+   * </pre>
+   */
+  public static final class ResFileDownloadComplete extends
+      com.google.protobuf.GeneratedMessage
+      implements ResFileDownloadCompleteOrBuilder {
+    // Use ResFileDownloadComplete.newBuilder() to construct.
+    private ResFileDownloadComplete(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ResFileDownloadComplete(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ResFileDownloadComplete defaultInstance;
+    public static ResFileDownloadComplete getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ResFileDownloadComplete getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ResFileDownloadComplete(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              localPath_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = fileDownloadMsg_.toBuilder();
+              }
+              fileDownloadMsg_ = input.readMessage(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(fileDownloadMsg_);
+                fileDownloadMsg_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadComplete_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadComplete_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ResFileDownloadComplete> PARSER =
+        new com.google.protobuf.AbstractParser<ResFileDownloadComplete>() {
+      public ResFileDownloadComplete parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ResFileDownloadComplete(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ResFileDownloadComplete> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string localPath = 1;
+    public static final int LOCALPATH_FIELD_NUMBER = 1;
+    private java.lang.Object localPath_;
+    /**
+     * <code>required string localPath = 1;</code>
+     */
+    public boolean hasLocalPath() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string localPath = 1;</code>
+     */
+    public java.lang.String getLocalPath() {
+      java.lang.Object ref = localPath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          localPath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string localPath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLocalPathBytes() {
+      java.lang.Object ref = localPath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        localPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required .ReqFileDownloadMsg fileDownloadMsg = 2;
+    public static final int FILEDOWNLOADMSG_FIELD_NUMBER = 2;
+    private com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg fileDownloadMsg_;
+    /**
+     * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+     */
+    public boolean hasFileDownloadMsg() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+     */
+    public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg getFileDownloadMsg() {
+      return fileDownloadMsg_;
+    }
+    /**
+     * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+     */
+    public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsgOrBuilder getFileDownloadMsgOrBuilder() {
+      return fileDownloadMsg_;
+    }
+
+    private void initFields() {
+      localPath_ = "";
+      fileDownloadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasLocalPath()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFileDownloadMsg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getFileDownloadMsg().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getLocalPathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, fileDownloadMsg_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getLocalPathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, fileDownloadMsg_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ResFileDownloadComplete}
+     *
+     * <pre>
+     *文件下载完成
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadCompleteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadComplete_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadComplete_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getFileDownloadMsgFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        localPath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (fileDownloadMsgBuilder_ == null) {
+          fileDownloadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.getDefaultInstance();
+        } else {
+          fileDownloadMsgBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadComplete_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete build() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete buildPartial() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete result = new com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.localPath_ = localPath_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (fileDownloadMsgBuilder_ == null) {
+          result.fileDownloadMsg_ = fileDownloadMsg_;
+        } else {
+          result.fileDownloadMsg_ = fileDownloadMsgBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete other) {
+        if (other == com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete.getDefaultInstance()) return this;
+        if (other.hasLocalPath()) {
+          bitField0_ |= 0x00000001;
+          localPath_ = other.localPath_;
+          onChanged();
+        }
+        if (other.hasFileDownloadMsg()) {
+          mergeFileDownloadMsg(other.getFileDownloadMsg());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasLocalPath()) {
+          
+          return false;
+        }
+        if (!hasFileDownloadMsg()) {
+          
+          return false;
+        }
+        if (!getFileDownloadMsg().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadComplete) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string localPath = 1;
+      private java.lang.Object localPath_ = "";
+      /**
+       * <code>required string localPath = 1;</code>
+       */
+      public boolean hasLocalPath() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string localPath = 1;</code>
+       */
+      public java.lang.String getLocalPath() {
+        java.lang.Object ref = localPath_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          localPath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string localPath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLocalPathBytes() {
+        java.lang.Object ref = localPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          localPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string localPath = 1;</code>
+       */
+      public Builder setLocalPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        localPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string localPath = 1;</code>
+       */
+      public Builder clearLocalPath() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        localPath_ = getDefaultInstance().getLocalPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string localPath = 1;</code>
+       */
+      public Builder setLocalPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        localPath_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required .ReqFileDownloadMsg fileDownloadMsg = 2;
+      private com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg fileDownloadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsgOrBuilder> fileDownloadMsgBuilder_;
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public boolean hasFileDownloadMsg() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg getFileDownloadMsg() {
+        if (fileDownloadMsgBuilder_ == null) {
+          return fileDownloadMsg_;
+        } else {
+          return fileDownloadMsgBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public Builder setFileDownloadMsg(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg value) {
+        if (fileDownloadMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          fileDownloadMsg_ = value;
+          onChanged();
+        } else {
+          fileDownloadMsgBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public Builder setFileDownloadMsg(
+          com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder builderForValue) {
+        if (fileDownloadMsgBuilder_ == null) {
+          fileDownloadMsg_ = builderForValue.build();
+          onChanged();
+        } else {
+          fileDownloadMsgBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public Builder mergeFileDownloadMsg(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg value) {
+        if (fileDownloadMsgBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              fileDownloadMsg_ != com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.getDefaultInstance()) {
+            fileDownloadMsg_ =
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.newBuilder(fileDownloadMsg_).mergeFrom(value).buildPartial();
+          } else {
+            fileDownloadMsg_ = value;
+          }
+          onChanged();
+        } else {
+          fileDownloadMsgBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public Builder clearFileDownloadMsg() {
+        if (fileDownloadMsgBuilder_ == null) {
+          fileDownloadMsg_ = com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.getDefaultInstance();
+          onChanged();
+        } else {
+          fileDownloadMsgBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder getFileDownloadMsgBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getFileDownloadMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsgOrBuilder getFileDownloadMsgOrBuilder() {
+        if (fileDownloadMsgBuilder_ != null) {
+          return fileDownloadMsgBuilder_.getMessageOrBuilder();
+        } else {
+          return fileDownloadMsg_;
+        }
+      }
+      /**
+       * <code>required .ReqFileDownloadMsg fileDownloadMsg = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsgOrBuilder> 
+          getFileDownloadMsgFieldBuilder() {
+        if (fileDownloadMsgBuilder_ == null) {
+          fileDownloadMsgBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsgOrBuilder>(
+                  fileDownloadMsg_,
+                  getParentForChildren(),
+                  isClean());
+          fileDownloadMsg_ = null;
+        }
+        return fileDownloadMsgBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ResFileDownloadComplete)
+    }
+
+    static {
+      defaultInstance = new ResFileDownloadComplete(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ResFileDownloadComplete)
+  }
+
+  public interface ResFileDownloadMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int64 sourceUserId = 1;
+    /**
+     * <code>required int64 sourceUserId = 1;</code>
+     *
+     * <pre>
+     *源用户
+     * </pre>
+     */
+    boolean hasSourceUserId();
+    /**
+     * <code>required int64 sourceUserId = 1;</code>
+     *
+     * <pre>
+     *源用户
+     * </pre>
+     */
+    long getSourceUserId();
+
+    // required int64 toUserId = 2;
+    /**
+     * <code>required int64 toUserId = 2;</code>
+     *
+     * <pre>
+     *目的用户
+     * </pre>
+     */
+    boolean hasToUserId();
+    /**
+     * <code>required int64 toUserId = 2;</code>
+     *
+     * <pre>
+     *目的用户
+     * </pre>
+     */
+    long getToUserId();
+
+    // required int64 fileLength = 3;
+    /**
+     * <code>required int64 fileLength = 3;</code>
+     *
+     * <pre>
+     *文件长度
+     * </pre>
+     */
+    boolean hasFileLength();
+    /**
+     * <code>required int64 fileLength = 3;</code>
+     *
+     * <pre>
+     *文件长度
+     * </pre>
+     */
+    long getFileLength();
+
+    // required string fileName = 5;
+    /**
+     * <code>required string fileName = 5;</code>
+     *
+     * <pre>
+     *文件名
+     * </pre>
+     */
+    boolean hasFileName();
+    /**
+     * <code>required string fileName = 5;</code>
+     *
+     * <pre>
+     *文件名
+     * </pre>
+     */
+    java.lang.String getFileName();
+    /**
+     * <code>required string fileName = 5;</code>
+     *
+     * <pre>
+     *文件名
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    // required string fileType = 6;
+    /**
+     * <code>required string fileType = 6;</code>
+     *
+     * <pre>
+     *文件类型
+     * </pre>
+     */
+    boolean hasFileType();
+    /**
+     * <code>required string fileType = 6;</code>
+     *
+     * <pre>
+     *文件类型
+     * </pre>
+     */
+    java.lang.String getFileType();
+    /**
+     * <code>required string fileType = 6;</code>
+     *
+     * <pre>
+     *文件类型
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getFileTypeBytes();
+  }
+  /**
+   * Protobuf type {@code ResFileDownloadMsg}
+   *
+   * <pre>
+   *下载的文件信息
+   * </pre>
+   */
+  public static final class ResFileDownloadMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements ResFileDownloadMsgOrBuilder {
+    // Use ResFileDownloadMsg.newBuilder() to construct.
+    private ResFileDownloadMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ResFileDownloadMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ResFileDownloadMsg defaultInstance;
+    public static ResFileDownloadMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ResFileDownloadMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ResFileDownloadMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              sourceUserId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              toUserId_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              fileLength_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000008;
+              fileName_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000010;
+              fileType_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ResFileDownloadMsg> PARSER =
+        new com.google.protobuf.AbstractParser<ResFileDownloadMsg>() {
+      public ResFileDownloadMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ResFileDownloadMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ResFileDownloadMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int64 sourceUserId = 1;
+    public static final int SOURCEUSERID_FIELD_NUMBER = 1;
+    private long sourceUserId_;
+    /**
+     * <code>required int64 sourceUserId = 1;</code>
+     *
+     * <pre>
+     *源用户
+     * </pre>
+     */
+    public boolean hasSourceUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 sourceUserId = 1;</code>
+     *
+     * <pre>
+     *源用户
+     * </pre>
+     */
+    public long getSourceUserId() {
+      return sourceUserId_;
+    }
+
+    // required int64 toUserId = 2;
+    public static final int TOUSERID_FIELD_NUMBER = 2;
+    private long toUserId_;
+    /**
+     * <code>required int64 toUserId = 2;</code>
+     *
+     * <pre>
+     *目的用户
+     * </pre>
+     */
+    public boolean hasToUserId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 toUserId = 2;</code>
+     *
+     * <pre>
+     *目的用户
+     * </pre>
+     */
+    public long getToUserId() {
+      return toUserId_;
+    }
+
+    // required int64 fileLength = 3;
+    public static final int FILELENGTH_FIELD_NUMBER = 3;
+    private long fileLength_;
+    /**
+     * <code>required int64 fileLength = 3;</code>
+     *
+     * <pre>
+     *文件长度
+     * </pre>
+     */
+    public boolean hasFileLength() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int64 fileLength = 3;</code>
+     *
+     * <pre>
+     *文件长度
+     * </pre>
+     */
+    public long getFileLength() {
+      return fileLength_;
+    }
+
+    // required string fileName = 5;
+    public static final int FILENAME_FIELD_NUMBER = 5;
+    private java.lang.Object fileName_;
+    /**
+     * <code>required string fileName = 5;</code>
+     *
+     * <pre>
+     *文件名
+     * </pre>
+     */
+    public boolean hasFileName() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required string fileName = 5;</code>
+     *
+     * <pre>
+     *文件名
+     * </pre>
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          fileName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string fileName = 5;</code>
+     *
+     * <pre>
+     *文件名
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required string fileType = 6;
+    public static final int FILETYPE_FIELD_NUMBER = 6;
+    private java.lang.Object fileType_;
+    /**
+     * <code>required string fileType = 6;</code>
+     *
+     * <pre>
+     *文件类型
+     * </pre>
+     */
+    public boolean hasFileType() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required string fileType = 6;</code>
+     *
+     * <pre>
+     *文件类型
+     * </pre>
+     */
+    public java.lang.String getFileType() {
+      java.lang.Object ref = fileType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          fileType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string fileType = 6;</code>
+     *
+     * <pre>
+     *文件类型
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getFileTypeBytes() {
+      java.lang.Object ref = fileType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      sourceUserId_ = 0L;
+      toUserId_ = 0L;
+      fileLength_ = 0L;
+      fileName_ = "";
+      fileType_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasSourceUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasToUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFileLength()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFileName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFileType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, sourceUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, toUserId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, fileLength_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(5, getFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(6, getFileTypeBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, sourceUserId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, toUserId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, fileLength_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getFileTypeBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ResFileDownloadMsg}
+     *
+     * <pre>
+     *下载的文件信息
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        sourceUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        toUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fileLength_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        fileName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        fileType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ResFileDownloadMsg_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg build() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg buildPartial() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg result = new com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.sourceUserId_ = sourceUserId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.toUserId_ = toUserId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.fileLength_ = fileLength_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.fileName_ = fileName_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.fileType_ = fileType_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg other) {
+        if (other == com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg.getDefaultInstance()) return this;
+        if (other.hasSourceUserId()) {
+          setSourceUserId(other.getSourceUserId());
+        }
+        if (other.hasToUserId()) {
+          setToUserId(other.getToUserId());
+        }
+        if (other.hasFileLength()) {
+          setFileLength(other.getFileLength());
+        }
+        if (other.hasFileName()) {
+          bitField0_ |= 0x00000008;
+          fileName_ = other.fileName_;
+          onChanged();
+        }
+        if (other.hasFileType()) {
+          bitField0_ |= 0x00000010;
+          fileType_ = other.fileType_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasSourceUserId()) {
+          
+          return false;
+        }
+        if (!hasToUserId()) {
+          
+          return false;
+        }
+        if (!hasFileLength()) {
+          
+          return false;
+        }
+        if (!hasFileName()) {
+          
+          return false;
+        }
+        if (!hasFileType()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.ser2cli.file.Server.ResFileDownloadMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int64 sourceUserId = 1;
+      private long sourceUserId_ ;
+      /**
+       * <code>required int64 sourceUserId = 1;</code>
+       *
+       * <pre>
+       *源用户
+       * </pre>
+       */
+      public boolean hasSourceUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 sourceUserId = 1;</code>
+       *
+       * <pre>
+       *源用户
+       * </pre>
+       */
+      public long getSourceUserId() {
+        return sourceUserId_;
+      }
+      /**
+       * <code>required int64 sourceUserId = 1;</code>
+       *
+       * <pre>
+       *源用户
+       * </pre>
+       */
+      public Builder setSourceUserId(long value) {
+        bitField0_ |= 0x00000001;
+        sourceUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 sourceUserId = 1;</code>
+       *
+       * <pre>
+       *源用户
+       * </pre>
+       */
+      public Builder clearSourceUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        sourceUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int64 toUserId = 2;
+      private long toUserId_ ;
+      /**
+       * <code>required int64 toUserId = 2;</code>
+       *
+       * <pre>
+       *目的用户
+       * </pre>
+       */
+      public boolean hasToUserId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 toUserId = 2;</code>
+       *
+       * <pre>
+       *目的用户
+       * </pre>
+       */
+      public long getToUserId() {
+        return toUserId_;
+      }
+      /**
+       * <code>required int64 toUserId = 2;</code>
+       *
+       * <pre>
+       *目的用户
+       * </pre>
+       */
+      public Builder setToUserId(long value) {
+        bitField0_ |= 0x00000002;
+        toUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 toUserId = 2;</code>
+       *
+       * <pre>
+       *目的用户
+       * </pre>
+       */
+      public Builder clearToUserId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        toUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int64 fileLength = 3;
+      private long fileLength_ ;
+      /**
+       * <code>required int64 fileLength = 3;</code>
+       *
+       * <pre>
+       *文件长度
+       * </pre>
+       */
+      public boolean hasFileLength() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int64 fileLength = 3;</code>
+       *
+       * <pre>
+       *文件长度
+       * </pre>
+       */
+      public long getFileLength() {
+        return fileLength_;
+      }
+      /**
+       * <code>required int64 fileLength = 3;</code>
+       *
+       * <pre>
+       *文件长度
+       * </pre>
+       */
+      public Builder setFileLength(long value) {
+        bitField0_ |= 0x00000004;
+        fileLength_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 fileLength = 3;</code>
+       *
+       * <pre>
+       *文件长度
+       * </pre>
+       */
+      public Builder clearFileLength() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        fileLength_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string fileName = 5;
+      private java.lang.Object fileName_ = "";
+      /**
+       * <code>required string fileName = 5;</code>
+       *
+       * <pre>
+       *文件名
+       * </pre>
+       */
+      public boolean hasFileName() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required string fileName = 5;</code>
+       *
+       * <pre>
+       *文件名
+       * </pre>
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string fileName = 5;</code>
+       *
+       * <pre>
+       *文件名
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string fileName = 5;</code>
+       *
+       * <pre>
+       *文件名
+       * </pre>
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileName = 5;</code>
+       *
+       * <pre>
+       *文件名
+       * </pre>
+       */
+      public Builder clearFileName() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileName = 5;</code>
+       *
+       * <pre>
+       *文件名
+       * </pre>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required string fileType = 6;
+      private java.lang.Object fileType_ = "";
+      /**
+       * <code>required string fileType = 6;</code>
+       *
+       * <pre>
+       *文件类型
+       * </pre>
+       */
+      public boolean hasFileType() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required string fileType = 6;</code>
+       *
+       * <pre>
+       *文件类型
+       * </pre>
+       */
+      public java.lang.String getFileType() {
+        java.lang.Object ref = fileType_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          fileType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string fileType = 6;</code>
+       *
+       * <pre>
+       *文件类型
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getFileTypeBytes() {
+        java.lang.Object ref = fileType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string fileType = 6;</code>
+       *
+       * <pre>
+       *文件类型
+       * </pre>
+       */
+      public Builder setFileType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        fileType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileType = 6;</code>
+       *
+       * <pre>
+       *文件类型
+       * </pre>
+       */
+      public Builder clearFileType() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        fileType_ = getDefaultInstance().getFileType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileType = 6;</code>
+       *
+       * <pre>
+       *文件类型
+       * </pre>
+       */
+      public Builder setFileTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        fileType_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ResFileDownloadMsg)
+    }
+
+    static {
+      defaultInstance = new ResFileDownloadMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ResFileDownloadMsg)
+  }
+
+  public interface ReqFileDownloadMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string filePath = 1;
+    /**
+     * <code>required string filePath = 1;</code>
+     */
+    boolean hasFilePath();
+    /**
+     * <code>required string filePath = 1;</code>
+     */
+    java.lang.String getFilePath();
+    /**
+     * <code>required string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilePathBytes();
+
+    // required string fileName = 2;
+    /**
+     * <code>required string fileName = 2;</code>
+     */
+    boolean hasFileName();
+    /**
+     * <code>required string fileName = 2;</code>
+     */
+    java.lang.String getFileName();
+    /**
+     * <code>required string fileName = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    // required int64 formUserId = 3;
+    /**
+     * <code>required int64 formUserId = 3;</code>
+     */
+    boolean hasFormUserId();
+    /**
+     * <code>required int64 formUserId = 3;</code>
+     */
+    long getFormUserId();
+
+    // required int64 sourceUserId = 4;
+    /**
+     * <code>required int64 sourceUserId = 4;</code>
+     */
+    boolean hasSourceUserId();
+    /**
+     * <code>required int64 sourceUserId = 4;</code>
+     */
+    long getSourceUserId();
+  }
+  /**
+   * Protobuf type {@code ReqFileDownloadMsg}
+   *
+   * <pre>
+   *请求下载文件
+   * </pre>
+   */
+  public static final class ReqFileDownloadMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements ReqFileDownloadMsgOrBuilder {
+    // Use ReqFileDownloadMsg.newBuilder() to construct.
+    private ReqFileDownloadMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ReqFileDownloadMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ReqFileDownloadMsg defaultInstance;
+    public static ReqFileDownloadMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ReqFileDownloadMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReqFileDownloadMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              filePath_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              fileName_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              formUserId_ = input.readInt64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              sourceUserId_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ReqFileDownloadMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ReqFileDownloadMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ReqFileDownloadMsg> PARSER =
+        new com.google.protobuf.AbstractParser<ReqFileDownloadMsg>() {
+      public ReqFileDownloadMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReqFileDownloadMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReqFileDownloadMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string filePath = 1;
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private java.lang.Object filePath_;
+    /**
+     * <code>required string filePath = 1;</code>
+     */
+    public boolean hasFilePath() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string filePath = 1;</code>
+     */
+    public java.lang.String getFilePath() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          filePath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required string fileName = 2;
+    public static final int FILENAME_FIELD_NUMBER = 2;
+    private java.lang.Object fileName_;
+    /**
+     * <code>required string fileName = 2;</code>
+     */
+    public boolean hasFileName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string fileName = 2;</code>
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          fileName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string fileName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required int64 formUserId = 3;
+    public static final int FORMUSERID_FIELD_NUMBER = 3;
+    private long formUserId_;
+    /**
+     * <code>required int64 formUserId = 3;</code>
+     */
+    public boolean hasFormUserId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int64 formUserId = 3;</code>
+     */
+    public long getFormUserId() {
+      return formUserId_;
+    }
+
+    // required int64 sourceUserId = 4;
+    public static final int SOURCEUSERID_FIELD_NUMBER = 4;
+    private long sourceUserId_;
+    /**
+     * <code>required int64 sourceUserId = 4;</code>
+     */
+    public boolean hasSourceUserId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int64 sourceUserId = 4;</code>
+     */
+    public long getSourceUserId() {
+      return sourceUserId_;
+    }
+
+    private void initFields() {
+      filePath_ = "";
+      fileName_ = "";
+      formUserId_ = 0L;
+      sourceUserId_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasFilePath()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFileName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFormUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSourceUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getFilePathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, formUserId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, sourceUserId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getFilePathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, formUserId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, sourceUserId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ReqFileDownloadMsg}
+     *
+     * <pre>
+     *请求下载文件
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ReqFileDownloadMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ReqFileDownloadMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.class, com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.Builder.class);
+      }
+
+      // Construct using com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        fileName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        formUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        sourceUserId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.internal_static_ReqFileDownloadMsg_descriptor;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg getDefaultInstanceForType() {
+        return com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.getDefaultInstance();
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg build() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg buildPartial() {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg result = new com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.filePath_ = filePath_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.fileName_ = fileName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.formUserId_ = formUserId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.sourceUserId_ = sourceUserId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg) {
+          return mergeFrom((com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg other) {
+        if (other == com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg.getDefaultInstance()) return this;
+        if (other.hasFilePath()) {
+          bitField0_ |= 0x00000001;
+          filePath_ = other.filePath_;
+          onChanged();
+        }
+        if (other.hasFileName()) {
+          bitField0_ |= 0x00000002;
+          fileName_ = other.fileName_;
+          onChanged();
+        }
+        if (other.hasFormUserId()) {
+          setFormUserId(other.getFormUserId());
+        }
+        if (other.hasSourceUserId()) {
+          setSourceUserId(other.getSourceUserId());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasFilePath()) {
+          
+          return false;
+        }
+        if (!hasFileName()) {
+          
+          return false;
+        }
+        if (!hasFormUserId()) {
+          
+          return false;
+        }
+        if (!hasSourceUserId()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.luv.face2face.protobuf.generate.ser2cli.file.Server.ReqFileDownloadMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string filePath = 1;
+      private java.lang.Object filePath_ = "";
+      /**
+       * <code>required string filePath = 1;</code>
+       */
+      public boolean hasFilePath() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string filePath = 1;</code>
+       */
+      public java.lang.String getFilePath() {
+        java.lang.Object ref = filePath_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        java.lang.Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required string fileName = 2;
+      private java.lang.Object fileName_ = "";
+      /**
+       * <code>required string fileName = 2;</code>
+       */
+      public boolean hasFileName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string fileName = 2;</code>
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string fileName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string fileName = 2;</code>
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileName = 2;</code>
+       */
+      public Builder clearFileName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileName = 2;</code>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required int64 formUserId = 3;
+      private long formUserId_ ;
+      /**
+       * <code>required int64 formUserId = 3;</code>
+       */
+      public boolean hasFormUserId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int64 formUserId = 3;</code>
+       */
+      public long getFormUserId() {
+        return formUserId_;
+      }
+      /**
+       * <code>required int64 formUserId = 3;</code>
+       */
+      public Builder setFormUserId(long value) {
+        bitField0_ |= 0x00000004;
+        formUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 formUserId = 3;</code>
+       */
+      public Builder clearFormUserId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        formUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required int64 sourceUserId = 4;
+      private long sourceUserId_ ;
+      /**
+       * <code>required int64 sourceUserId = 4;</code>
+       */
+      public boolean hasSourceUserId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int64 sourceUserId = 4;</code>
+       */
+      public long getSourceUserId() {
+        return sourceUserId_;
+      }
+      /**
+       * <code>required int64 sourceUserId = 4;</code>
+       */
+      public Builder setSourceUserId(long value) {
+        bitField0_ |= 0x00000008;
+        sourceUserId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 sourceUserId = 4;</code>
+       */
+      public Builder clearSourceUserId() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        sourceUserId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ReqFileDownloadMsg)
+    }
+
+    static {
+      defaultInstance = new ReqFileDownloadMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ReqFileDownloadMsg)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_ReqFileUploadMsg_descriptor;
   private static
@@ -2855,6 +5489,21 @@ public final class Server {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ResFileUploadComplete_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResFileDownloadComplete_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ResFileDownloadComplete_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResFileDownloadMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ResFileDownloadMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ReqFileDownloadMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ReqFileDownloadMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2872,8 +5521,16 @@ public final class Server {
       "\n\014yourFilePath\030\002 \002(\t\022\023\n\013description\030\003 \002(" +
       "\t\"Y\n\025ResFileUploadComplete\022\026\n\016serverfile" +
       "Path\030\001 \002(\t\022(\n\rfileUploadMsg\030\002 \002(\0132\021.ReqF" +
-      "ileUploadMsgB:\n0com.luv.face2face.protob" +
-      "uf.generate.ser2cli.fileB\006Server"
+      "ileUploadMsg\"Z\n\027ResFileDownloadComplete\022" +
+      "\021\n\tlocalPath\030\001 \002(\t\022,\n\017fileDownloadMsg\030\002 ",
+      "\002(\0132\023.ReqFileDownloadMsg\"t\n\022ResFileDownl" +
+      "oadMsg\022\024\n\014sourceUserId\030\001 \002(\003\022\020\n\010toUserId" +
+      "\030\002 \002(\003\022\022\n\nfileLength\030\003 \002(\003\022\020\n\010fileName\030\005" +
+      " \002(\t\022\020\n\010fileType\030\006 \002(\t\"b\n\022ReqFileDownloa" +
+      "dMsg\022\020\n\010filePath\030\001 \002(\t\022\020\n\010fileName\030\002 \002(\t" +
+      "\022\022\n\nformUserId\030\003 \002(\003\022\024\n\014sourceUserId\030\004 \002" +
+      "(\003B:\n0com.luv.face2face.protobuf.generat" +
+      "e.ser2cli.fileB\006Server"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2898,6 +5555,24 @@ public final class Server {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ResFileUploadComplete_descriptor,
               new java.lang.String[] { "ServerfilePath", "FileUploadMsg", });
+          internal_static_ResFileDownloadComplete_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_ResFileDownloadComplete_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_ResFileDownloadComplete_descriptor,
+              new java.lang.String[] { "LocalPath", "FileDownloadMsg", });
+          internal_static_ResFileDownloadMsg_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_ResFileDownloadMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_ResFileDownloadMsg_descriptor,
+              new java.lang.String[] { "SourceUserId", "ToUserId", "FileLength", "FileName", "FileType", });
+          internal_static_ReqFileDownloadMsg_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_ReqFileDownloadMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_ReqFileDownloadMsg_descriptor,
+              new java.lang.String[] { "FilePath", "FileName", "FormUserId", "SourceUserId", });
           return null;
         }
       };

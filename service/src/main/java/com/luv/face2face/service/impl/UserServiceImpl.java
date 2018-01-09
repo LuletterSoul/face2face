@@ -12,10 +12,13 @@ import com.luv.face2face.service.session.ChannelUtils;
 import com.luv.face2face.service.session.UserConnectSession;
 import com.luv.face2face.service.util.ConcurrentHashSet;
 import io.netty.channel.Channel;
+import io.netty.handler.stream.ChunkedFile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -121,33 +124,68 @@ public class UserServiceImpl extends AbstractService implements UserService
         return msg;
     }
 
-
     @Override
     public void sendUploadFilePromise(Long userId, String path)
     {
         log.debug("send upload file promise.");
-        if (isOnlineUser(userId)) {
+        if (isOnlineUser(userId))
+        {
             UserConnectSession session = onlineService.getOnlineUserSessionById(userId);
             ResFileUploadPromise.Builder builder = ResFileUploadPromise.newBuilder();
             builder.setDescription("可以上传");
             builder.setPromise("可以上传");
             builder.setYourFilePath(path);
             session.sendPacket(builder.build());
-        } else {
+        }
+        else
+        {
             log.debug("User disconnect.");
         }
     }
 
     @Override
-    public void notifyFileReady(ResFileUploadComplete message) {
+    public void notifyFileReady(ResFileUploadComplete message)
+    {
         ResFileUploadComplete msg = message;
         ReqFileUploadMsg uploadMsg = msg.getFileUploadMsg();
         Long toUserId = uploadMsg.getToUserId();
         Long fromUserId = uploadMsg.getFormUserId();
-        if (this.isOnlineUser(toUserId) && this.isOnlineUser(fromUserId)) {
+        if (this.isOnlineUser(toUserId))
+        {
             onlineService.getOnlineUserSessionById(toUserId).sendPacket(msg);
+        }
+        if (this.isOnlineUser(fromUserId))
+        {
             onlineService.getOnlineUserSessionById(fromUserId).sendPacket(msg);
         }
+    }
+
+    @Override
+    public void sendDownloadPromise(ResFileDownloadMsg resFileDownloadMsg, Long userId)
+    {
+        UserConnectSession session = onlineService.getOnlineUserSessionById(userId);
+        session.sendPacket(resFileDownloadMsg);
+    }
+
+    @Override
+    public void sendFile(File file, Long toUserId)
+    {
+        UserConnectSession connectSession = onlineService.getOnlineUserSessionById(toUserId);
+        Channel channel = connectSession.getChannel();
+        try
+        {
+            channel.write(new ChunkedFile(file));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void notifyFileReceived(Long userId, ResFileDownloadComplete complete) {
+        UserConnectSession session = onlineService.getOnlineUserSessionById(userId);
+        session.sendPacket(complete);
     }
 
 }

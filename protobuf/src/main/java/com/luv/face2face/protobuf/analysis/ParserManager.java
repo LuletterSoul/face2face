@@ -2,8 +2,6 @@ package com.luv.face2face.protobuf.analysis;
 
 
 import com.google.protobuf.Message;
-import com.luv.face2face.protobuf.Protocol;
-import com.luv.face2face.protobuf.generate.ser2cli.file.Server;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -74,8 +72,11 @@ public class ParserManager
         this.register(USER_CHAT, ResponseChatToUserMsg::parseFrom, ResponseChatToUserMsg.class);
         this.register(REQ_FILEUPLOAD, ReqFileUploadMsg::parseFrom, ReqFileUploadMsg.class);
         this.register(RES_FILEUPLOAD, ResFileUploadPromise::parseFrom, ResFileUploadPromise.class);
-        this.register(RES_FILEUPLOAD_COMLETE, ResFileUploadComplete::parseFrom,
+        this.register(RES_FILEUPLOAD_COMPLETE, ResFileUploadComplete::parseFrom,
             ResFileUploadComplete.class);
+        this.register(RES_FILE_DOWNLOAD, ResFileDownloadMsg::parseFrom, ResFileDownloadMsg.class);
+        this.register(REQ_FILE_DOWNLOAD, ReqFileDownloadMsg::parseFrom, ReqFileDownloadMsg.class);
+        this.register(REQ_FILE_DOWNLOAD_COMPLETE, ResFileDownloadComplete::parseFrom, ResFileDownloadComplete.class);
     }
 
     /**
@@ -166,7 +167,7 @@ public class ParserManager
         Integer ptoNum = packetTypeToProtocolNum.get(clz);
         if (ptoNum == null)
         {
-            log.error("Unknown message type.Protocol type hasn't been register.{}", clz);
+            log.info("Unknown message type.Protocol type hasn't been register.{}", clz);
             throw new IllegalArgumentException(
                 "Unknown message type.Protocol type hasn't been registered");
         }

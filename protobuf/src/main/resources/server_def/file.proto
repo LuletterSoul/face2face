@@ -19,16 +19,39 @@ message ResFileUploadPromise{
     required string description =3;
 }
 
-//文件传输完成
+//文件上传完成
 message ResFileUploadComplete{
     required string serverfilePath =1;
     required ReqFileUploadMsg fileUploadMsg =2;
 }
 
+//文件下载完成
+message ResFileDownloadComplete{
+    required string localPath =1;
+    required ReqFileDownloadMsg fileDownloadMsg =2;
+}
+
+
+//message ReqFileUploadDownload{
+//    required int64 userId = 1;
+//    required string filePath =2;
+//}
+
+//下载的文件信息
+message ResFileDownloadMsg {
+    required int64 sourceUserId = 1;//源用户
+    required int64 toUserId = 2;//目的用户
+    required int64 fileLength = 3;//文件长度
+    required string fileName = 5;//文件名
+    required string fileType = 6;//文件类型
+}
+
 //请求下载文件
-message ReqFileUploadDownload{
-    required int64 userId = 1;
-    required string filePath =2;
+message ReqFileDownloadMsg{
+    required string filePath = 1;
+    required string fileName = 2;
+    required int64 formUserId =3;
+    required int64 sourceUserId =4;
 }
 
 

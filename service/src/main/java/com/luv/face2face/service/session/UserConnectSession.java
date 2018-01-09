@@ -4,6 +4,8 @@ package com.luv.face2face.service.session;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,8 @@ import io.netty.channel.Channel;
  * @author kingston
  */
 @ToString
+@Setter
+@Getter
 public class UserConnectSession
 {
 

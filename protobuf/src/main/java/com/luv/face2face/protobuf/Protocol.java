@@ -25,7 +25,11 @@ public class Protocol
     {
         public static final Integer REQ_FILEUPLOAD = 6000;
         public static final Integer RES_FILEUPLOAD = 6001;
-        public static final Integer RES_FILEUPLOAD_COMLETE = 6002;
+        public static final Integer RES_FILEUPLOAD_COMPLETE = 6002;
+        public static final Integer RES_FILE_DOWNLOAD = 6003;
+        public static final Integer REQ_FILE_DOWNLOAD = 6004;
+        public static final Integer REQ_FILE_DOWNLOAD_COMPLETE = 60005;
+
     }
 
     public static class Chat
@@ -33,6 +37,7 @@ public class Protocol
         public static final Integer CHAT_SINGLE = 4000;
 
         public static final Integer CHAT_GROUP = 4001;
+
     }
 
     public static class Server
