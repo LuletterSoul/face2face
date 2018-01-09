@@ -183,9 +183,13 @@ public class UserServiceImpl extends AbstractService implements UserService
     }
 
     @Override
-    public void notifyFileReceived(Long userId, ResFileDownloadComplete complete) {
-        UserConnectSession session = onlineService.getOnlineUserSessionById(userId);
-        session.sendPacket(complete);
+    public void notifyFileReceived(Long userId, ResFileDownloadComplete complete)
+    {
+        UserConnectSession formUserSession = onlineService.getOnlineUserSessionById(userId);
+        UserConnectSession toUserSession = onlineService.getOnlineUserSessionById(
+            complete.getFileDownloadMsg().getFormUserId());
+        formUserSession.sendPacket(complete);
+        toUserSession.sendPacket(complete);
     }
 
 }
